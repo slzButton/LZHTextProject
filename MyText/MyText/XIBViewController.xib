@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XIBViewController">
+            <connections>
+                <outlet property="imgView" destination="Q8C-Pb-Kuw" id="idR-r8-iMg"/>
+                <outlet property="sliderView" destination="cAR-NF-Grb" id="K1x-jh-lfa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huodongcuxiao.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q8C-Pb-Kuw">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cAR-NF-Grb">
+                    <rect key="frame" x="-2" y="570" width="604" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="tLJ-nZ-6OJ"/>
+                    </constraints>
+                    <connections>
+                        <action selector="sliderViewAction:" destination="-1" eventType="valueChanged" id="pKj-4a-XwL"/>
+                    </connections>
+                </slider>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="f99-E5-Dz5">
+                    <rect key="frame" x="236" y="479" width="118" height="31"/>
+                </slider>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Q8C-Pb-Kuw" secondAttribute="bottom" id="3yh-xY-X8R"/>
+                <constraint firstAttribute="trailing" secondItem="cAR-NF-Grb" secondAttribute="trailing" id="B6x-eK-wqU"/>
+                <constraint firstAttribute="bottom" secondItem="cAR-NF-Grb" secondAttribute="bottom" id="RBZ-WG-XwE"/>
+                <constraint firstAttribute="trailing" secondItem="Q8C-Pb-Kuw" secondAttribute="trailing" id="WCw-EN-vOe"/>
+                <constraint firstItem="Q8C-Pb-Kuw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZiF-IB-xOL"/>
+                <constraint firstItem="cAR-NF-Grb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hKb-Rq-BwM"/>
+                <constraint firstItem="Q8C-Pb-Kuw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pM7-f1-CJq"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="huodongcuxiao.png" width="750" height="1373"/>
+    </resources>
+</document>
