@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/common.js">
+		</script>
+		<script type="text/javascript" src="js/DFUserCenter.js">
+		</script>
+		<style type="text/css">
+		.changeColor{
+		    font-size: 12px;
+			color: #8f8f94;
+			line-height: 21px
+		}
+		</style>
+		
+	</head>
+	<body>
+		<!--SNheaer star-->
+		<header id="DFSNheader">		
+			用户中心
+		</header>
+		<!--SNheaer end-->
+		<!--DFUCcontentLink star-->
+		<section  class="DFUCcontentLink">
+			<div class="DFUCportrait fl">
+				<img  id="centeruserhead" src="img/portraitImg.png" class="DFUserImg"/>
+			</div>
+			<div id="nologin">
+			<p class="fl DFUCnotLogin">未登录</p>
+			<p class="fr DFUCnotOption"><a href="javascript:window.location.href='DFlogin.html';">登录/</a><a href="javascript:window.location.href='DFregister.html';">注册</a></p>	
+			</div>
+			<div class="DFUClinkLoginContent hid">
+				<p id="username"></p>
+				<p class="listBtn"></p>
+			</div>
+		</section>
+		<!--DFUCcontentLink end-->
+		<!--DFUCcontent star-->
+		<section class="DFUCcontent">
+			<div class="DFUCmyCar">
+				<p class="DFUCmyCarIcon" onclick="onclickMyCar()">我的车辆</p>
+			</div>
+			<div class="DFUCmyCar">
+				<p class="DFUCmyIntegralIcon" onclick="onclickMyIntegral()">我的积分</p>
+			</div>
+			<div class="DFUCmyCar">
+				<p class="DFUCmyPassWordIcon" onclick="onclickChangePassword()">修改密码</p>
+			</div>
+			<div class="DFUCmyCar">
+				<p class="DFUCmySetUpIcon">软件设置</p>
+			</div>	
+			<div>
+			<input type="button" class="DFMNsubmit reutnLogin hid" value="退出登录" id="exit" />
+			</div>
+		</section>
+		
+		<!--DFUCcontent end-->		
+		<!--SNfooter star-->
+		<footer id="SNHPfooter">
+			<div class="fl HPfooterwidth">
+				<div class="EFHPFIcon" id="homeJump">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_06.png"/>
+						<p class="changeColor">首页</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="messageJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_02.png"/>
+						<p class="changeColor">信息资讯</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="DFHPmyCay">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/myCar_01.png"/>
+						<p class="changeColor">我的爱车</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="serviceJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_03.png"/>
+						<p class="changeColor">服务网点</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="userCenterJump">
+				<div class="EFHPFIcon">
+					<a href="###">
+						<img src="img/HPicon_08.png"/>
+						<p class="DFHPFcolor">用户中心</p>
+					</a>
+				</div>
+			</div>
+		</footer>
+		<!--SNfooter end-->			
+	</body>
+</html>

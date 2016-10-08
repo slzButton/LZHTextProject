@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<style type="text/css">
+			.mui-fullscreen{
+				bottom: 0;
+			}
+			.mui-table-view-cell{
+				padding: 0;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=QqzTcUESgHaXpn189pALQa71&services=&t=20130716024057"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/DFTravelMileage.js">
+		</script>
+		<script>
+		function initPage(){
+		    var url = window.location.href;
+			url = url.replace("DFTravelMileage.html", "DFmyCar.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+		   	var params = "{\"apiCode\":\"APP00054\",\"apiData\":{\"header\":{\"code\":\"APP00054\"},\"body\":{\"vin\":\""+sessionStorage.vin+"\",\"did\":\""+sessionStorage.JpushId+"\",\"onoff\":\"true\"}}}";
+			CallToMobil(params);
+		}
+		var strokeData;
+		var index = 0;
+		var j = 0;
+	    var myGeo = new BMap.Geocoder();
+		function getAndroidData(apiCode, content, status) {
+			var objjson = JSON.parse(content);
+			var obj = objjson.body;
+			if(apiCode == "APP00054" && obj) {
+							if( obj.resultData) {
+							     strokeData = obj.resultData.strokeData;
+							     //var myGeo = new BMap.Geocoder();	
+								 startbdGEO();
+								 //for(var i=0;i<strokeData.length;i++){
+								    //     var starttime = strokeData[i].starttime;
+									//   var maileage = strokeData[i].maileage;
+									   //var newpoint = new BMap.Point(strokeData[i].startsitelon,strokeData[i].startsitelat);
+									   //var startPlace;
+									   //myGeo.getLocation(newpoint, function(rs){
+											//var addComp = rs.addressComponents;
+											//startPlace=addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+											
+											//strokeData[j].startsitelon=startPlace;
+											//if(j==strokeData.length-1){
+											// bdGEO();
+											//}
+											//j++;
+										//});
+									  // var endpoint = new BMap.Point(strokeData[i].endsitelon,strokeData[i].endsitelat);
+									  // var endPlace;
+									  // myGeo.getLocation(endpoint, function(rs){
+										//	var addComp = rs.addressComponents;
+										//	endPlace=addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+										//	var travellist = "";
+										//	travellist += '<li class="mui-table-view-cell"><div><p class="DFTMtime"><span class="fl">{time}</span><span class="fr DFTMtimeSecend"></span></p>';
+										//	travellist +='<div class="DFTMpositonContent"><div class="fl"><p class="DFTMstarPosition">{startplace}</p><p class="DFTMendPosition">{endplace}</p></div>';
+										//	travellist +='<div class="fr DFTMendmileage">{mileage}km</div></div></div></li>';
+										//	travellist = travellist.replace('{time}', starttime);
+										//	travellist = travellist.replace('{startplace}', startPlace);
+										//	travellist = travellist.replace('{endplace}', endPlace);
+										//	travellist = travellist.replace('{mileage}', maileage);
+										//	$("#TravelList").append(travellist);
+											
+										//});
+										
+										
+								// }
+								
+								 
+								}	
+				}
+		} 
+		function startbdGEO(){	
+			var lcdata = strokeData[j];
+			startgeocodeSearch(lcdata);
+			j++;
+		}
+		function startgeocodeSearch(lcdata){
+			if(j < strokeData.length-1){
+				setTimeout(window.startbdGEO,400);
+			} 
+			var startPlace;
+			var newpoint = new BMap.Point(lcdata.startsitelon,lcdata.startsitelat);
+			myGeo.getLocation(newpoint, function(rs){
+				var addComp = rs.addressComponents;
+				startPlace=addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+				lcdata.startsitelon=startPlace;
+				if(strokeData.length>5){
+					   if(j==3){
+							bdGEO();
+						}
+				}else{
+						if(j==strokeData.length-1){
+							bdGEO();
+						}
+				}
+		           
+		   });
+	    }
+		function bdGEO(){	
+			var lcdata = strokeData[index];
+			geocodeSearch(lcdata);
+			index++;
+		}
+		function geocodeSearch(lcdata){
+			if(index < strokeData.length-1){
+				setTimeout(window.bdGEO,400);
+			} 
+			var startPl= lcdata.startsitelon
+			var starttime = lcdata.starttime;
+			var maileage = lcdata.maileage;
+			var endPlace;
+		    var endpoint = new BMap.Point(lcdata.endsitelon,lcdata.endsitelat);
+			myGeo.getLocation(endpoint, function(rs){
+				var addComp = rs.addressComponents;
+				endPlace=addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+		        var travellist = "";
+				travellist += '<li class="mui-table-view-cell"><div><p class="DFTMtime"><span class="fl">{day}</span><span class="fr DFTMtimeSecend">{time}</span></p>';
+				travellist +='<div class="DFTMpositonContent"><div class="fl"><p class="DFTMstarPosition">{startplace}</p><p class="DFTMendPosition">{endplace}</p></div>';
+				travellist +='<div class="fr DFTMendmileage">{mileage}km</div></div></div></li>';
+				var dayshow = starttime.substring(0,4)+"年"+starttime.substring(4,6)+"月"+starttime.substring(6,8)+"日"; 
+				var timeshow = starttime.substring(8,10)+":"+starttime.substring(10,12)+":"+starttime.substring(12,14); 
+				travellist = travellist.replace('{day}', dayshow);
+				travellist = travellist.replace('{time}', timeshow);
+				travellist = travellist.replace('{startplace}', startPl);
+				travellist = travellist.replace('{endplace}', endPlace);
+				travellist = travellist.replace('{mileage}', maileage);
+				$("#TravelList").append(travellist);		
+		   });
+	    }
+		</script>
+	</head>
+
+	<body onload="initPage()">
+		<!--heaer star-->
+		<header id="DFIheader" style="position:relative;overflow:hidden;">
+			<a href="DFmyCar.html" class="fl DFIDTheaderImg ALLposition"><img src="img/headerLeft.png"/></a>
+			<a class="flMt">行驶里程</a>
+		</header>
+		<!--heaer end-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="TravelList">							
+									<!--<li class="mui-table-view-cell">
+										<div>
+											<p class="DFTMtime">
+												<span class="fl">2016年7月20日</span>
+												<span class="fr DFTMtimeSecend">08:00</span>
+											</p>
+											<div class="DFTMpositonContent">
+												<div class="fl">
+													<p class="DFTMstarPosition">北京市朝阳区安贞桥东</p>
+													<p class="DFTMendPosition">昌平区回龙观克莱里雅商务楼</p>
+												</div>
+												<div class="fr DFTMendmileage">103.1km</div>
+											</div>											
+										</div>
+									</li>
+									<li class="mui-table-view-cell"><div><p class="DFTMtime"><span class="fl">2016年7月20日</span><span class="fr DFTMtimeSecend">08:00</span></p>
+											<div class="DFTMpositonContent"><div class="fl"><p class="DFTMstarPosition">北京市朝阳区安贞桥东</p><p class="DFTMendPosition">昌平区回龙观克莱里雅商务楼</p></div>
+												<div class="fr DFTMendmileage">103.1km</div></div></div></li>-->
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>		
+		<!--<script>
+			mui.init();
+			(function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+				$.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						$(pullRefreshEl).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('.mui-table-view');
+										//ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+										self.endPullDownToRefresh();
+									}, 1000);
+								}
+							},
+							up: {
+								contentrefresh : "正在加载...",
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var ul = self.element.querySelector('#cc');
+										var dd = self.element.querySelector('#dd');
+										ul.appendChild(createFragment(ul, index, 5));
+										aa()
+										self.endPullUpToRefresh();
+									}, 1000);
+								}
+							}
+						});
+					});
+					var createFragment = function(ul, index, count, reverse) {
+						var length = ul.querySelectorAll('li').length;
+						var fragment = document.createDocumentFragment();
+						var li;
+						for (var i = 0; i < count; i++) {
+							li = document.createElement('li');
+							li.className = 'mui-table-view-cell';
+							li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+							
+							fragment.appendChild(li);
+							
+						}
+						return fragment;
+					};
+				});
+				
+			})(mui);
+			function aa(){
+				$('.mui-table-view-cell').each(function(i,index){
+					$(this).attr('id','title'+i++)
+				});			
+			}
+		</script>-->
+	</body>
+
+</html>

@@ -28,7 +28,10 @@
     
     StackViewTextViewController *stackVC = [StackViewTextViewController new];
     
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:stackVC];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    nav.navigationBarHidden = YES;
+//    nav.navigationBar.barTintColor = [UIColor redColor];
+    nav.navigationBar.tintColor = [UIColor redColor];
     self.window.rootViewController = nav;
     
     return YES;

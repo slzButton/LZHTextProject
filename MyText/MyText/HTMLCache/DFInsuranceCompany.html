@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="js/DFInsuranceCompany.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			.DFIClistContent img{
+				display: inline-block!important;
+				width: 3rem!important;
+				height: 3rem!important;
+			}
+			.mui-fullscreen{
+				top:3.5rem;
+				bottom: 0;
+			}
+		</style>
+		
+		<script>
+		function initPage(){
+			var url = window.location.href;
+			url = url.replace("DFInsuranceCompany.html", "DFVehicleInformation.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+			var params = "{\"apiCode\":\"APP00024\",\"apiData\":{\"header\":{\"code\":\"APP00024\"},\"body\":{\"companyCode\":\""+companyCode+"\"}}}";
+			CallToMobil(params);
+		}
+		
+		
+		// andr 返回数据 apicode api码, content 返回内容 status 返回状态
+		function getAndroidData(apiCode, content, status) {
+			var objjson = JSON.parse(content);
+			var obj = objjson.body;
+			if(apiCode == "APP00024") {
+				if(obj && obj.resultData &&　obj.resultData.length > 0) {
+					var DFSNlist = document.body.querySelector('#DFIClist');
+					for(var i=0;i<obj.resultData.length;i++) {
+						var addHtml = "";
+						addHtml += "  <li id=\"{id}\">                             ";
+						addHtml += "  	<div class=\"DFIClistContent\" cid=\"{name}\" dmid=\"{dmid}\">            ";
+						addHtml += "  		<img src=\"{logoUrl}\" class=\"fl\"/>  ";
+						addHtml += "  		<span class=\"fl\">{name2}</span>       ";
+						addHtml += "  	</div>                                     ";
+						addHtml += "  </li>                                        ";
+						addHtml = addHtml.replace('{id}', obj.resultData[i].id);
+						addHtml = addHtml.replace('{logoUrl}', obj.resultData[i].logoUrl);
+						addHtml = addHtml.replace('{dmid}', obj.resultData[i].id);
+						addHtml = addHtml.replace('{name}', obj.resultData[i].name);
+						addHtml = addHtml.replace('{name2}', obj.resultData[i].name);
+						var li = document.createElement('li');
+						li.innerHTML = addHtml;
+						DFSNlist.appendChild(li);
+					}
+					eachAddClick();
+				}
+				else {
+					alert("查询出错，请稍后再试...");
+				}	
+			}
+		} 
+		function eachAddClick() {
+				$.each(document.querySelectorAll('.DFIClistContent'), function() {
+				this.addEventListener('tap',function(){
+				    var dmid = $(this).attr("dmid");
+					var cid = $(this).attr("cid");
+					var DFcarType = GetPageParams("DFcarType");
+					var carModelname = GetPageParams("carModelname");
+					var DFVILicensePlateNumber = GetPageParams("DFVILicensePlateNumber");
+					var DFVIFrameNumber = GetPageParams("DFVIFrameNumber");
+					var DFVIengine = GetPageParams("DFVIengine");
+					var DFInsuranceCompany = GetPageParams("DFInsuranceCompany");
+					var DFMIbtnDate = GetPageParams("DFMIbtnDate");		
+                    var zcmobile =	GetPageParams("zcmobile");	
+					var zccode =	GetPageParams("zccode");
+					var zcpassword =	GetPageParams("zcpassword");					
+var url = 'DFVehicleInformation.html?DFcarType=' + DFcarType+'&carModelname='+carModelname+'&DFVILicensePlateNumber='+DFVILicensePlateNumber+'&DFVIFrameNumber='+DFVIFrameNumber+'&DFVIengine='+DFVIengine+'&DFInsuranceCompany='+cid+'&bxgsdm='+dmid+'&DFMIbtnDate='+DFMIbtnDate+'&zcmobile='+zcmobile+'&zccode='+zccode+'&zcpassword='+zcpassword;
+					window.location.href = url;
+				});
+			});
+		}
+		</script>
+	</head>
+	<body onload="initPage()">
+		<!--heaer star-->
+		<header id="DFICheader">
+			<a href="javascript:history.go(-1)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">选择保险公司</a>
+		</header>
+		<!--heaer end-->
+		<!--DFICcontent star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="DFIClist">
+									<!-- 显示保险公司 -->
+								</ul>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<!--DFICcontent end-->
+	</body>
+</html>

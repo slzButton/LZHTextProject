@@ -48,6 +48,165 @@
 		65A425471C5F32CF00968FFA /* MyTextTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A425461C5F32CF00968FFA /* MyTextTests.m */; };
 		65A425521C5F32CF00968FFA /* MyTextUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A425511C5F32CF00968FFA /* MyTextUITests.m */; };
 		65F5522A1CA1082700B472F8 /* NSDictionary+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F552291CA1082700B472F8 /* NSDictionary+Category.m */; };
+		A42738C21DA89E2A00D5593D /* DFcommon.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738211DA89E2900D5593D /* DFcommon.css */; };
+		A42738C31DA89E2A00D5593D /* DFhomePage.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738221DA89E2900D5593D /* DFhomePage.css */; };
+		A42738C41DA89E2A00D5593D /* mui.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738231DA89E2900D5593D /* mui.css */; };
+		A42738C51DA89E2A00D5593D /* mui.min.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738241DA89E2900D5593D /* mui.min.css */; };
+		A42738C61DA89E2A00D5593D /* mui.picker.min.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738251DA89E2900D5593D /* mui.picker.min.css */; };
+		A42738C71DA89E2A00D5593D /* reset.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738261DA89E2900D5593D /* reset.css */; };
+		A42738C81DA89E2A00D5593D /* DFAccessoriesVerification.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738271DA89E2900D5593D /* DFAccessoriesVerification.html */; };
+		A42738C91DA89E2A00D5593D /* DFAirConditioner.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738281DA89E2900D5593D /* DFAirConditioner.html */; };
+		A42738CA1DA89E2A00D5593D /* DFArea.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738291DA89E2900D5593D /* DFArea.html */; };
+		A42738CB1DA89E2A00D5593D /* DFcarPosition.html in Resources */ = {isa = PBXBuildFile; fileRef = A427382A1DA89E2900D5593D /* DFcarPosition.html */; };
+		A42738CC1DA89E2A00D5593D /* DFCentralLocking.html in Resources */ = {isa = PBXBuildFile; fileRef = A427382B1DA89E2900D5593D /* DFCentralLocking.html */; };
+		A42738CD1DA89E2A00D5593D /* DFCentralLockingHP.html in Resources */ = {isa = PBXBuildFile; fileRef = A427382C1DA89E2900D5593D /* DFCentralLockingHP.html */; };
+		A42738CE1DA89E2A00D5593D /* DFconfigure.html in Resources */ = {isa = PBXBuildFile; fileRef = A427382D1DA89E2900D5593D /* DFconfigure.html */; };
+		A42738CF1DA89E2A00D5593D /* DFEngine.html in Resources */ = {isa = PBXBuildFile; fileRef = A427382E1DA89E2900D5593D /* DFEngine.html */; };
+		A42738D01DA89E2A00D5593D /* DFhomePage.html in Resources */ = {isa = PBXBuildFile; fileRef = A427382F1DA89E2900D5593D /* DFhomePage.html */; };
+		A42738D11DA89E2A00D5593D /* DFInformation.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738301DA89E2900D5593D /* DFInformation.html */; };
+		A42738D21DA89E2A00D5593D /* DFInformationDetial.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738311DA89E2900D5593D /* DFInformationDetial.html */; };
+		A42738D31DA89E2A00D5593D /* DFInsuranceCompany.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738321DA89E2900D5593D /* DFInsuranceCompany.html */; };
+		A42738D41DA89E2A00D5593D /* DFlogin.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738331DA89E2900D5593D /* DFlogin.html */; };
+		A42738D51DA89E2A00D5593D /* DFMessageCenter.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738341DA89E2900D5593D /* DFMessageCenter.html */; };
+		A42738D61DA89E2A00D5593D /* DFmodifyInformation.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738351DA89E2900D5593D /* DFmodifyInformation.html */; };
+		A42738D71DA89E2A00D5593D /* DFmodifyNum.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738361DA89E2900D5593D /* DFmodifyNum.html */; };
+		A42738D81DA89E2A00D5593D /* DFmyCar.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738371DA89E2900D5593D /* DFmyCar.html */; };
+		A42738D91DA89E2A00D5593D /* DFmyCatModify.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738381DA89E2900D5593D /* DFmyCatModify.html */; };
+		A42738DA1DA89E2A00D5593D /* DFmyIntegral.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738391DA89E2900D5593D /* DFmyIntegral.html */; };
+		A42738DB1DA89E2A00D5593D /* DFOffModel.html in Resources */ = {isa = PBXBuildFile; fileRef = A427383A1DA89E2900D5593D /* DFOffModel.html */; };
+		A42738DC1DA89E2A00D5593D /* DFPasswordResetIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = A427383B1DA89E2900D5593D /* DFPasswordResetIndex.html */; };
+		A42738DD1DA89E2A00D5593D /* DFPasswordResetNUM.html in Resources */ = {isa = PBXBuildFile; fileRef = A427383C1DA89E2900D5593D /* DFPasswordResetNUM.html */; };
+		A42738DE1DA89E2A00D5593D /* DFProvincesAndCities.html in Resources */ = {isa = PBXBuildFile; fileRef = A427383D1DA89E2900D5593D /* DFProvincesAndCities.html */; };
+		A42738DF1DA89E2A00D5593D /* DFregister.html in Resources */ = {isa = PBXBuildFile; fileRef = A427383E1DA89E2900D5593D /* DFregister.html */; };
+		A42738E01DA89E2A00D5593D /* DFRetrievePassword.html in Resources */ = {isa = PBXBuildFile; fileRef = A427383F1DA89E2900D5593D /* DFRetrievePassword.html */; };
+		A42738E11DA89E2A00D5593D /* DFRoadRescue.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738401DA89E2900D5593D /* DFRoadRescue.html */; };
+		A42738E21DA89E2A00D5593D /* DFServiceContent.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738411DA89E2900D5593D /* DFServiceContent.html */; };
+		A42738E31DA89E2A00D5593D /* DFServiceNetwork.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738421DA89E2900D5593D /* DFServiceNetwork.html */; };
+		A42738E41DA89E2A00D5593D /* DFServiceNetWorkDetails.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738431DA89E2900D5593D /* DFServiceNetWorkDetails.html */; };
+		A42738E51DA89E2A00D5593D /* DFstartUp.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738441DA89E2900D5593D /* DFstartUp.html */; };
+		A42738E61DA89E2A00D5593D /* DFTravelMileage.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738451DA89E2900D5593D /* DFTravelMileage.html */; };
+		A42738E71DA89E2A00D5593D /* DFTravelMileage2.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738461DA89E2900D5593D /* DFTravelMileage2.html */; };
+		A42738E81DA89E2A00D5593D /* DFUserCenter.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738471DA89E2900D5593D /* DFUserCenter.html */; };
+		A42738E91DA89E2A00D5593D /* DFVehicleInformation.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738481DA89E2900D5593D /* DFVehicleInformation.html */; };
+		A42738EA1DA89E2A00D5593D /* edjifream.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738491DA89E2900D5593D /* edjifream.html */; };
+		A42738EB1DA89E2A00D5593D /* mui.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A427384B1DA89E2900D5593D /* mui.ttf */; };
+		A42738EC1DA89E2A00D5593D /* ifream.html in Resources */ = {isa = PBXBuildFile; fileRef = A427384C1DA89E2900D5593D /* ifream.html */; };
+		A42738ED1DA89E2A00D5593D /* AirConditioner.png in Resources */ = {isa = PBXBuildFile; fileRef = A427384E1DA89E2900D5593D /* AirConditioner.png */; };
+		A42738EE1DA89E2A00D5593D /* banner-1.png in Resources */ = {isa = PBXBuildFile; fileRef = A427384F1DA89E2900D5593D /* banner-1.png */; };
+		A42738EF1DA89E2A00D5593D /* banner-2.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738501DA89E2900D5593D /* banner-2.png */; };
+		A42738F01DA89E2A00D5593D /* banner-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738511DA89E2900D5593D /* banner-3.png */; };
+		A42738F11DA89E2A00D5593D /* banner-4.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738521DA89E2900D5593D /* banner-4.png */; };
+		A42738F21DA89E2A00D5593D /* bj_01.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738531DA89E2900D5593D /* bj_01.png */; };
+		A42738F31DA89E2A00D5593D /* bj_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738541DA89E2900D5593D /* bj_02.png */; };
+		A42738F41DA89E2A00D5593D /* bj_03.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738551DA89E2900D5593D /* bj_03.png */; };
+		A42738F51DA89E2A00D5593D /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738561DA89E2900D5593D /* blue.png */; };
+		A42738F61DA89E2A00D5593D /* borRight.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738571DA89E2900D5593D /* borRight.png */; };
+		A42738F71DA89E2A00D5593D /* CarDoorLock.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738581DA89E2900D5593D /* CarDoorLock.png */; };
+		A42738F81DA89E2A00D5593D /* chinaLife.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738591DA89E2900D5593D /* chinaLife.png */; };
+		A42738F91DA89E2A00D5593D /* copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A427385A1DA89E2900D5593D /* copy.png */; };
+		A42738FA1DA89E2A00D5593D /* DFlogin.png in Resources */ = {isa = PBXBuildFile; fileRef = A427385B1DA89E2900D5593D /* DFlogin.png */; };
+		A42738FB1DA89E2A00D5593D /* DFMIicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A427385C1DA89E2900D5593D /* DFMIicon.png */; };
+		A42738FC1DA89E2A00D5593D /* DFMIicon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = A427385D1DA89E2900D5593D /* DFMIicon_01.png */; };
+		A42738FD1DA89E2A00D5593D /* DFNDphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A427385E1DA89E2900D5593D /* DFNDphone.png */; };
+		A42738FE1DA89E2A00D5593D /* DFRRNSphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A427385F1DA89E2900D5593D /* DFRRNSphone.png */; };
+		A42738FF1DA89E2A00D5593D /* DFRRphon.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738601DA89E2900D5593D /* DFRRphon.png */; };
+		A42739001DA89E2A00D5593D /* DFUCcar.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738611DA89E2900D5593D /* DFUCcar.png */; };
+		A42739011DA89E2A00D5593D /* DFUCpassWord.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738621DA89E2900D5593D /* DFUCpassWord.png */; };
+		A42739021DA89E2A00D5593D /* DFUCsetUP.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738631DA89E2900D5593D /* DFUCsetUP.png */; };
+		A42739031DA89E2A00D5593D /* DFVIexample.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738641DA89E2900D5593D /* DFVIexample.png */; };
+		A42739041DA89E2A00D5593D /* DFVIstar.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738651DA89E2900D5593D /* DFVIstar.png */; };
+		A42739051DA89E2A00D5593D /* Engine.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738661DA89E2900D5593D /* Engine.png */; };
+		A42739061DA89E2A00D5593D /* FindCar.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738671DA89E2900D5593D /* FindCar.png */; };
+		A42739071DA89E2A00D5593D /* friends.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738681DA89E2900D5593D /* friends.png */; };
+		A42739081DA89E2A00D5593D /* GRAYright.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738691DA89E2900D5593D /* GRAYright.png */; };
+		A42739091DA89E2A00D5593D /* headerLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = A427386A1DA89E2900D5593D /* headerLeft.png */; };
+		A427390A1DA89E2A00D5593D /* HPdrive.png in Resources */ = {isa = PBXBuildFile; fileRef = A427386B1DA89E2900D5593D /* HPdrive.png */; };
+		A427390B1DA89E2A00D5593D /* HPicon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = A427386C1DA89E2900D5593D /* HPicon_01.png */; };
+		A427390C1DA89E2A00D5593D /* HPicon_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A427386D1DA89E2900D5593D /* HPicon_02.png */; };
+		A427390D1DA89E2A00D5593D /* HPicon_03.png in Resources */ = {isa = PBXBuildFile; fileRef = A427386E1DA89E2900D5593D /* HPicon_03.png */; };
+		A427390E1DA89E2A00D5593D /* HPicon_04.png in Resources */ = {isa = PBXBuildFile; fileRef = A427386F1DA89E2900D5593D /* HPicon_04.png */; };
+		A427390F1DA89E2A00D5593D /* HPicon_05.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738701DA89E2A00D5593D /* HPicon_05.png */; };
+		A42739101DA89E2A00D5593D /* HPicon_06.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738711DA89E2A00D5593D /* HPicon_06.png */; };
+		A42739111DA89E2A00D5593D /* HPicon_07.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738721DA89E2A00D5593D /* HPicon_07.png */; };
+		A42739121DA89E2A00D5593D /* HPicon_08.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738731DA89E2A00D5593D /* HPicon_08.png */; };
+		A42739131DA89E2A00D5593D /* HPIllegal.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738741DA89E2A00D5593D /* HPIllegal.png */; };
+		A42739141DA89E2A00D5593D /* HPmessage.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738751DA89E2A00D5593D /* HPmessage.png */; };
+		A42739151DA89E2A00D5593D /* HPphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738761DA89E2A00D5593D /* HPphone.png */; };
+		A42739161DA89E2A00D5593D /* HProadRescue.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738771DA89E2A00D5593D /* HProadRescue.png */; };
+		A42739171DA89E2A00D5593D /* HPshopping.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738781DA89E2A00D5593D /* HPshopping.png */; };
+		A42739181DA89E2A00D5593D /* Ifcar.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738791DA89E2A00D5593D /* Ifcar.png */; };
+		A42739191DA89E2A00D5593D /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = A427387A1DA89E2A00D5593D /* img.png */; };
+		A427391A1DA89E2A00D5593D /* intergal.png in Resources */ = {isa = PBXBuildFile; fileRef = A427387B1DA89E2A00D5593D /* intergal.png */; };
+		A427391B1DA89E2A00D5593D /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = A427387C1DA89E2A00D5593D /* map.png */; };
+		A427391C1DA89E2A00D5593D /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = A427387D1DA89E2A00D5593D /* message.png */; };
+		A427391D1DA89E2A00D5593D /* messageImg.png in Resources */ = {isa = PBXBuildFile; fileRef = A427387E1DA89E2A00D5593D /* messageImg.png */; };
+		A427391E1DA89E2A00D5593D /* myCar.png in Resources */ = {isa = PBXBuildFile; fileRef = A427387F1DA89E2A00D5593D /* myCar.png */; };
+		A427391F1DA89E2A00D5593D /* myCar_01.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738801DA89E2A00D5593D /* myCar_01.png */; };
+		A42739201DA89E2A00D5593D /* NSline.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738811DA89E2A00D5593D /* NSline.png */; };
+		A42739211DA89E2A00D5593D /* NSlocation.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738821DA89E2A00D5593D /* NSlocation.png */; };
+		A42739221DA89E2A00D5593D /* NSphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738831DA89E2A00D5593D /* NSphone.png */; };
+		A42739231DA89E2A00D5593D /* NSposition.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738841DA89E2A00D5593D /* NSposition.png */; };
+		A42739241DA89E2A00D5593D /* NStitle.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738851DA89E2A00D5593D /* NStitle.png */; };
+		A42739251DA89E2A00D5593D /* parts.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738861DA89E2A00D5593D /* parts.png */; };
+		A42739261DA89E2A00D5593D /* PHlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738871DA89E2A00D5593D /* PHlogo.png */; };
+		A42739271DA89E2A00D5593D /* portraitImg.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738881DA89E2A00D5593D /* portraitImg.png */; };
+		A42739281DA89E2A00D5593D /* position.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738891DA89E2A00D5593D /* position.png */; };
+		A42739291DA89E2A00D5593D /* qq.png in Resources */ = {isa = PBXBuildFile; fileRef = A427388A1DA89E2A00D5593D /* qq.png */; };
+		A427392A1DA89E2A00D5593D /* RealTimePosition.png in Resources */ = {isa = PBXBuildFile; fileRef = A427388B1DA89E2A00D5593D /* RealTimePosition.png */; };
+		A427392B1DA89E2A00D5593D /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = A427388C1DA89E2A00D5593D /* red.png */; };
+		A427392C1DA89E2A00D5593D /* Redright.png in Resources */ = {isa = PBXBuildFile; fileRef = A427388D1DA89E2A00D5593D /* Redright.png */; };
+		A427392D1DA89E2A00D5593D /* roadtel.png in Resources */ = {isa = PBXBuildFile; fileRef = A427388E1DA89E2A00D5593D /* roadtel.png */; };
+		A427392E1DA89E2A00D5593D /* SNdown.png in Resources */ = {isa = PBXBuildFile; fileRef = A427388F1DA89E2A00D5593D /* SNdown.png */; };
+		A427392F1DA89E2A00D5593D /* SNleftIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738901DA89E2A00D5593D /* SNleftIcon.png */; };
+		A42739301DA89E2A00D5593D /* SNup.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738911DA89E2A00D5593D /* SNup.png */; };
+		A42739311DA89E2A00D5593D /* space.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738921DA89E2A00D5593D /* space.png */; };
+		A42739321DA89E2A00D5593D /* starUpImg.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738931DA89E2A00D5593D /* starUpImg.png */; };
+		A42739331DA89E2A00D5593D /* StarUpLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738941DA89E2A00D5593D /* StarUpLogo.png */; };
+		A42739341DA89E2A00D5593D /* TravellMileage.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738951DA89E2A00D5593D /* TravellMileage.png */; };
+		A42739351DA89E2A00D5593D /* weChat.png in Resources */ = {isa = PBXBuildFile; fileRef = A42738961DA89E2A00D5593D /* weChat.png */; };
+		A42739361DA89E2A00D5593D /* area.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738981DA89E2A00D5593D /* area.js */; };
+		A42739371DA89E2A00D5593D /* common.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738991DA89E2A00D5593D /* common.js */; };
+		A42739381DA89E2A00D5593D /* DFAirConditioner.js in Resources */ = {isa = PBXBuildFile; fileRef = A427389A1DA89E2A00D5593D /* DFAirConditioner.js */; };
+		A42739391DA89E2A00D5593D /* DFArea.js in Resources */ = {isa = PBXBuildFile; fileRef = A427389B1DA89E2A00D5593D /* DFArea.js */; };
+		A427393A1DA89E2A00D5593D /* DFcarPosition.js in Resources */ = {isa = PBXBuildFile; fileRef = A427389C1DA89E2A00D5593D /* DFcarPosition.js */; };
+		A427393B1DA89E2A00D5593D /* DFcentralLocking.js in Resources */ = {isa = PBXBuildFile; fileRef = A427389D1DA89E2A00D5593D /* DFcentralLocking.js */; };
+		A427393C1DA89E2A00D5593D /* DFCentralLockingHP.js in Resources */ = {isa = PBXBuildFile; fileRef = A427389E1DA89E2A00D5593D /* DFCentralLockingHP.js */; };
+		A427393D1DA89E2A00D5593D /* DFconfigure.js in Resources */ = {isa = PBXBuildFile; fileRef = A427389F1DA89E2A00D5593D /* DFconfigure.js */; };
+		A427393E1DA89E2A00D5593D /* DFEngine.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A01DA89E2A00D5593D /* DFEngine.js */; };
+		A427393F1DA89E2A00D5593D /* DFhomePage.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A11DA89E2A00D5593D /* DFhomePage.js */; };
+		A42739401DA89E2A00D5593D /* DFInformation.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A21DA89E2A00D5593D /* DFInformation.js */; };
+		A42739411DA89E2A00D5593D /* DFInformationDetial.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A31DA89E2A00D5593D /* DFInformationDetial.js */; };
+		A42739421DA89E2A00D5593D /* DFInsuranceCompany.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A41DA89E2A00D5593D /* DFInsuranceCompany.js */; };
+		A42739431DA89E2A00D5593D /* DFlogin.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A51DA89E2A00D5593D /* DFlogin.js */; };
+		A42739441DA89E2A00D5593D /* DFMessageCenter.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A61DA89E2A00D5593D /* DFMessageCenter.js */; };
+		A42739451DA89E2A00D5593D /* DFmodifyInformation.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A71DA89E2A00D5593D /* DFmodifyInformation.js */; };
+		A42739461DA89E2A00D5593D /* DFmodifyNum.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A81DA89E2A00D5593D /* DFmodifyNum.js */; };
+		A42739471DA89E2A00D5593D /* DFmyCar.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738A91DA89E2A00D5593D /* DFmyCar.js */; };
+		A42739481DA89E2A00D5593D /* DFmyCatModify.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738AA1DA89E2A00D5593D /* DFmyCatModify.js */; };
+		A42739491DA89E2A00D5593D /* DFmyIntergra.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738AB1DA89E2A00D5593D /* DFmyIntergra.js */; };
+		A427394A1DA89E2A00D5593D /* DFOffModel.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738AC1DA89E2A00D5593D /* DFOffModel.js */; };
+		A427394B1DA89E2A00D5593D /* DFPasswordResetIndex.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738AD1DA89E2A00D5593D /* DFPasswordResetIndex.js */; };
+		A427394C1DA89E2A00D5593D /* DFPasswordResetNUM.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738AE1DA89E2A00D5593D /* DFPasswordResetNUM.js */; };
+		A427394D1DA89E2A00D5593D /* DFProvincesAndCities.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738AF1DA89E2A00D5593D /* DFProvincesAndCities.js */; };
+		A427394E1DA89E2A00D5593D /* DFregister.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B01DA89E2A00D5593D /* DFregister.js */; };
+		A427394F1DA89E2A00D5593D /* DFRetrievePassword.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B11DA89E2A00D5593D /* DFRetrievePassword.js */; };
+		A42739501DA89E2A00D5593D /* DFRoadRescue.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B21DA89E2A00D5593D /* DFRoadRescue.js */; };
+		A42739511DA89E2A00D5593D /* DFServiceNetwork.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B31DA89E2A00D5593D /* DFServiceNetwork.js */; };
+		A42739521DA89E2A00D5593D /* DFstartUp.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B41DA89E2A00D5593D /* DFstartUp.js */; };
+		A42739531DA89E2A00D5593D /* DFTravelMileage.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B51DA89E2A00D5593D /* DFTravelMileage.js */; };
+		A42739541DA89E2A00D5593D /* DFUserCenter.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B61DA89E2A00D5593D /* DFUserCenter.js */; };
+		A42739551DA89E2A00D5593D /* DFVehicleInformation.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B71DA89E2A00D5593D /* DFVehicleInformation.js */; };
+		A42739561DA89E2A00D5593D /* iscroll.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B81DA89E2A00D5593D /* iscroll.js */; };
+		A42739571DA89E2A00D5593D /* jquery-1.10.2.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738B91DA89E2A00D5593D /* jquery-1.10.2.js */; };
+		A42739581DA89E2A00D5593D /* json2.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738BA1DA89E2A00D5593D /* json2.js */; };
+		A42739591DA89E2A00D5593D /* mui.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738BB1DA89E2A00D5593D /* mui.min.js */; };
+		A427395A1DA89E2A00D5593D /* mui.picker.min.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738BC1DA89E2A00D5593D /* mui.picker.min.js */; };
+		A427395B1DA89E2A00D5593D /* mui.previewimage.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738BD1DA89E2A00D5593D /* mui.previewimage.js */; };
+		A427395C1DA89E2A00D5593D /* mui.pullToRefresh.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738BE1DA89E2A00D5593D /* mui.pullToRefresh.js */; };
+		A427395D1DA89E2A00D5593D /* mui.pullToRefresh.material.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738BF1DA89E2A00D5593D /* mui.pullToRefresh.material.js */; };
+		A427395E1DA89E2A00D5593D /* mui.zoom.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738C01DA89E2A00D5593D /* mui.zoom.js */; };
+		A427395F1DA89E2A00D5593D /* wzcxifream.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738C11DA89E2A00D5593D /* wzcxifream.html */; };
+		A42739611DA8A13C00D5593D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42739601DA8A13C00D5593D /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +309,165 @@
 		65F552281CA1082700B472F8 /* NSDictionary+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Category.h"; sourceTree = "<group>"; };
 		65F552291CA1082700B472F8 /* NSDictionary+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Category.m"; sourceTree = "<group>"; };
 		A0ADA244ED4C6FFCDAC200FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A42738211DA89E2900D5593D /* DFcommon.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = DFcommon.css; sourceTree = "<group>"; };
+		A42738221DA89E2900D5593D /* DFhomePage.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = DFhomePage.css; sourceTree = "<group>"; };
+		A42738231DA89E2900D5593D /* mui.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = mui.css; sourceTree = "<group>"; };
+		A42738241DA89E2900D5593D /* mui.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = mui.min.css; sourceTree = "<group>"; };
+		A42738251DA89E2900D5593D /* mui.picker.min.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = mui.picker.min.css; sourceTree = "<group>"; };
+		A42738261DA89E2900D5593D /* reset.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = reset.css; sourceTree = "<group>"; };
+		A42738271DA89E2900D5593D /* DFAccessoriesVerification.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFAccessoriesVerification.html; sourceTree = "<group>"; };
+		A42738281DA89E2900D5593D /* DFAirConditioner.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFAirConditioner.html; sourceTree = "<group>"; };
+		A42738291DA89E2900D5593D /* DFArea.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFArea.html; sourceTree = "<group>"; };
+		A427382A1DA89E2900D5593D /* DFcarPosition.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFcarPosition.html; sourceTree = "<group>"; };
+		A427382B1DA89E2900D5593D /* DFCentralLocking.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFCentralLocking.html; sourceTree = "<group>"; };
+		A427382C1DA89E2900D5593D /* DFCentralLockingHP.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFCentralLockingHP.html; sourceTree = "<group>"; };
+		A427382D1DA89E2900D5593D /* DFconfigure.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFconfigure.html; sourceTree = "<group>"; };
+		A427382E1DA89E2900D5593D /* DFEngine.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFEngine.html; sourceTree = "<group>"; };
+		A427382F1DA89E2900D5593D /* DFhomePage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFhomePage.html; sourceTree = "<group>"; };
+		A42738301DA89E2900D5593D /* DFInformation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFInformation.html; sourceTree = "<group>"; };
+		A42738311DA89E2900D5593D /* DFInformationDetial.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFInformationDetial.html; sourceTree = "<group>"; };
+		A42738321DA89E2900D5593D /* DFInsuranceCompany.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFInsuranceCompany.html; sourceTree = "<group>"; };
+		A42738331DA89E2900D5593D /* DFlogin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFlogin.html; sourceTree = "<group>"; };
+		A42738341DA89E2900D5593D /* DFMessageCenter.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFMessageCenter.html; sourceTree = "<group>"; };
+		A42738351DA89E2900D5593D /* DFmodifyInformation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFmodifyInformation.html; sourceTree = "<group>"; };
+		A42738361DA89E2900D5593D /* DFmodifyNum.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFmodifyNum.html; sourceTree = "<group>"; };
+		A42738371DA89E2900D5593D /* DFmyCar.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFmyCar.html; sourceTree = "<group>"; };
+		A42738381DA89E2900D5593D /* DFmyCatModify.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFmyCatModify.html; sourceTree = "<group>"; };
+		A42738391DA89E2900D5593D /* DFmyIntegral.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFmyIntegral.html; sourceTree = "<group>"; };
+		A427383A1DA89E2900D5593D /* DFOffModel.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFOffModel.html; sourceTree = "<group>"; };
+		A427383B1DA89E2900D5593D /* DFPasswordResetIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFPasswordResetIndex.html; sourceTree = "<group>"; };
+		A427383C1DA89E2900D5593D /* DFPasswordResetNUM.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFPasswordResetNUM.html; sourceTree = "<group>"; };
+		A427383D1DA89E2900D5593D /* DFProvincesAndCities.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFProvincesAndCities.html; sourceTree = "<group>"; };
+		A427383E1DA89E2900D5593D /* DFregister.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFregister.html; sourceTree = "<group>"; };
+		A427383F1DA89E2900D5593D /* DFRetrievePassword.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFRetrievePassword.html; sourceTree = "<group>"; };
+		A42738401DA89E2900D5593D /* DFRoadRescue.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFRoadRescue.html; sourceTree = "<group>"; };
+		A42738411DA89E2900D5593D /* DFServiceContent.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFServiceContent.html; sourceTree = "<group>"; };
+		A42738421DA89E2900D5593D /* DFServiceNetwork.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFServiceNetwork.html; sourceTree = "<group>"; };
+		A42738431DA89E2900D5593D /* DFServiceNetWorkDetails.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFServiceNetWorkDetails.html; sourceTree = "<group>"; };
+		A42738441DA89E2900D5593D /* DFstartUp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFstartUp.html; sourceTree = "<group>"; };
+		A42738451DA89E2900D5593D /* DFTravelMileage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFTravelMileage.html; sourceTree = "<group>"; };
+		A42738461DA89E2900D5593D /* DFTravelMileage2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFTravelMileage2.html; sourceTree = "<group>"; };
+		A42738471DA89E2900D5593D /* DFUserCenter.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFUserCenter.html; sourceTree = "<group>"; };
+		A42738481DA89E2900D5593D /* DFVehicleInformation.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DFVehicleInformation.html; sourceTree = "<group>"; };
+		A42738491DA89E2900D5593D /* edjifream.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = edjifream.html; sourceTree = "<group>"; };
+		A427384B1DA89E2900D5593D /* mui.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mui.ttf; sourceTree = "<group>"; };
+		A427384C1DA89E2900D5593D /* ifream.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ifream.html; sourceTree = "<group>"; };
+		A427384E1DA89E2900D5593D /* AirConditioner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AirConditioner.png; sourceTree = "<group>"; };
+		A427384F1DA89E2900D5593D /* banner-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-1.png"; sourceTree = "<group>"; };
+		A42738501DA89E2900D5593D /* banner-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-2.png"; sourceTree = "<group>"; };
+		A42738511DA89E2900D5593D /* banner-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-3.png"; sourceTree = "<group>"; };
+		A42738521DA89E2900D5593D /* banner-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-4.png"; sourceTree = "<group>"; };
+		A42738531DA89E2900D5593D /* bj_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj_01.png; sourceTree = "<group>"; };
+		A42738541DA89E2900D5593D /* bj_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj_02.png; sourceTree = "<group>"; };
+		A42738551DA89E2900D5593D /* bj_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bj_03.png; sourceTree = "<group>"; };
+		A42738561DA89E2900D5593D /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		A42738571DA89E2900D5593D /* borRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = borRight.png; sourceTree = "<group>"; };
+		A42738581DA89E2900D5593D /* CarDoorLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CarDoorLock.png; sourceTree = "<group>"; };
+		A42738591DA89E2900D5593D /* chinaLife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chinaLife.png; sourceTree = "<group>"; };
+		A427385A1DA89E2900D5593D /* copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copy.png; sourceTree = "<group>"; };
+		A427385B1DA89E2900D5593D /* DFlogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFlogin.png; sourceTree = "<group>"; };
+		A427385C1DA89E2900D5593D /* DFMIicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFMIicon.png; sourceTree = "<group>"; };
+		A427385D1DA89E2900D5593D /* DFMIicon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFMIicon_01.png; sourceTree = "<group>"; };
+		A427385E1DA89E2900D5593D /* DFNDphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFNDphone.png; sourceTree = "<group>"; };
+		A427385F1DA89E2900D5593D /* DFRRNSphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFRRNSphone.png; sourceTree = "<group>"; };
+		A42738601DA89E2900D5593D /* DFRRphon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFRRphon.png; sourceTree = "<group>"; };
+		A42738611DA89E2900D5593D /* DFUCcar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFUCcar.png; sourceTree = "<group>"; };
+		A42738621DA89E2900D5593D /* DFUCpassWord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFUCpassWord.png; sourceTree = "<group>"; };
+		A42738631DA89E2900D5593D /* DFUCsetUP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFUCsetUP.png; sourceTree = "<group>"; };
+		A42738641DA89E2900D5593D /* DFVIexample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFVIexample.png; sourceTree = "<group>"; };
+		A42738651DA89E2900D5593D /* DFVIstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFVIstar.png; sourceTree = "<group>"; };
+		A42738661DA89E2900D5593D /* Engine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Engine.png; sourceTree = "<group>"; };
+		A42738671DA89E2900D5593D /* FindCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FindCar.png; sourceTree = "<group>"; };
+		A42738681DA89E2900D5593D /* friends.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends.png; sourceTree = "<group>"; };
+		A42738691DA89E2900D5593D /* GRAYright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GRAYright.png; sourceTree = "<group>"; };
+		A427386A1DA89E2900D5593D /* headerLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerLeft.png; sourceTree = "<group>"; };
+		A427386B1DA89E2900D5593D /* HPdrive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPdrive.png; sourceTree = "<group>"; };
+		A427386C1DA89E2900D5593D /* HPicon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_01.png; sourceTree = "<group>"; };
+		A427386D1DA89E2900D5593D /* HPicon_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_02.png; sourceTree = "<group>"; };
+		A427386E1DA89E2900D5593D /* HPicon_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_03.png; sourceTree = "<group>"; };
+		A427386F1DA89E2900D5593D /* HPicon_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_04.png; sourceTree = "<group>"; };
+		A42738701DA89E2A00D5593D /* HPicon_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_05.png; sourceTree = "<group>"; };
+		A42738711DA89E2A00D5593D /* HPicon_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_06.png; sourceTree = "<group>"; };
+		A42738721DA89E2A00D5593D /* HPicon_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_07.png; sourceTree = "<group>"; };
+		A42738731DA89E2A00D5593D /* HPicon_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPicon_08.png; sourceTree = "<group>"; };
+		A42738741DA89E2A00D5593D /* HPIllegal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPIllegal.png; sourceTree = "<group>"; };
+		A42738751DA89E2A00D5593D /* HPmessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPmessage.png; sourceTree = "<group>"; };
+		A42738761DA89E2A00D5593D /* HPphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPphone.png; sourceTree = "<group>"; };
+		A42738771DA89E2A00D5593D /* HProadRescue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HProadRescue.png; sourceTree = "<group>"; };
+		A42738781DA89E2A00D5593D /* HPshopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HPshopping.png; sourceTree = "<group>"; };
+		A42738791DA89E2A00D5593D /* Ifcar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ifcar.png; sourceTree = "<group>"; };
+		A427387A1DA89E2A00D5593D /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
+		A427387B1DA89E2A00D5593D /* intergal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intergal.png; sourceTree = "<group>"; };
+		A427387C1DA89E2A00D5593D /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		A427387D1DA89E2A00D5593D /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		A427387E1DA89E2A00D5593D /* messageImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageImg.png; sourceTree = "<group>"; };
+		A427387F1DA89E2A00D5593D /* myCar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myCar.png; sourceTree = "<group>"; };
+		A42738801DA89E2A00D5593D /* myCar_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myCar_01.png; sourceTree = "<group>"; };
+		A42738811DA89E2A00D5593D /* NSline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSline.png; sourceTree = "<group>"; };
+		A42738821DA89E2A00D5593D /* NSlocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSlocation.png; sourceTree = "<group>"; };
+		A42738831DA89E2A00D5593D /* NSphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSphone.png; sourceTree = "<group>"; };
+		A42738841DA89E2A00D5593D /* NSposition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NSposition.png; sourceTree = "<group>"; };
+		A42738851DA89E2A00D5593D /* NStitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NStitle.png; sourceTree = "<group>"; };
+		A42738861DA89E2A00D5593D /* parts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = parts.png; sourceTree = "<group>"; };
+		A42738871DA89E2A00D5593D /* PHlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PHlogo.png; sourceTree = "<group>"; };
+		A42738881DA89E2A00D5593D /* portraitImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = portraitImg.png; sourceTree = "<group>"; };
+		A42738891DA89E2A00D5593D /* position.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = position.png; sourceTree = "<group>"; };
+		A427388A1DA89E2A00D5593D /* qq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qq.png; sourceTree = "<group>"; };
+		A427388B1DA89E2A00D5593D /* RealTimePosition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RealTimePosition.png; sourceTree = "<group>"; };
+		A427388C1DA89E2A00D5593D /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		A427388D1DA89E2A00D5593D /* Redright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Redright.png; sourceTree = "<group>"; };
+		A427388E1DA89E2A00D5593D /* roadtel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roadtel.png; sourceTree = "<group>"; };
+		A427388F1DA89E2A00D5593D /* SNdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SNdown.png; sourceTree = "<group>"; };
+		A42738901DA89E2A00D5593D /* SNleftIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SNleftIcon.png; sourceTree = "<group>"; };
+		A42738911DA89E2A00D5593D /* SNup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SNup.png; sourceTree = "<group>"; };
+		A42738921DA89E2A00D5593D /* space.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space.png; sourceTree = "<group>"; };
+		A42738931DA89E2A00D5593D /* starUpImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starUpImg.png; sourceTree = "<group>"; };
+		A42738941DA89E2A00D5593D /* StarUpLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarUpLogo.png; sourceTree = "<group>"; };
+		A42738951DA89E2A00D5593D /* TravellMileage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TravellMileage.png; sourceTree = "<group>"; };
+		A42738961DA89E2A00D5593D /* weChat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weChat.png; sourceTree = "<group>"; };
+		A42738981DA89E2A00D5593D /* area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = area.js; sourceTree = "<group>"; };
+		A42738991DA89E2A00D5593D /* common.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = common.js; sourceTree = "<group>"; };
+		A427389A1DA89E2A00D5593D /* DFAirConditioner.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFAirConditioner.js; sourceTree = "<group>"; };
+		A427389B1DA89E2A00D5593D /* DFArea.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFArea.js; sourceTree = "<group>"; };
+		A427389C1DA89E2A00D5593D /* DFcarPosition.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFcarPosition.js; sourceTree = "<group>"; };
+		A427389D1DA89E2A00D5593D /* DFcentralLocking.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFcentralLocking.js; sourceTree = "<group>"; };
+		A427389E1DA89E2A00D5593D /* DFCentralLockingHP.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFCentralLockingHP.js; sourceTree = "<group>"; };
+		A427389F1DA89E2A00D5593D /* DFconfigure.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFconfigure.js; sourceTree = "<group>"; };
+		A42738A01DA89E2A00D5593D /* DFEngine.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFEngine.js; sourceTree = "<group>"; };
+		A42738A11DA89E2A00D5593D /* DFhomePage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFhomePage.js; sourceTree = "<group>"; };
+		A42738A21DA89E2A00D5593D /* DFInformation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFInformation.js; sourceTree = "<group>"; };
+		A42738A31DA89E2A00D5593D /* DFInformationDetial.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFInformationDetial.js; sourceTree = "<group>"; };
+		A42738A41DA89E2A00D5593D /* DFInsuranceCompany.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFInsuranceCompany.js; sourceTree = "<group>"; };
+		A42738A51DA89E2A00D5593D /* DFlogin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFlogin.js; sourceTree = "<group>"; };
+		A42738A61DA89E2A00D5593D /* DFMessageCenter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFMessageCenter.js; sourceTree = "<group>"; };
+		A42738A71DA89E2A00D5593D /* DFmodifyInformation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFmodifyInformation.js; sourceTree = "<group>"; };
+		A42738A81DA89E2A00D5593D /* DFmodifyNum.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFmodifyNum.js; sourceTree = "<group>"; };
+		A42738A91DA89E2A00D5593D /* DFmyCar.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFmyCar.js; sourceTree = "<group>"; };
+		A42738AA1DA89E2A00D5593D /* DFmyCatModify.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFmyCatModify.js; sourceTree = "<group>"; };
+		A42738AB1DA89E2A00D5593D /* DFmyIntergra.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFmyIntergra.js; sourceTree = "<group>"; };
+		A42738AC1DA89E2A00D5593D /* DFOffModel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFOffModel.js; sourceTree = "<group>"; };
+		A42738AD1DA89E2A00D5593D /* DFPasswordResetIndex.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFPasswordResetIndex.js; sourceTree = "<group>"; };
+		A42738AE1DA89E2A00D5593D /* DFPasswordResetNUM.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFPasswordResetNUM.js; sourceTree = "<group>"; };
+		A42738AF1DA89E2A00D5593D /* DFProvincesAndCities.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFProvincesAndCities.js; sourceTree = "<group>"; };
+		A42738B01DA89E2A00D5593D /* DFregister.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFregister.js; sourceTree = "<group>"; };
+		A42738B11DA89E2A00D5593D /* DFRetrievePassword.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFRetrievePassword.js; sourceTree = "<group>"; };
+		A42738B21DA89E2A00D5593D /* DFRoadRescue.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFRoadRescue.js; sourceTree = "<group>"; };
+		A42738B31DA89E2A00D5593D /* DFServiceNetwork.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFServiceNetwork.js; sourceTree = "<group>"; };
+		A42738B41DA89E2A00D5593D /* DFstartUp.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFstartUp.js; sourceTree = "<group>"; };
+		A42738B51DA89E2A00D5593D /* DFTravelMileage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFTravelMileage.js; sourceTree = "<group>"; };
+		A42738B61DA89E2A00D5593D /* DFUserCenter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFUserCenter.js; sourceTree = "<group>"; };
+		A42738B71DA89E2A00D5593D /* DFVehicleInformation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = DFVehicleInformation.js; sourceTree = "<group>"; };
+		A42738B81DA89E2A00D5593D /* iscroll.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = iscroll.js; sourceTree = "<group>"; };
+		A42738B91DA89E2A00D5593D /* jquery-1.10.2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.10.2.js"; sourceTree = "<group>"; };
+		A42738BA1DA89E2A00D5593D /* json2.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = json2.js; sourceTree = "<group>"; };
+		A42738BB1DA89E2A00D5593D /* mui.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.min.js; sourceTree = "<group>"; };
+		A42738BC1DA89E2A00D5593D /* mui.picker.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.picker.min.js; sourceTree = "<group>"; };
+		A42738BD1DA89E2A00D5593D /* mui.previewimage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.previewimage.js; sourceTree = "<group>"; };
+		A42738BE1DA89E2A00D5593D /* mui.pullToRefresh.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.pullToRefresh.js; sourceTree = "<group>"; };
+		A42738BF1DA89E2A00D5593D /* mui.pullToRefresh.material.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.pullToRefresh.material.js; sourceTree = "<group>"; };
+		A42738C01DA89E2A00D5593D /* mui.zoom.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.zoom.js; sourceTree = "<group>"; };
+		A42738C11DA89E2A00D5593D /* wzcxifream.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wzcxifream.html; sourceTree = "<group>"; };
+		A42739601DA8A13C00D5593D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E363091D312156B62A91EC35 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +476,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42739611DA8A13C00D5593D /* WebKit.framework in Frameworks */,
 				6507D5C51CA6A34100B41237 /* libReactiveCocoa.a in Frameworks */,
 				4D72BF525B40041E678B9E86 /* libPods.a in Frameworks */,
 			);
@@ -350,6 +669,7 @@
 		65A4252B1C5F32CE00968FFA /* MyText */ = {
 			isa = PBXGroup;
 			children = (
+				A427381F1DA89E2900D5593D /* HTMLCache */,
 				6528E6621C7196F600B4B1E0 /* LZH */,
 				65A4252F1C5F32CE00968FFA /* AppDelegate.h */,
 				65A425301C5F32CE00968FFA /* AppDelegate.m */,
@@ -396,9 +716,207 @@
 			path = MyTextUITests;
 			sourceTree = "<group>";
 		};
+		A427381F1DA89E2900D5593D /* HTMLCache */ = {
+			isa = PBXGroup;
+			children = (
+				A42738201DA89E2900D5593D /* css */,
+				A42738271DA89E2900D5593D /* DFAccessoriesVerification.html */,
+				A42738281DA89E2900D5593D /* DFAirConditioner.html */,
+				A42738291DA89E2900D5593D /* DFArea.html */,
+				A427382A1DA89E2900D5593D /* DFcarPosition.html */,
+				A427382B1DA89E2900D5593D /* DFCentralLocking.html */,
+				A427382C1DA89E2900D5593D /* DFCentralLockingHP.html */,
+				A427382D1DA89E2900D5593D /* DFconfigure.html */,
+				A427382E1DA89E2900D5593D /* DFEngine.html */,
+				A427382F1DA89E2900D5593D /* DFhomePage.html */,
+				A42738301DA89E2900D5593D /* DFInformation.html */,
+				A42738311DA89E2900D5593D /* DFInformationDetial.html */,
+				A42738321DA89E2900D5593D /* DFInsuranceCompany.html */,
+				A42738331DA89E2900D5593D /* DFlogin.html */,
+				A42738341DA89E2900D5593D /* DFMessageCenter.html */,
+				A42738351DA89E2900D5593D /* DFmodifyInformation.html */,
+				A42738361DA89E2900D5593D /* DFmodifyNum.html */,
+				A42738371DA89E2900D5593D /* DFmyCar.html */,
+				A42738381DA89E2900D5593D /* DFmyCatModify.html */,
+				A42738391DA89E2900D5593D /* DFmyIntegral.html */,
+				A427383A1DA89E2900D5593D /* DFOffModel.html */,
+				A427383B1DA89E2900D5593D /* DFPasswordResetIndex.html */,
+				A427383C1DA89E2900D5593D /* DFPasswordResetNUM.html */,
+				A427383D1DA89E2900D5593D /* DFProvincesAndCities.html */,
+				A427383E1DA89E2900D5593D /* DFregister.html */,
+				A427383F1DA89E2900D5593D /* DFRetrievePassword.html */,
+				A42738401DA89E2900D5593D /* DFRoadRescue.html */,
+				A42738411DA89E2900D5593D /* DFServiceContent.html */,
+				A42738421DA89E2900D5593D /* DFServiceNetwork.html */,
+				A42738431DA89E2900D5593D /* DFServiceNetWorkDetails.html */,
+				A42738441DA89E2900D5593D /* DFstartUp.html */,
+				A42738451DA89E2900D5593D /* DFTravelMileage.html */,
+				A42738461DA89E2900D5593D /* DFTravelMileage2.html */,
+				A42738471DA89E2900D5593D /* DFUserCenter.html */,
+				A42738481DA89E2900D5593D /* DFVehicleInformation.html */,
+				A42738491DA89E2900D5593D /* edjifream.html */,
+				A427384A1DA89E2900D5593D /* fonts */,
+				A427384C1DA89E2900D5593D /* ifream.html */,
+				A427384D1DA89E2900D5593D /* img */,
+				A42738971DA89E2A00D5593D /* js */,
+				A42738C11DA89E2A00D5593D /* wzcxifream.html */,
+			);
+			path = HTMLCache;
+			sourceTree = "<group>";
+		};
+		A42738201DA89E2900D5593D /* css */ = {
+			isa = PBXGroup;
+			children = (
+				A42738211DA89E2900D5593D /* DFcommon.css */,
+				A42738221DA89E2900D5593D /* DFhomePage.css */,
+				A42738231DA89E2900D5593D /* mui.css */,
+				A42738241DA89E2900D5593D /* mui.min.css */,
+				A42738251DA89E2900D5593D /* mui.picker.min.css */,
+				A42738261DA89E2900D5593D /* reset.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		A427384A1DA89E2900D5593D /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A427384B1DA89E2900D5593D /* mui.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		A427384D1DA89E2900D5593D /* img */ = {
+			isa = PBXGroup;
+			children = (
+				A427384E1DA89E2900D5593D /* AirConditioner.png */,
+				A427384F1DA89E2900D5593D /* banner-1.png */,
+				A42738501DA89E2900D5593D /* banner-2.png */,
+				A42738511DA89E2900D5593D /* banner-3.png */,
+				A42738521DA89E2900D5593D /* banner-4.png */,
+				A42738531DA89E2900D5593D /* bj_01.png */,
+				A42738541DA89E2900D5593D /* bj_02.png */,
+				A42738551DA89E2900D5593D /* bj_03.png */,
+				A42738561DA89E2900D5593D /* blue.png */,
+				A42738571DA89E2900D5593D /* borRight.png */,
+				A42738581DA89E2900D5593D /* CarDoorLock.png */,
+				A42738591DA89E2900D5593D /* chinaLife.png */,
+				A427385A1DA89E2900D5593D /* copy.png */,
+				A427385B1DA89E2900D5593D /* DFlogin.png */,
+				A427385C1DA89E2900D5593D /* DFMIicon.png */,
+				A427385D1DA89E2900D5593D /* DFMIicon_01.png */,
+				A427385E1DA89E2900D5593D /* DFNDphone.png */,
+				A427385F1DA89E2900D5593D /* DFRRNSphone.png */,
+				A42738601DA89E2900D5593D /* DFRRphon.png */,
+				A42738611DA89E2900D5593D /* DFUCcar.png */,
+				A42738621DA89E2900D5593D /* DFUCpassWord.png */,
+				A42738631DA89E2900D5593D /* DFUCsetUP.png */,
+				A42738641DA89E2900D5593D /* DFVIexample.png */,
+				A42738651DA89E2900D5593D /* DFVIstar.png */,
+				A42738661DA89E2900D5593D /* Engine.png */,
+				A42738671DA89E2900D5593D /* FindCar.png */,
+				A42738681DA89E2900D5593D /* friends.png */,
+				A42738691DA89E2900D5593D /* GRAYright.png */,
+				A427386A1DA89E2900D5593D /* headerLeft.png */,
+				A427386B1DA89E2900D5593D /* HPdrive.png */,
+				A427386C1DA89E2900D5593D /* HPicon_01.png */,
+				A427386D1DA89E2900D5593D /* HPicon_02.png */,
+				A427386E1DA89E2900D5593D /* HPicon_03.png */,
+				A427386F1DA89E2900D5593D /* HPicon_04.png */,
+				A42738701DA89E2A00D5593D /* HPicon_05.png */,
+				A42738711DA89E2A00D5593D /* HPicon_06.png */,
+				A42738721DA89E2A00D5593D /* HPicon_07.png */,
+				A42738731DA89E2A00D5593D /* HPicon_08.png */,
+				A42738741DA89E2A00D5593D /* HPIllegal.png */,
+				A42738751DA89E2A00D5593D /* HPmessage.png */,
+				A42738761DA89E2A00D5593D /* HPphone.png */,
+				A42738771DA89E2A00D5593D /* HProadRescue.png */,
+				A42738781DA89E2A00D5593D /* HPshopping.png */,
+				A42738791DA89E2A00D5593D /* Ifcar.png */,
+				A427387A1DA89E2A00D5593D /* img.png */,
+				A427387B1DA89E2A00D5593D /* intergal.png */,
+				A427387C1DA89E2A00D5593D /* map.png */,
+				A427387D1DA89E2A00D5593D /* message.png */,
+				A427387E1DA89E2A00D5593D /* messageImg.png */,
+				A427387F1DA89E2A00D5593D /* myCar.png */,
+				A42738801DA89E2A00D5593D /* myCar_01.png */,
+				A42738811DA89E2A00D5593D /* NSline.png */,
+				A42738821DA89E2A00D5593D /* NSlocation.png */,
+				A42738831DA89E2A00D5593D /* NSphone.png */,
+				A42738841DA89E2A00D5593D /* NSposition.png */,
+				A42738851DA89E2A00D5593D /* NStitle.png */,
+				A42738861DA89E2A00D5593D /* parts.png */,
+				A42738871DA89E2A00D5593D /* PHlogo.png */,
+				A42738881DA89E2A00D5593D /* portraitImg.png */,
+				A42738891DA89E2A00D5593D /* position.png */,
+				A427388A1DA89E2A00D5593D /* qq.png */,
+				A427388B1DA89E2A00D5593D /* RealTimePosition.png */,
+				A427388C1DA89E2A00D5593D /* red.png */,
+				A427388D1DA89E2A00D5593D /* Redright.png */,
+				A427388E1DA89E2A00D5593D /* roadtel.png */,
+				A427388F1DA89E2A00D5593D /* SNdown.png */,
+				A42738901DA89E2A00D5593D /* SNleftIcon.png */,
+				A42738911DA89E2A00D5593D /* SNup.png */,
+				A42738921DA89E2A00D5593D /* space.png */,
+				A42738931DA89E2A00D5593D /* starUpImg.png */,
+				A42738941DA89E2A00D5593D /* StarUpLogo.png */,
+				A42738951DA89E2A00D5593D /* TravellMileage.png */,
+				A42738961DA89E2A00D5593D /* weChat.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		A42738971DA89E2A00D5593D /* js */ = {
+			isa = PBXGroup;
+			children = (
+				A42738981DA89E2A00D5593D /* area.js */,
+				A42738991DA89E2A00D5593D /* common.js */,
+				A427389A1DA89E2A00D5593D /* DFAirConditioner.js */,
+				A427389B1DA89E2A00D5593D /* DFArea.js */,
+				A427389C1DA89E2A00D5593D /* DFcarPosition.js */,
+				A427389D1DA89E2A00D5593D /* DFcentralLocking.js */,
+				A427389E1DA89E2A00D5593D /* DFCentralLockingHP.js */,
+				A427389F1DA89E2A00D5593D /* DFconfigure.js */,
+				A42738A01DA89E2A00D5593D /* DFEngine.js */,
+				A42738A11DA89E2A00D5593D /* DFhomePage.js */,
+				A42738A21DA89E2A00D5593D /* DFInformation.js */,
+				A42738A31DA89E2A00D5593D /* DFInformationDetial.js */,
+				A42738A41DA89E2A00D5593D /* DFInsuranceCompany.js */,
+				A42738A51DA89E2A00D5593D /* DFlogin.js */,
+				A42738A61DA89E2A00D5593D /* DFMessageCenter.js */,
+				A42738A71DA89E2A00D5593D /* DFmodifyInformation.js */,
+				A42738A81DA89E2A00D5593D /* DFmodifyNum.js */,
+				A42738A91DA89E2A00D5593D /* DFmyCar.js */,
+				A42738AA1DA89E2A00D5593D /* DFmyCatModify.js */,
+				A42738AB1DA89E2A00D5593D /* DFmyIntergra.js */,
+				A42738AC1DA89E2A00D5593D /* DFOffModel.js */,
+				A42738AD1DA89E2A00D5593D /* DFPasswordResetIndex.js */,
+				A42738AE1DA89E2A00D5593D /* DFPasswordResetNUM.js */,
+				A42738AF1DA89E2A00D5593D /* DFProvincesAndCities.js */,
+				A42738B01DA89E2A00D5593D /* DFregister.js */,
+				A42738B11DA89E2A00D5593D /* DFRetrievePassword.js */,
+				A42738B21DA89E2A00D5593D /* DFRoadRescue.js */,
+				A42738B31DA89E2A00D5593D /* DFServiceNetwork.js */,
+				A42738B41DA89E2A00D5593D /* DFstartUp.js */,
+				A42738B51DA89E2A00D5593D /* DFTravelMileage.js */,
+				A42738B61DA89E2A00D5593D /* DFUserCenter.js */,
+				A42738B71DA89E2A00D5593D /* DFVehicleInformation.js */,
+				A42738B81DA89E2A00D5593D /* iscroll.js */,
+				A42738B91DA89E2A00D5593D /* jquery-1.10.2.js */,
+				A42738BA1DA89E2A00D5593D /* json2.js */,
+				A42738BB1DA89E2A00D5593D /* mui.min.js */,
+				A42738BC1DA89E2A00D5593D /* mui.picker.min.js */,
+				A42738BD1DA89E2A00D5593D /* mui.previewimage.js */,
+				A42738BE1DA89E2A00D5593D /* mui.pullToRefresh.js */,
+				A42738BF1DA89E2A00D5593D /* mui.pullToRefresh.material.js */,
+				A42738C01DA89E2A00D5593D /* mui.zoom.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
 		FFD6D2FE13CC6615E6856DB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A42739601DA8A13C00D5593D /* WebKit.framework */,
 				6507D5C41CA6A34100B41237 /* libReactiveCocoa.a */,
 				E363091D312156B62A91EC35 /* libPods.a */,
 			);
@@ -512,10 +1030,168 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42738C91DA89E2A00D5593D /* DFAirConditioner.html in Resources */,
+				A42738D91DA89E2A00D5593D /* DFmyCatModify.html in Resources */,
+				A42739491DA89E2A00D5593D /* DFmyIntergra.js in Resources */,
+				A427394F1DA89E2A00D5593D /* DFRetrievePassword.js in Resources */,
+				A42739101DA89E2A00D5593D /* HPicon_06.png in Resources */,
+				A427391F1DA89E2A00D5593D /* myCar_01.png in Resources */,
+				A42739191DA89E2A00D5593D /* img.png in Resources */,
+				A42738D01DA89E2A00D5593D /* DFhomePage.html in Resources */,
+				A42739081DA89E2A00D5593D /* GRAYright.png in Resources */,
+				A427390C1DA89E2A00D5593D /* HPicon_02.png in Resources */,
+				A427393F1DA89E2A00D5593D /* DFhomePage.js in Resources */,
+				A427390A1DA89E2A00D5593D /* HPdrive.png in Resources */,
+				A427392E1DA89E2A00D5593D /* SNdown.png in Resources */,
+				A427395D1DA89E2A00D5593D /* mui.pullToRefresh.material.js in Resources */,
+				A42738FC1DA89E2A00D5593D /* DFMIicon_01.png in Resources */,
+				A42739241DA89E2A00D5593D /* NStitle.png in Resources */,
 				65729BF11CF30B7A00E4BC34 /* XIBViewController.xib in Resources */,
+				A42738D31DA89E2A00D5593D /* DFInsuranceCompany.html in Resources */,
+				A42738DC1DA89E2A00D5593D /* DFPasswordResetIndex.html in Resources */,
+				A42738E51DA89E2A00D5593D /* DFstartUp.html in Resources */,
+				A42739091DA89E2A00D5593D /* headerLeft.png in Resources */,
+				A42738E41DA89E2A00D5593D /* DFServiceNetWorkDetails.html in Resources */,
+				A42739531DA89E2A00D5593D /* DFTravelMileage.js in Resources */,
+				A42739341DA89E2A00D5593D /* TravellMileage.png in Resources */,
+				A42738C71DA89E2A00D5593D /* reset.css in Resources */,
+				A42738CE1DA89E2A00D5593D /* DFconfigure.html in Resources */,
+				A42738F11DA89E2A00D5593D /* banner-4.png in Resources */,
+				A42738F31DA89E2A00D5593D /* bj_02.png in Resources */,
+				A427392A1DA89E2A00D5593D /* RealTimePosition.png in Resources */,
+				A42738C61DA89E2A00D5593D /* mui.picker.min.css in Resources */,
+				A42738D51DA89E2A00D5593D /* DFMessageCenter.html in Resources */,
+				A42739321DA89E2A00D5593D /* starUpImg.png in Resources */,
+				A42738F61DA89E2A00D5593D /* borRight.png in Resources */,
+				A42739181DA89E2A00D5593D /* Ifcar.png in Resources */,
+				A42739171DA89E2A00D5593D /* HPshopping.png in Resources */,
+				A427392F1DA89E2A00D5593D /* SNleftIcon.png in Resources */,
+				A42739411DA89E2A00D5593D /* DFInformationDetial.js in Resources */,
+				A42739361DA89E2A00D5593D /* area.js in Resources */,
+				A42739141DA89E2A00D5593D /* HPmessage.png in Resources */,
+				A42738EF1DA89E2A00D5593D /* banner-2.png in Resources */,
+				A42738DD1DA89E2A00D5593D /* DFPasswordResetNUM.html in Resources */,
+				A427390B1DA89E2A00D5593D /* HPicon_01.png in Resources */,
+				A427390F1DA89E2A00D5593D /* HPicon_05.png in Resources */,
+				A42738F41DA89E2A00D5593D /* bj_03.png in Resources */,
+				A427393C1DA89E2A00D5593D /* DFCentralLockingHP.js in Resources */,
+				A42739131DA89E2A00D5593D /* HPIllegal.png in Resources */,
+				A42739311DA89E2A00D5593D /* space.png in Resources */,
+				A42738EC1DA89E2A00D5593D /* ifream.html in Resources */,
+				A42738E01DA89E2A00D5593D /* DFRetrievePassword.html in Resources */,
+				A42739041DA89E2A00D5593D /* DFVIstar.png in Resources */,
+				A42738F51DA89E2A00D5593D /* blue.png in Resources */,
+				A42738D81DA89E2A00D5593D /* DFmyCar.html in Resources */,
+				A42738FE1DA89E2A00D5593D /* DFRRNSphone.png in Resources */,
+				A42738E31DA89E2A00D5593D /* DFServiceNetwork.html in Resources */,
+				A427392D1DA89E2A00D5593D /* roadtel.png in Resources */,
+				A42738F81DA89E2A00D5593D /* chinaLife.png in Resources */,
+				A427391C1DA89E2A00D5593D /* message.png in Resources */,
+				A42739481DA89E2A00D5593D /* DFmyCatModify.js in Resources */,
+				A42738FF1DA89E2A00D5593D /* DFRRphon.png in Resources */,
+				A42739591DA89E2A00D5593D /* mui.min.js in Resources */,
+				A42739291DA89E2A00D5593D /* qq.png in Resources */,
+				A42739221DA89E2A00D5593D /* NSphone.png in Resources */,
+				A42738D61DA89E2A00D5593D /* DFmodifyInformation.html in Resources */,
+				A42739561DA89E2A00D5593D /* iscroll.js in Resources */,
+				A42739021DA89E2A00D5593D /* DFUCsetUP.png in Resources */,
+				A42739251DA89E2A00D5593D /* parts.png in Resources */,
+				A42739421DA89E2A00D5593D /* DFInsuranceCompany.js in Resources */,
+				A42739401DA89E2A00D5593D /* DFInformation.js in Resources */,
+				A427390D1DA89E2A00D5593D /* HPicon_03.png in Resources */,
+				A42738DF1DA89E2A00D5593D /* DFregister.html in Resources */,
+				A42738F91DA89E2A00D5593D /* copy.png in Resources */,
+				A42739061DA89E2A00D5593D /* FindCar.png in Resources */,
+				A42739581DA89E2A00D5593D /* json2.js in Resources */,
+				A42739381DA89E2A00D5593D /* DFAirConditioner.js in Resources */,
+				A42738C31DA89E2A00D5593D /* DFhomePage.css in Resources */,
+				A42739501DA89E2A00D5593D /* DFRoadRescue.js in Resources */,
+				A427395E1DA89E2A00D5593D /* mui.zoom.js in Resources */,
+				A42739281DA89E2A00D5593D /* position.png in Resources */,
 				65A4253C1C5F32CF00968FFA /* LaunchScreen.storyboard in Resources */,
+				A42738D21DA89E2A00D5593D /* DFInformationDetial.html in Resources */,
+				A42738FB1DA89E2A00D5593D /* DFMIicon.png in Resources */,
+				A42738DA1DA89E2A00D5593D /* DFmyIntegral.html in Resources */,
+				A427394A1DA89E2A00D5593D /* DFOffModel.js in Resources */,
+				A42738E71DA89E2A00D5593D /* DFTravelMileage2.html in Resources */,
+				A427394B1DA89E2A00D5593D /* DFPasswordResetIndex.js in Resources */,
+				A42739071DA89E2A00D5593D /* friends.png in Resources */,
+				A42739011DA89E2A00D5593D /* DFUCpassWord.png in Resources */,
+				A42738CA1DA89E2A00D5593D /* DFArea.html in Resources */,
+				A427395C1DA89E2A00D5593D /* mui.pullToRefresh.js in Resources */,
+				A427392B1DA89E2A00D5593D /* red.png in Resources */,
+				A42738EB1DA89E2A00D5593D /* mui.ttf in Resources */,
+				A427395B1DA89E2A00D5593D /* mui.previewimage.js in Resources */,
+				A42739111DA89E2A00D5593D /* HPicon_07.png in Resources */,
+				A42739331DA89E2A00D5593D /* StarUpLogo.png in Resources */,
+				A42739391DA89E2A00D5593D /* DFArea.js in Resources */,
+				A427393B1DA89E2A00D5593D /* DFcentralLocking.js in Resources */,
+				A42738E21DA89E2A00D5593D /* DFServiceContent.html in Resources */,
+				A42739231DA89E2A00D5593D /* NSposition.png in Resources */,
+				A42739031DA89E2A00D5593D /* DFVIexample.png in Resources */,
+				A42739051DA89E2A00D5593D /* Engine.png in Resources */,
+				A42738D71DA89E2A00D5593D /* DFmodifyNum.html in Resources */,
+				A42738D11DA89E2A00D5593D /* DFInformation.html in Resources */,
+				A42739521DA89E2A00D5593D /* DFstartUp.js in Resources */,
 				65729BE31CF307F200E4BC34 /* huodongcuxiao.png in Resources */,
+				A427395A1DA89E2A00D5593D /* mui.picker.min.js in Resources */,
+				A42739201DA89E2A00D5593D /* NSline.png in Resources */,
+				A42739551DA89E2A00D5593D /* DFVehicleInformation.js in Resources */,
+				A42739571DA89E2A00D5593D /* jquery-1.10.2.js in Resources */,
+				A42738E11DA89E2A00D5593D /* DFRoadRescue.html in Resources */,
+				A42738ED1DA89E2A00D5593D /* AirConditioner.png in Resources */,
 				65A425391C5F32CF00968FFA /* Assets.xcassets in Resources */,
+				A427391D1DA89E2A00D5593D /* messageImg.png in Resources */,
+				A42738E81DA89E2A00D5593D /* DFUserCenter.html in Resources */,
+				A42738CF1DA89E2A00D5593D /* DFEngine.html in Resources */,
+				A42739001DA89E2A00D5593D /* DFUCcar.png in Resources */,
+				A42739451DA89E2A00D5593D /* DFmodifyInformation.js in Resources */,
+				A42738FA1DA89E2A00D5593D /* DFlogin.png in Resources */,
+				A42739121DA89E2A00D5593D /* HPicon_08.png in Resources */,
+				A427394C1DA89E2A00D5593D /* DFPasswordResetNUM.js in Resources */,
+				A42738C21DA89E2A00D5593D /* DFcommon.css in Resources */,
+				A427391B1DA89E2A00D5593D /* map.png in Resources */,
+				A42738F21DA89E2A00D5593D /* bj_01.png in Resources */,
+				A427393A1DA89E2A00D5593D /* DFcarPosition.js in Resources */,
+				A42738CB1DA89E2A00D5593D /* DFcarPosition.html in Resources */,
+				A42738C81DA89E2A00D5593D /* DFAccessoriesVerification.html in Resources */,
+				A427393D1DA89E2A00D5593D /* DFconfigure.js in Resources */,
+				A42738F71DA89E2A00D5593D /* CarDoorLock.png in Resources */,
+				A42739371DA89E2A00D5593D /* common.js in Resources */,
+				A427394E1DA89E2A00D5593D /* DFregister.js in Resources */,
+				A42738E61DA89E2A00D5593D /* DFTravelMileage.html in Resources */,
+				A42739461DA89E2A00D5593D /* DFmodifyNum.js in Resources */,
+				A42738CD1DA89E2A00D5593D /* DFCentralLockingHP.html in Resources */,
+				A42738CC1DA89E2A00D5593D /* DFCentralLocking.html in Resources */,
+				A42738FD1DA89E2A00D5593D /* DFNDphone.png in Resources */,
+				A42738EA1DA89E2A00D5593D /* edjifream.html in Resources */,
+				A42739441DA89E2A00D5593D /* DFMessageCenter.js in Resources */,
+				A427391A1DA89E2A00D5593D /* intergal.png in Resources */,
+				A42738D41DA89E2A00D5593D /* DFlogin.html in Resources */,
+				A42739161DA89E2A00D5593D /* HProadRescue.png in Resources */,
+				A42738C41DA89E2A00D5593D /* mui.css in Resources */,
+				A427395F1DA89E2A00D5593D /* wzcxifream.html in Resources */,
+				A42739351DA89E2A00D5593D /* weChat.png in Resources */,
+				A42739151DA89E2A00D5593D /* HPphone.png in Resources */,
+				A427393E1DA89E2A00D5593D /* DFEngine.js in Resources */,
+				A42739211DA89E2A00D5593D /* NSlocation.png in Resources */,
+				A42738E91DA89E2A00D5593D /* DFVehicleInformation.html in Resources */,
+				A427390E1DA89E2A00D5593D /* HPicon_04.png in Resources */,
+				A42739261DA89E2A00D5593D /* PHlogo.png in Resources */,
+				A42739431DA89E2A00D5593D /* DFlogin.js in Resources */,
+				A42738F01DA89E2A00D5593D /* banner-3.png in Resources */,
+				A42739271DA89E2A00D5593D /* portraitImg.png in Resources */,
+				A42738DB1DA89E2A00D5593D /* DFOffModel.html in Resources */,
+				A42739541DA89E2A00D5593D /* DFUserCenter.js in Resources */,
+				A42739471DA89E2A00D5593D /* DFmyCar.js in Resources */,
+				A427394D1DA89E2A00D5593D /* DFProvincesAndCities.js in Resources */,
+				A42738C51DA89E2A00D5593D /* mui.min.css in Resources */,
+				A42738DE1DA89E2A00D5593D /* DFProvincesAndCities.html in Resources */,
+				A427392C1DA89E2A00D5593D /* Redright.png in Resources */,
+				A42739301DA89E2A00D5593D /* SNup.png in Resources */,
+				A427391E1DA89E2A00D5593D /* myCar.png in Resources */,
+				A42738EE1DA89E2A00D5593D /* banner-1.png in Resources */,
+				A42739511DA89E2A00D5593D /* DFServiceNetwork.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

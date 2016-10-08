@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/area.js"></script>
+		<script type="text/javascript" src="js/DFRoadRescue.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=QqzTcUESgHaXpn189pALQa71&services=&t=20130716024057"></script>
+		<style type="text/css">
+			.mui-iframe-wrapper{bottom: 0!important;}
+			.mui-fullscreen{top: 15.6rem;bottom: 0;}
+			.mui-table-view-cell{padding: 0;}
+			p{margin: 0;color: #000;}
+			#scroll1NoDate{
+				font-size:20px;
+				color:#333;
+				text-align:center;
+				line-height:4rem;
+			}
+			.NoDataPhone{
+				font-size: 20px;
+				text-align: center;
+				color: #333;
+				position:relative;
+			}
+			.NoDataPhone img{
+			    height: 1.4rem!important;
+				width: 1.4rem!important;
+				margin-left: 0.4rem!important;
+			}
+		</style>
+		<script>
+		function initData() {
+		    var url = window.location.href;
+			url = url.replace("DFRoadRescue.html", "DFhomePage.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+		    CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":4,\"hwContent\":\"\"}}");   
+			//CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":3,\"hwContent\":\"\"}}");  
+            if(browser.versions.android){
+			     initMap();   	
+			}			
+           		
+		}
+		function initMap(lon, lat) {
+			
+			if(lon == null || lat == null || lon =="" || lat == "") {
+				lon = "116.404";
+				lat = "39.915";
+			}
+			// 百度地图API功能
+			var map = new BMap.Map("allmap");    // 创建Map实例
+			map.enableScrollWheelZoom(true);
+			if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+				map.clearOverlays();
+                map.centerAndZoom(new BMap.Point(lon,lat),11);
+				var new_point = new BMap.Point(lon,lat);
+				var marker = new BMap.Marker(new_point);  // 创建标注
+				map.addOverlay(marker);              // 将标注添加到地图中
+				map.panTo(new_point);
+                function myFun(result){//获取当前城市名
+                    var cityName = result.name;
+                    $("#showBDAddress").html("详细地址："+cityName);
+                    $('#dizhi').val(cityName);
+                    initPage(cityName, cityName);
+                }
+                var myCity = new BMap.LocalCity();
+                province = myCity.get(myFun);
+            }else if (browser.versions.android){
+			    var geolocation = new BMap.Geolocation();
+				geolocation.getCurrentPosition(function(r){
+					if(this.getStatus() == BMAP_STATUS_SUCCESS){
+						var mk = new BMap.Marker(r.point);
+						map.addOverlay(mk);
+						map.panTo(r.point);
+						var point = new BMap.Point(r.point.lng,r.point.lat);
+						$('#jingdu').val(r.point.lng);
+						$('#weidu').val(r.point.lat);					
+						map.centerAndZoom(point, 10);
+						var marker = new BMap.Marker(point);//创建标注  
+						map.addOverlay(marker);             // 将标注添加到地图中  
+					}
+					else {
+						alert('failed'+this.getStatus());
+					}        
+				},{enableHighAccuracy: false})
+				
+				function myFun(result){//获取当前城市名 
+					var cityName = result.name;
+					$("#showBDAddress").html("详细地址："+cityName);
+					$('#dizhi').val(cityName);	
+					initPage(cityName, cityName);
+				}
+				var myCity = new BMap.LocalCity();
+				province = myCity.get(myFun);
+			}
+			
+		}
+		
+		
+		function initPage(province, city) {
+			// 根据地图查附近的网点 
+			var page = $("#page").val();
+				if(page==""){
+				  page=1;
+				}
+				if(city==""||!city){
+				  city=$("#dizhi").val();
+				}
+		    var citycode = getAreaCode(city);
+			var params = "{\"apiCode\":\"APP00033\",\"apiData\":{\"header\":{\"code\":\"APP00033\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\",\"areaCode\": \""+citycode+"\",\"page\":\"" + page + "\",\"searchType\":\"FACILITATOR\",\"pageSize\":\"5\"}}}";
+			//alert(params);
+			CallToMobil(params);
+			$("#page").val(page*1+1);
+			
+		}
+		
+		function getAndroidData(apiCode, content, status) {
+			var page = $("#page").val();
+				if(apiCode == "APP00033") {
+					var objjson = JSON.parse(content);
+					var obj = objjson.body;
+					var row = obj.resultData.rows;
+					if(obj && row &&　row.length > 0) { 
+						var DFSNlist = document.body.querySelector('#DFRoadResuceList');
+						var hid4sDiv = document.body.querySelector('.hid4sDiv');
+						for(var i=0;i<row.length;i++) {
+							var addHtml = "";
+							var hidHtml = "";
+							addHtml +=  "  <li class=\"mui-table-view-cell\">                                             ";
+							addHtml +=  "  	<section class=\"DFRRlist\">                                                  ";
+							if(i==0&&page==2){
+							   addHtml +=  "  		<p class=\"DFRRnearbyShop\">"+$('#dizhi').val()+"救援4S店</p>                           ";
+							}
+							addHtml +=  "  		<p class=\"DFRRShopCenter\">{name4s}</p>                                  ";
+							addHtml +=  "  		<p class=\"DFRRphone\" cid=\"{shop4sId}\">                ";
+							addHtml +=  "  			<span>电话：</span><span>{phone}</span>                                ";
+							addHtml +=  "  			<img src=\"img/DFRRphon.png\" class=\"fr DFRRmt DFRRtell\"/>          ";
+							addHtml +=  "  		</p>                                                                      ";
+							addHtml +=  "  		<p class=\"DFRRaddress\">地址：{address4s}</p>                             ";
+							addHtml +=  "  	</section>                                                                    ";
+							addHtml +=  "  </li>                                                                          ";
+							addHtml = addHtml.replace('{shop4sId}', row[i].id);
+							addHtml = addHtml.replace('{name4s}', row[i].name);
+							addHtml = addHtml.replace('{phone}', row[i].hotLine);
+							addHtml = addHtml.replace('{address4s}', row[i].address);
+							var li = document.createElement('li');
+							li.innerHTML = addHtml;
+							
+							DFSNlist.appendChild(li);
+							
+							// hide phone div
+							hidHtml += "  <div class=\"DFSNmarkPhone hid\" id=\"shop4s_{shop4sId}\">                                              ";
+							hidHtml += "  	<div class=\"DFRRmengbanContent\">                                                                  ";
+							hidHtml += "  		<p class=\"DFRRmengbanTellTitle\">拨打电话</p>                                                   ";
+							hidHtml += "  		<p class=\"DFRRmengbanTellTitleConfirm\">您确定拨打：<span>{phone}</span></p>                     ";
+							hidHtml += "  		<p class=\"DFRRmengbanBtn\">                                                                    ";
+							hidHtml += "  			<span class=\"DFRRmengbanBtnCancel\"  cid=\"{shop4sId2}\">取消</span>        ";
+							hidHtml += "  			<span class=\"DFRRmengbanBtnOk\" cid=\"{shop4sId4}\" telcid=\"{shop4sId3}\">确定</span>                                           ";
+							hidHtml += "  		</p>                                                                                             ";
+							hidHtml += "  	</div>		                                                                                         ";
+							hidHtml += "  </div>                                                                                                 ";
+							hidHtml = hidHtml.replace('{shop4sId}', row[i].id);
+							hidHtml = hidHtml.replace('{phone}', row[i].hotLine);
+							hidHtml = hidHtml.replace('{shop4sId2}', row[i].id);
+							hidHtml = hidHtml.replace('{shop4sId3}', row[i].hotLine);
+							hidHtml = hidHtml.replace('{shop4sId4}', row[i].id);
+							hidHtml = hidHtml.replace('{call_phone}', row[i].hotLine);
+							var divv = document.createElement('div');
+							divv.innerHTML = hidHtml;
+							hid4sDiv.appendChild(divv);
+						}
+						eachAddClick();
+					}else{
+					    var page = $("#page").val();
+					    if(page==2){
+					       $("#teltop").hide();
+						   $('#scroll1').html('<p id="scroll1NoDate">附近暂无服务网点</p><p class="NoDataPhone" onclick="clicktel()">请拨打：<span>400-1234-678</span><a href="###" class="DFRRNoServicePhone"><img src="img/DFRRNSphone.png"></a></p>');
+						  }
+				    }
+				}
+				if(apiCode == "APP00037") {
+					var objjson = JSON.parse(content);
+					var obj = objjson.body;
+					if(obj && obj.resultData) {
+						if(obj.resultData == "0") {
+							CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"" + "位置信息发送失败" + "\"}}");    			
+						} else if(obj.resultData == "1") {
+							CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"" + "位置信息发送成功" + "\"}}");    			
+						} 
+					}
+				}
+				if(apiCode == "APP00008") {
+					var objjson = JSON.parse(content);
+					if(objjson.hwType=="4"){
+					   var lon = objjson.lon;
+					   var lat = objjson.lat;
+					   if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+					     initMap(lon, lat);
+					   }
+					   else if (browser.versions.android){
+					   }
+					}
+				}
+		}  
+		
+			function eachAddClick() {
+				$.each(document.querySelectorAll('.DFRRphone'), function() {
+				this.addEventListener('tap',function(){
+					var cid = $(this).attr("cid");
+					$("#shop4s_"+cid).show();
+				});
+			});
+			$.each(document.querySelectorAll('.DFRRmengbanBtnCancel'), function() {
+				this.addEventListener('tap',function(){
+					var cid = $(this).attr("cid");
+					$("#shop4s_"+cid).hide();
+				});
+			});
+			$.each(document.querySelectorAll('.DFRRmengbanBtnOk'), function() {
+				this.addEventListener('tap',function(){
+					var tel = $(this).attr("telcid");
+					var dizhi = $('#dizhi').val();	
+					var jingdu = $('#jingdu').val();	
+					var weidu = $('#weidu').val();	
+					var cid = $(this).attr("cid");
+					$("#shop4s_"+cid).hide();
+				    //var params = "{\"apiCode\":\"APP00037\",\"apiData\":{\"header\":{\"code\":\"APP00037\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\",\"lon\": \"" + jingdu + "\",\"lat\":\"" + weidu + "\",\"address\":\"" + dizhi + "\"}}}";	
+				    //CallToMobil(params);
+					CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":1,\"hwContent\":\"" + tel + "\"}}");    			
+
+				});
+			});
+		}
+	
+		//这里根据所选地区重新加载服务网点
+		function reloadShop4s(cityName){
+			var province = ""; 
+			var city = "";
+			if(cityName != "") {
+				province = cityName.split("_")[0];
+				city = cityName.split("_")[1];
+			}
+			$("#DFSNlist").html("");//把原来的服务网点清掉方便加载新数据 
+			initPage(province, city);
+		}
+		function clicktel(){
+		    $(".DFRRmengban").show();
+		}
+		function clickServiceCancel(){
+		    $(".DFRRmengban").hide();
+		}
+		function clickServiceOk(){
+		    $(".DFRRmengban").hide();
+			CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":1,\"hwContent\":\"4001234678\"}}");    			
+		}
+		</script>
+	</head>
+	<body onload="initData()">
+		<!--heaer star-->
+		<header id="DFRRheader">
+			<a href="javascript:history.go(-1)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">道路救援</a>
+			<a class="DFHPhdphone fr HPMtmessage DFHPmessageIcon" onclick="clicktel()" id="teltop"><img src="img/roadtel.png"/></a>
+		</header>
+		<!--heaer end-->
+		<!--map star-->
+		<div class="position" style="position:relative;">
+			<section class="DFRRmap"  id="allmap">
+			</section>
+			<p class="DFRRAddressInDetail" id="showBDAddress"></p>	
+		</div>
+		
+		<!--map end-->
+		<!--mui-content star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="DFRoadResuceList">
+									<!-- <li class="mui-table-view-cell">                                          
+						  	             <section class="DFRRlist">                                                  	
+													<p class="DFRRnearbyShop">救援4S店</p>                          		
+													<p class="DFRRShopCenter"></p>                                 
+													<p class="DFRRphone">                
+													<span>电话：</span><span>110</span>                               
+													<img src="img/DFRRphon.png" class="fr DFRRmt DFRRtell">          
+												</p>                                                                     
+												<p class="DFRRaddress">地址：</p>                           
+							       	    </section>                                                                   
+							            </li>       -->    
+								</ul>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<!--mui-content end-->
+		<!--mengban star-->
+		<div class="hid4sDiv">
+			<div class="DFRRmengban hid">
+				<div class="DFRRmengbanContent">
+					<p class="DFRRmengbanTellTitle">提示信息</p>
+					<p class="DFRRmengbanTellTitleConfirm">您确定拨打：<span>400-1234-678</span></p>
+					<p class="DFRRmengbanBtn">
+						<span  onclick="clickServiceCancel()">取消</span>
+						<span  onclick="clickServiceOk()">确定</span>
+					</p>
+				</div>		
+			</div>		
+		</div>
+		<!--mengban end-->
+		<!--DFRRNoService star
+		<div class="DFRRNoService hid">
+			<p class="DFRRmengbanTellTitle">提示信息</p>
+			<p class="DFRRNoServiceTell">
+				<span>救援电话  400-887-5551</span>
+				<p class="DFRRmengbanBtn">
+						<span class="DFRRmengbanBtnCancel">取消</span>
+						<span class="DFRRmengbanBtnOk">确定</span>
+				</p>
+			</p>
+		</div>-->
+		<!--DFRRNoService end-->	
+		<!-- 隐藏的传值数据 -->
+		<input type="hidden" name="" id="dizhi" value="" />
+		<input type="hidden" name="" id="jingdu" value="" />
+		<input type="hidden" name="" id="weidu" value="" />
+		<input id="page" type="hidden" value=""/>
+	</body>
+</html>

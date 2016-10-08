@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/area.js"></script>
+		<script type="text/javascript" src="js/iscroll.js"></script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js">
+		</script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js">
+		</script>
+		<script type="text/javascript" src="js/DFProvincesAndCities.js">
+		</script>
+		<script type="text/javascript" src="js/common.js">
+		</script>
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=QqzTcUESgHaXpn189pALQa71&services=&t=20130716024057"></script>
+		<style type="text/css">
+			.mui-fullscreen{
+				top:8.6rem;
+				bottom: 0;
+			}
+			.mui-table-view{
+				background: #fff;
+			}
+		</style>
+        <script> 
+			function initPage(province, city) {
+				var url = window.location.href;
+				url = url.replace("DFProvincesAndCities.html", "DFmodifyInformation.html");
+				CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+				initProvince_UserCenter("pro_div");
+				var myCity = new BMap.LocalCity();
+				function myFun(result){//获取当前城市名 
+				    var cityName = result.name;
+					$(".DFPACpositionDetial").text(cityName);
+				}
+				
+				var province = myCity.get(myFun);
+				//if(province){
+				 // $(".DFPACpositionDetial").text($(".DFPACpositionDetial").text()+"aa");
+				//}
+				
+			}
+			function clicklocation(){
+				var username = GetPageParams("username");
+				var usersex = GetPageParams("usersex");
+				var userphone = GetPageParams("userphone");
+				var DFMIbtnDate = GetPageParams("DFMIbtnDate");
+				var usercity = $(".DFPACpositionDetial").text();
+				var url = 'DFmodifyInformation.html?usercity=' + usercity+'&username='+username+'&usersex='+usersex+'&userphone='+userphone+'&DFMIbtnDate='+DFMIbtnDate;
+				url = encodeURI(url);
+				window.location.href = url;
+			}
+			function clickback(){
+					var username = GetPageParams("username");
+					var usersex = GetPageParams("usersex");
+					var userphone = GetPageParams("userphone");
+					var DFMIbtnDate = GetPageParams("DFMIbtnDate");
+					var usercity = GetPageParams("usercity");
+					var citycode = GetPageParams("citycode");
+					var url = 'DFmodifyInformation.html?username='+username+'&usersex='+usersex+'&userphone='+userphone+'&DFMIbtnDate='+DFMIbtnDate+'&usercity='+usercity+'&citycode='+citycode;
+					url = encodeURI(url);
+					window.location.href = url;
+			}
+		</script> 	
+	</head>
+	<body onload="initPage('','')">
+		<!--heaer star-->
+		<header id="DFPACheader">
+			<a href="javascript:void(0)" class="fl DFIDTheaderImg" onclick="clickback()"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">选择省/市</a>
+		</header>
+		<!--heaer end-->
+		<!--DFPACposition star-->
+		<section class="DFPACposition" onclick="clicklocation()">
+			<p>定位到的位置</p>
+			<p class="DFPACpositionDetial"><span>北京市</span>    <span>朝阳区</span></p>
+		</section>
+		
+		<!--DFPACposition end-->
+		<!--DFMCcontent star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="pro_div">
+									<li class="DFPACcityList">北京</li>
+								</ul>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>	
+		<!--DFMCcontent end-->
+
+	</body>
+</html>

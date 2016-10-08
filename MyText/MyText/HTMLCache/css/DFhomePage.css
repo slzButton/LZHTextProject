@@ -1,0 +1,1623 @@
+/*首页*/
+/*header star*/
+body,html{
+	font-family:"微软雅黑",Microsoft YaHei,sans-serif,Arial;
+	width: 100%;
+	height: 100%;
+	background: #f6f6f6;
+}
+input, select, textarea,button{
+	color: #858585;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 0;
+	outline:none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+   }
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #858585; 
+font-size: 1rem;
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #858585; 
+font-size: 1rem;
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #858585; 
+font-size: 1rem;
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #858585; 
+font-size: 1rem;
+} 
+p{
+	margin: 0;
+}
+.hid{
+	display: none;
+}
+/*header star*/
+#DFHPheader,#DFIheader,#DFIDTheader,#DFRRheader,#DFICheader,#DFOMheader,#DFCFheader,#DFMCheader,#DFPACheader,#DFPAheader{
+	padding: 0.6rem;
+	background: #fff;
+	text-align: center;
+	font-size: 1.1rem;
+}
+#DFHPheader{
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%
+}
+#DFHPimgBanner{
+	min-height:10rem;
+	margin-bottom:0.4rem;
+}
+.DFHPhdphone{
+	display: inline-block;
+}
+.HPMtphone{
+	margin-top: 0.2rem;
+}
+.HPMtmessage{
+	margin-top: 0.4rem;
+}
+.DFHPmessageIcon img{
+	height: 20px;
+}
+.DFHPphon{
+	height: 24px;
+}
+.DFHPlogo img{
+	height: 28px;
+}
+/*header end*/
+/*HPmain star*/
+#DFHPGallery{
+	margin: 0 0 0px 0;
+}
+/*HPmain end*/
+/*footer star*/
+#DFHPfooter,#SNHPfooter,#DFIfooter{
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	bottom: 0;
+	background: #fff;
+}
+.HPfooterwidth{
+	width: 20%;
+	text-align: center;
+}
+.EFHPFIcon img{
+	width: 20px;
+	height: 20px;
+	margin-top:4px;
+}
+.EFHPFIcon p{
+	margin:0 2px 2px;
+}
+.DFHPFcolor{
+	color: #fe0000;
+	font-size:12px;
+	line-height:21px;
+}
+/*footer end*/
+/*服务网点--------------------------------------------*/
+/*SNheader star*/
+#DFSNheader{
+	background: #fff;
+	text-align: center;
+	padding: 0.8rem;
+	color: #333;
+	font-size: 1.1rem;
+	overflow: hidden;
+}
+.DFNheaderfont{
+	width: 86%;
+	margin: 0;
+	font-size: 1.2rem;
+	color: #fff;
+	text-align: center;
+}
+.DFSNheader img{
+	width: 1rem;
+}
+/*SNheader end*/
+/*DFSNmenu star*/
+.DFSNmenu{
+	text-align: center;
+	padding: 0.6rem;
+	background: #fff;
+	color: #8f8f94;
+	font-size: 1rem;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}
+.DFSNdownIcon{
+	width: 10px;
+	height: 8px;
+}
+.DFNSlist{
+	overflow: hidden;
+	background: #fff;
+	margin-top: 1rem;
+	padding: 0.2rem;
+}
+.DFNSlistLeft{
+	width: 84%;
+	padding-left: 2%;
+	padding-right: 1%;
+	background: url(../img/NSline.png) no-repeat right center;
+}
+.DFNSlistRight{
+	width: 14%;
+}
+.DFSNphoneImg{
+	padding: 40% 20%;
+}
+.DFNSListname{
+	color: #333;
+	font-size: 1rem;
+	line-height: 2rem;
+	padding-left: 1.2rem;
+	background: url(../img/NStitle.png) no-repeat left center;
+}
+.DFNSListLocation{
+	padding-left: 1.2rem;
+	background: url(../img/NSlocation.png) no-repeat left center;
+}
+/*DFSNmenu end*/
+/*DFSNMaskMeu star*/
+.DFSNMaskMeu,.DFRRtelephone{
+	width: 100%;
+	position: fixed;
+	top:93px;
+	height: 100%;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	z-index: 999;
+}
+/*DFSNMaskMeu end*/
+/*menu select star*/
+#wrapper,.rightBigContent{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 248px;
+	left: 0;
+	width: 100%;
+	background: #ccc;
+	overflow: hidden;
+	width: 45%;
+}
+.rightBigContent{
+	left: 45%;
+	width: 55%;
+}
+#scroller,.rightSmallContent{
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+.listBtn{
+	color: #666;
+}
+#scroller ul ,.rightSmallContent ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+}
+
+#scroller li,.rightSmallContent li{
+	padding: 0 10px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid #ebebeb;
+	border-top: 1px solid #fff;
+	background-color: #f7f7f7;
+	font-size: 14px;
+	text-align: center;
+}
+#scroller li{
+	background: #fff;
+	border: none;
+}
+#scroller .scrollerbj{
+	background: #f7f7f7;
+	color: #000;
+}
+.mui-table-viewBJ{
+	background-color:#f6f6f6!important;
+}
+/*menu select end*/
+/*DFSNmarkPhone star*/
+.DFSNmarkPhone,.DFRRmengban{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	z-index: 999;
+	text-align: center;
+	color: #2d90fe;
+}
+.DFSNmarkPhoneBigContent{
+	position: fixed;
+	bottom: 100px;
+	width: 96%;
+	margin: 2%;
+}
+.DFSNmarkPhoneContent{
+	width: 88%;
+	padding:0 3%;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 6px;
+}
+.DFSNmarkPhoneContent p{
+	line-height: 2.6rem;
+	border-bottom: 1px solid #e9e9e9;
+	margin: 0 auto;
+	color: #1e89fe;
+}
+.DFSNcancelPhone{
+	width: 88%;
+	padding:0 3%;
+	line-height: 2.6rem;
+	background: #fff;
+	margin: 1rem auto 0;
+	color: #1e89fe;
+	border-radius: 6px;
+}
+.DFSNmarkPhoneContent p:nth-child(3){
+	border: none;
+}
+a{
+	/*color: #1e89fe!important;*/
+}
+/*信息资讯      DFSNmarkPhone end---------------------------------------*/
+@media only screen and (min-width:321px) and (max-width:375px) {
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	padding: 38px 31px;
+}
+}
+/*DFInformation star------------------------------------*/
+.mui-bar~.mui-content .mui-fullscreen {
+	top: 44px;
+	height: auto;
+}
+.mui-pull-top-tips {
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	margin-left: -25px;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	z-index: 1;
+}
+.mui-bar~.mui-pull-top-tips {
+	top: 24px;
+}
+.mui-pull-top-wrapper {
+	width: 42px;
+	height: 42px;
+	display: block;
+	text-align: center;
+	background-color: #efeff4;
+	border: 1px solid #ddd;
+	border-radius: 25px;
+	background-clip: padding-box;
+	box-shadow: 0 4px 10px #bbb;
+	overflow: hidden;
+}
+.mui-pull-top-tips.mui-transitioning {
+	-webkit-transition-duration: 200ms;
+	transition-duration: 200ms;
+}
+.mui-pull-top-tips .mui-pull-loading {
+	/*-webkit-backface-visibility: hidden;
+	-webkit-transition-duration: 400ms;
+	transition-duration: 400ms;*/
+	
+	margin: 0;
+}
+.mui-pull-top-wrapper .mui-icon,
+.mui-pull-top-wrapper .mui-spinner {
+	margin-top: 7px;
+}
+.mui-pull-top-wrapper .mui-icon.mui-reverse {
+	/*-webkit-transform: rotate(180deg) translateZ(0);*/
+}
+.mui-pull-bottom-tips {
+	text-align: center;
+	background-color: #f6f6f6;
+	font-size: 15px;
+	line-height: 40px;
+	color: #777;
+}
+.mui-pull-top-canvas {
+	overflow: hidden;
+	background-color: #fafafa;
+	border-radius: 40px;
+	box-shadow: 0 4px 10px #bbb;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+.mui-pull-top-canvas canvas {
+	width: 40px;
+}
+.mui-slider-indicator.mui-segmented-control {
+	background-color: #fff;
+	margin-top: 2px;
+}
+#sliderSegmentedControl a:last-child{
+	background: none;
+}
+.DFIleftImg{
+	width: 6rem;
+	margin-right: 1rem;
+}
+.DFIRightListTitle{
+	color: #333;
+	font-size: 0.9rem;
+	padding-right: 0.4rem;
+}
+.DFIcarListIcon{
+	display: inline-block;
+	background: #39cf16;
+	color: #fff;
+	border-radius: 8px;
+	padding: 0 0.8rem;
+	font-size: 0.8rem;
+}
+.DFImt{
+	margin-top: 0.4rem;
+}
+.DFIcolor{
+	color: #333;
+}
+.DFIDTdetailTitle{
+	color: #333;
+}
+/*DFInformation end ----------------------------------*/
+/*信息资讯详情页 DFInformationDetial star--------------------*/
+#DFIDTheader{
+	padding: 0.8rem;
+	font-size: 1.1rem;
+	margin-bottom: 1rem;
+}
+.DFIDTheaderImg img{
+	width: 1.4rem;
+}
+.DFIDTheaderImg{
+	margin-top: 0.3rem;
+}
+.DFIDTshare{
+	font-size: 1rem;
+	color: #666;
+	margin-top: 0.1rem;
+}
+.DFIDTcontent{
+	background: #fff;
+	padding: 0.8rem;
+	line-height: 2rem;
+	color: #333;
+}
+.DFIDTcontentTitle{
+	font-size: 1.5rem;
+	color: #000;
+	font-weight: bold;
+	line-height:3rem;
+}
+.DFIDTcontentDate{
+	margin-bottom: 0.4rem;
+}
+.DFIDTcontentDateColor{
+	color: #888;
+	margin-right: 1rem;
+}
+.DFIDTcontentDateTitle{
+	color: #607fa6;
+}
+
+.DFIDTshareContent{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 99;
+	top:0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+}
+.DFIDTshareContentPosition{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: #f0f0f0;
+	width: 100%;
+}
+.DFIDTshareContentIcon{
+	width: 98%;
+	padding: 1%;
+	overflow: hidden;	
+	color: #333;
+	font-size: 0.7rem;
+}
+.DFIDTshareIconDL{
+	width: 25%;
+	text-align: center;
+	line-height: 2rem;
+	border-bottom: 1px solid #e5e5e5;
+	margin-top: 0.4rem;
+	cursor: pointer;
+}
+.DFIDTshareIconDL dt{
+	width:3.4rem;
+	height: 3.4rem;
+	background: #fff;
+	border-radius:2rem;
+	padding: 0.6rem;
+	margin: 0 auto;
+}
+.DFIDTshareIconDL img{
+	display: inline-block;
+	width: 90%;
+}
+.DFIDTborNone{
+	border: none;
+}
+.DFIDTcancel{
+	clear: both;
+	text-align: center;
+	line-height: 2.6rem;
+	background: #F9F9F9;
+	border-top: 1px solid #e5e5e5;
+	color: #333;
+}
+/*big img star*/
+.mui-preview-image.mui-fullscreen {
+	position: fixed;
+	z-index: 20;
+	background-color: #000;
+	top:0;
+	bottom: 0;
+	left: 0;
+}
+.mui-preview-header,
+.mui-preview-footer {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	z-index: 10;
+}
+.mui-preview-header {
+	height: 44px;
+	top: 0;
+}
+.mui-preview-footer {
+	height: 50px;
+	bottom: 0px;
+}
+.mui-preview-header .mui-preview-indicator {
+	display: block;
+	line-height: 25px;
+	color: #fff;
+	text-align: center;
+	margin: 15px auto 4px;
+	width: 70px;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+	font-size: 16px;
+}
+.mui-preview-image {
+	display: none;
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+.mui-preview-image.mui-preview-in {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+.mui-preview-image.mui-preview-out {
+	background: none;
+	-webkit-animation-name: fadeOut;
+	animation-name: fadeOut;
+}
+.mui-preview-image.mui-preview-out .mui-preview-header,
+.mui-preview-image.mui-preview-out .mui-preview-footer {
+	display: none;
+}
+.mui-zoom-scroller {
+	position: absolute;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	-webkit-backface-visibility: hidden;
+}
+.mui-zoom {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+/*.mui-slider .mui-slider-group .mui-slider-item img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}*/
+.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+	width: 100%;
+}
+.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+	display: inline-table;
+}
+.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+	display: table-cell;
+	vertical-align: middle;
+}
+.mui-preview-loading {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.mui-preview-loading.mui-active {
+	display: block;
+}
+.mui-preview-loading .mui-spinner-white {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -25px;
+	margin-top: -25px;
+	height: 50px;
+	width: 50px;
+}
+.mui-preview-image img.mui-transitioning {
+	-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+	transition: transform 0.5s ease, opacity 0.5s ease;
+}
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.DFIDTcontent p img {
+	max-width: 100%;
+	height: auto;
+}
+/*big img end*/
+/*信息资讯详情页 DFInformationDetial end--------------------*/
+/*用户中心 DFUC satr--------------------------------------*/
+.DFUCcontentLink{
+	padding: 0.6rem 1rem;
+	background: #fff;
+	margin:1rem 0;
+	overflow: hidden;
+}
+.DFUCportrait{
+	width: 3rem;
+	height: 3rem;
+	background: #f5f5f5;
+	padding: 0.4rem;
+	border-radius: 4rem;
+	margin-right: 0.5rem;
+}
+.DFUCportrait img{
+	display: inline-block;
+	width: 100%;
+}
+.DFUCnotLogin{
+	color: #adadad;
+	line-height: 3.5rem;
+}
+.DFUCnotOption{
+	line-height: 3.5rem;
+	background: url(../img/Redright.png) no-repeat right center;
+	padding-right: 1.2rem;
+	background-size:12%;
+}
+.DFUCnotOption a{
+	color: #fe1111;
+}
+.DFUCcontent{
+	padding: 0 1rem;
+	background: #fff;
+}
+.DFUCmyCar{
+	line-height: 4rem;
+	border-bottom: 1px solid #f6f6f6;
+	color: #333;
+	background: url(../img/GRAYright.png) no-repeat right center;
+	background-size:3% ;
+}
+.DFUCmyCarIcon,.DFUCmyPassWordIcon,.DFUCmySetUpIcon,.DFUCmyIntegralIcon{
+	background: url(../img/DFUCcar.png) no-repeat left center;
+	padding-left: 14%;
+	font-size: 1rem;
+	color: #666;
+	background-size: 10%;
+}
+.DFUCmyIntegralIcon{
+	background: url(../img/intergal.png) no-repeat left center;
+	background-size:10%;
+}
+.DFUCmyPassWordIcon{
+	background: url(../img/DFUCpassWord.png) no-repeat left center;
+	background-size: 10%;
+}
+.DFUCmySetUpIcon{
+	background: url(../img/DFUCsetUP.png) no-repeat left center;
+	background-size: 10%;
+}
+.DFUClinkLoginContent{
+	background: url(../img/GRAYright.png) no-repeat right center;
+	background-size: 4%;
+	line-height: 1.9rem;
+	color: #333;
+}
+/*用户中心 DFUC end--------------------------------------*/
+/*修改信息 DFMI star-----------------------------*/
+.DFMIportrait{
+	margin: 1rem 0;
+	padding:2%;
+	overflow: hidden;
+	line-height: 3.5rem;
+	color: #666;
+	/*width: 96%;*/
+	position: relative;
+	background: #fff url(../img/GRAYright.png) no-repeat right 4% center;
+	background-size: 3%;
+}
+.DFMIportraitImg{
+	width: 2.8rem;
+	height: 2.8rem;
+	margin-right: 10%;
+	margin-top: 0.3rem;
+	border-radius:2.8rem;
+}
+.DFMIportraitSpan{
+	width: 24%;
+	text-align: left;
+}
+.DFMIcontentNameSpan{
+	width: 27%;
+	text-align: left;
+	color: #666;
+	display: inline-block;
+	font-size: 1rem;
+}
+.DFMIcontent{
+	padding: 0 2%;
+	/*width: 96%;*/	
+	overflow: hidden;
+	line-height: 4rem;
+	background: #fff;
+}
+.DFMIcontentName{
+	border-bottom: 1px solid #F6F6F6;
+	background:url(../img/GRAYright.png) no-repeat right 2% center;
+	background-size: 3%;
+}
+.DFMIPleaseName{
+	height: 4rem;
+	width: 60%!important;
+	display: inline-block!important;
+	text-align: left;
+	background: #fff;
+	margin:0!important;
+	color: #8f8f94!important;
+	font-size: 1rem;
+	padding-left: 2px;
+}
+.mui-dtpicker-header .mui-btn{
+	background: #fff;
+    border: 1px solid #cecece;
+    color: #858585;
+}
+.mui-dtpicker-header .mui-btn-blue{
+	background: #007aff;
+	color: #fff;
+}
+#DFMIportraitfile{
+	position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.DFMIlink{
+	display: inline-block;
+	width: 100%;
+}
+/*修改信息 DFMI end-----------------------------*/
+/*道路救援 DFRR star---------------------------*/
+.DFRRmap{
+	width: 100%;
+	height: 13rem;
+	margin-top: 1px;
+	position: relative;
+}
+.DFRRAddressInDetail{
+	width: 100%;
+	padding: 0 2%;
+	background: #fff;
+	color: #666;
+	line-height: 2rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+}
+.DFRRmap img{
+	width: 100%;
+	height: 100%;
+}
+.DFRRlist{
+	margin-top: 1rem;
+	background: #fff;
+	padding: 2%;
+	line-height: 3rem;
+}
+.DFRRnearbyShop{
+	color: #333;
+	font-size: 1rem;
+	padding-left: 1rem;
+	background: url(../img/NStitle.png) no-repeat left center;
+	margin: 0!important;
+	line-height: 2rem;
+}
+.DFRRShopCenter{
+	color: #333;
+	font-size: 1rem;
+	border-bottom: 1px solid #F6F6F6;
+	margin-left: 1rem;
+	margin-bottom: 0!important;
+	width: 90%;
+	line-height: 2rem;
+}
+.DFRRphone,.DFRRaddress{
+	margin-bottom: 0!important;
+	margin-left: 1rem;
+	border-bottom: 1px solid #F6F6F6;
+	width: 90%;
+}
+.DFRRaddress{
+	border: none;
+}
+.DFRRmt{
+	margin-top:0.6rem;
+	width: 26px!important;
+}
+.DFRRmengbanContent{
+	width: 80%;
+	background: #fff;
+	margin: 60% auto 0;
+	color: #000;
+	padding-top:1rem ;
+}
+.DFRRmengbanTellTitle,.DFRRmengbanTellTitleConfirm{
+	line-height: 2.4rem;
+	font-size: 1.3rem;
+}
+.DFRRmengbanTellTitleConfirm{
+	font-size: 1rem;
+	padding-bottom: 1rem;
+}
+.DFRRmengbanBtn{
+	border-top: 1px solid #cfcfcf;
+	color: #0290fe;
+	line-height: 2.4rem;
+	height: 2.4rem;
+}
+.DFRRmengbanBtn a{
+	color: #0290fe;
+}
+.DFRRmengbanBtn span{
+	display: inline-block;
+	width: 49%;
+	float: left;
+}
+.DFRRmengbanBtn span:nth-child(1){
+	border-right: 1px solid #CFCFCF;
+}
+.DFRRNoService{
+	background: #fff;
+	width: 100%;
+	text-align: center;
+	margin-top: 1rem;
+	line-height: 4rem;
+	padding-top: 20%;
+}
+.DFRRNoServiceTitle{
+	font-size: 1.2rem;
+}
+.DFRRNoServiceTell{
+	color: #666;
+}
+.DFRRNoServicePhone{
+	width: 0.8rem;
+	height: 0.8rem;
+	display: inline-block;
+	position:absolute;
+}
+.DFRRNoServicePhone img{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+/*道路救援 DFRR end---------------------------*/
+/*选择保险公司 DFIC star--------------*/
+#DFIClist li{
+	width: 100%;
+	background: #fff;
+}
+.DFIClistContent{
+	width: 96%;
+	padding: 2%;
+	border-bottom: 1px solid #eeeeee;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.DFIClistContent span{
+	line-height: 3rem;
+	margin-left: 1rem;
+	font-size: 1rem;
+	color: #231815;
+}
+/*选择保险公司 DFIC end--------------*/
+/*小康车型 star---------------------*/
+.DFOMcontent{
+	width: 96%;
+	padding: 2% 2% 0;
+	margin-top: 1rem;
+	background: #fff;
+	margin: 0 auto;
+}
+.DFOMcontent p{
+	margin: 0;
+	line-height: 2rem;
+	padding-left: 1rem;
+}
+.DFOMcontentTitle{
+	color: #000;
+	background: url(../img/NStitle.png) no-repeat left center;
+	font-size: 1rem;
+}
+.DFOMcontent .DFOMcontentList{
+	border-bottom: 1px solid #eee;
+	background: url(../img/GRAYright.png) no-repeat right 0.4rem center;
+	background-size: 3%;
+	color: #b8b8b8;
+	font-size: 0.9rem;
+	line-height: 2.8rem;
+}
+#DFOMlist li,#DFCFList li,#DFMCList li{
+	margin-top: 1rem;
+	background: #fff;
+}
+.DFOMcontent p:last-child{
+	border: none;
+}
+/*小康车型 end---------------------*/
+/*小康车辆配置 star*/
+.DFOMcontent .DFCFcontentList{
+	border-bottom: 1px solid #eee;
+	background-size: 3%;
+	color: #b8b8b8;
+	font-size: 0.9rem;
+	line-height: 2.8rem;
+}
+/*小康车辆配置 end---------------------------*/
+/*消息中心 star*/
+.DFMCcontent{
+	width: 96%;
+	margin: 0 auto;
+}
+.DFMCcontent p,.DFPACposition p{
+	margin: 0;
+}
+.DFMCcontent p:nth-child(1){
+	font-size: 1.1rem;
+	color: #333;
+	line-height: 3rem;
+}
+.DFMCcontentP{
+	color: #858585;
+	line-height: 1.8rem;
+}
+.DFMCcontentTime{
+	text-align: right;
+	line-height: 2rem;
+}
+.DFMCcontentDetial{
+	line-height: 3rem;
+	background: url(../img/GRAYright.png) no-repeat right center;
+	border-top: 1px solid #eee;
+	background-size:3%;	
+}
+.DFMCcontentDetial a{
+	color: #adadad;
+	font-size: 0.9rem;
+	display: inline-block;
+	width: 100%;
+}
+/*消息中心 end------------------------------*/
+/*选择 省市 star-----------------------------*/
+.DFPACposition{
+	width: 100%;
+	padding: 0 2%;
+	margin: 0 auto;
+	background: #fff;
+	line-height: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+.DFPACposition p:nth-child(1){
+	text-indent: 1rem;
+	font-size: 1rem;
+	border-bottom: 1px solid #eee;
+	color: #333;
+	background: url(../img/NStitle.png) no-repeat left center;
+}
+.DFPACpositionDetial{
+	background: url(../img/NSlocation.png) no-repeat left 1rem center;
+	padding-left: 2rem;
+}
+.DFPACcityList{
+	width: 96%;
+	margin: 0 auto;
+	border-bottom: 1px solid #eee;
+	background: url(../img/GRAYright.png) no-repeat right 1rem center;
+	background-size:3%;
+	line-height: 2.4rem;
+	color: #333;
+	font-size: 0.95rem;
+	padding-left: 1rem;
+}
+/*选择省市 end-------------------------*/
+.reutnLogin{
+	width: 100%;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    background: #FE0000;
+    text-align: center;
+    color: #fff;
+    margin-top: 3rem;
+}
+/*中控锁 star*/
+.CLlogo{
+	color: #1d1d1d;
+}
+#CLmain{
+	width: 100%;
+	/*height: 80%;*/
+	background: url(../img/bj_02.png) no-repeat center;
+	background-size: 100%;
+}
+#CLHPmain{
+	width: 100%;
+	background: url(../img/bj_01.png) no-repeat center;
+	background-size: 100%;
+}
+#DFEmain{
+	width: 100%;
+	background: url(../img/bj_03.png) no-repeat center;
+	background-size: 100%;
+}
+.CLbtn{
+	width: 70%;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    background: -webkit-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: -o-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: -moz-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: linear-gradient(#1a1a1f,#0f0f10,#1a1a1f);
+    position: fixed;
+    left: 15%;
+    bottom: 16%;
+    color: #b5babe;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+.UnCLbtn{
+	width: 70%;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    background: -webkit-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: -o-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: -moz-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: linear-gradient(#1a1a1f,#0f0f10,#1a1a1f);
+    position: fixed;
+    left: 15%;
+    bottom: 16%;
+    color: #585858;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.1rem;
+	box-shadow: 0 0 2px 2px #4f4f5e;
+   -webkit-box-shadow: 0 0 2px 2px #4f4f5e;
+   -moz-box-shadow: 0 0 2px 2px #4f4f5e;
+}
+.CLHPmainBtn{
+	position: fixed;
+    left:0;
+    bottom: 16%;
+    width: 100%;
+}
+.CLHPmainBtn p,.CLHPmainBtn button{
+	width: 40%;
+	padding:0.5rem 0;
+    background: -webkit-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: -o-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: -moz-linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    background: linear-gradient(#1a1a1f,#0f0f10,#1a1a1f); 
+    float: left;
+    border-radius: 8px;
+    color: #b5babe;
+    text-align: center;
+    margin-left: 6%;
+   
+}
+.CLHPmainBtn .CLHPUnlock{
+	color: #585858;
+	box-shadow: 0 0 2px 2px #4f4f5e;
+   -webkit-box-shadow: 0 0 2px 2px #4f4f5e;
+   -moz-box-shadow: 0 0 2px 2px #4f4f5e;
+}
+/*中控锁 end*/
+/*行驶里程 star*/
+.DFTMtime{
+	width: 100%;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 0 4%;
+    color: #333;
+}
+.DFTMtimeSecend{
+	color: #666;
+}
+.DFTMpositonContent{
+	overflow: hidden;
+	padding:4%;
+}
+.DFTMstarPosition,.DFTMendPosition{
+	height: 1.8rem;
+    line-height: 1.8rem;
+    color: #333;
+    text-indent: 1.2rem;
+}
+.DFTMstarPosition{
+	background: url(../img/blue.png) no-repeat left center;
+}
+.DFTMendPosition{
+	background: url(../img/red.png) no-repeat left center;
+}
+.DFTMendmileage{
+	color: #2b81ff;
+	line-height: 4rem;
+	font-size: 1.1rem;
+}
+/*行驶里程 end*/
+/*空调 star*/
+.DFACMasterSwitch{
+	overflow: hidden;
+	background: #fff;
+	padding: 0.4rem 1rem;
+	border-top: 1rem solid #f8f8f8;
+}
+.DFACMtemperature,.DFACPattern{
+	border-top: 1rem solid #F8F8F8;
+	overflow: hidden;
+}
+.DFACradioWidth{
+	width: 50%;
+}
+.DFACPatternTitle{
+	height: 3rem;
+    line-height: 3rem;
+    font-size: 1rem;
+    color: #333;
+    padding-left: 4%;
+}
+.DFACPatternTitle span{
+	font-size: 0.9rem;
+	color: #dcdcdc;
+	margin-left: 0.5rem;
+}
+.DFACPatternRaido{
+	width: 100%;
+	overflow: hidden;
+	font-size: 0.9rem;
+	color: #333;
+}
+.DFAClinehieght{
+	line-height: 2.2rem;
+}
+.mui-radio input[type='radio']:checked:before, .mui-checkbox input[type='checkbox']:checked:before{
+	color: #3db4ff;
+}
+.DFACPatternbtn{
+	display:block;
+	width: 80%;
+	margin: 0 auto;
+	background: #3db4ff;
+	color: #fff;
+	line-height: 2.4rem;
+	text-align: center;
+	margin-top:1.8rem;
+}
+.DFACMtemperatureTop{
+	overflow: hidden;
+	line-height: 4rem;
+	padding-left: 4%;
+}
+.DFACMtemperatureTopCenter{
+	width: 80%;
+	display: block;
+	text-indent: 34%;
+	color: #333;
+	font-size: 1.6rem;
+}
+.DFACMasterSwitchTitle{
+	line-height: 2rem;
+}
+	/*range star*/
+	input[type=range] {   
+	  	-webkit-appearance: none;   
+	 	margin: 18px 0;   
+	 	width: 80%;   
+	 	float: left;
+	 	height: 0.4rem;
+	}   
+	input[type=range]:focus {   
+	 	outline: none;   
+	}   
+	input[type=range]::-webkit-slider-runnable-track {   
+	    width: 100%;   
+	    height: 8.4px;   
+	    cursor: pointer;   
+	    animate: 0.2s;   
+	    background: #f1f1f1;   
+	    border-radius: 1.3px;    
+	}   
+	input[type=range]::-webkit-slider-thumb {    
+	    height: 20px;   
+	    width: 20px;   
+	    border-radius: 20px;   
+	    background: #eaeaea;   
+	    cursor: pointer;   
+	    -webkit-appearance: none;  
+		margin-top: -8px;
+	}   
+	input[type=range].change::-webkit-slider-thumb {    
+	    height: 20px;   
+	    width: 20px;   
+	    border-radius: 20px;   
+	    background: #3db4ff;   
+	    cursor: pointer;   
+	    -webkit-appearance: none;  
+		margin-top: -8px;
+	} 
+	input[type=range]::-moz-range-track {   
+	    width: 100%;   
+	    height: 8.4px;   
+   	    cursor: pointer;   
+	    animate: 0.2s;   
+	    background: #f1f1f1;   
+	    border-radius: 1.3px;   
+	}   
+	input[type=range]::-moz-range-thumb {   
+	    height: 20px;   
+	    width: 20px;   
+	    border-radius: 20px;   
+	    background: #3db4ff;   
+	    cursor: pointer;   
+	    -webkit-appearance: none;  
+	    margin-top: -8px;
+	}   
+	input[type=range].change::-moz-range-thumb {   
+	    height: 20px;   
+	    width: 20px;   
+	    border-radius: 20px;   
+	    background: #3db4ff;   
+	    cursor: pointer;   
+	    -webkit-appearance: none;  
+	    margin-top: -8px;
+	}
+	input[type=range]::-ms-track {   
+	    width: 100%;   
+	    height: 8.4px;   
+	    cursor: pointer;   
+	    animate: 0.2s;   
+	    background: #f1f1f1;   
+	    border-radius: 1.3px;   
+	}   
+	
+	input[type=range]::-ms-thumb {   
+	    height: 20px;   
+	    width: 20px;   
+	    border-radius: 20px;   
+	    background: #3db4ff;   
+	    cursor: pointer;   
+	    -webkit-appearance: none;  
+	    margin-top: -8px;
+	}   
+	input[type=range].change::-ms-thumb {   
+	    height: 20px;   
+	    width: 20px;   
+	    border-radius: 20px;   
+	    background: #3db4ff;   
+	    cursor: pointer;   
+	    -webkit-appearance: none;  
+	    margin-top: -8px;
+	}
+	/*range end*/
+.DFACMtemperatureRange{
+	padding: 0 4%;
+	overflow: hidden;
+	line-height: 2.4rem;
+}
+.DFACMtemperatureRange span:nth-child(1){
+	margin-right: 0.4rem;
+}
+.DFACMtemperatureRange span:nth-child(3){
+	margin-left: 0.4rem;
+}
+.flMt{
+	line-height:2.2rem;
+	color:#1d1d1d;
+}
+.ALLposition{
+	position: absolute;
+    left: 1rem;
+    top: 0.8rem;
+}
+/*空调 end*/
+.DFIchangeColorDate{
+	color:#ccc;
+	font-size:0.9rem;
+}
+.DFUserImg{
+	width: 3.8rem!important;
+    height: 3.8rem;
+    margin-left: -0.4rem;
+    margin-top: -0.4rem;
+    border-radius: 4rem;
+}
+.imgHeight{
+	height:200px!important;
+}
+/*服务网点详情 star*/
+.DFSNDmain{
+	overflow: hidden;
+    background: #fff;
+    margin-top: 1rem;
+    padding: 0.2rem;
+}
+.DFSNDmainTitle{
+	overflow: hidden;
+	padding: 0 2% 0;
+}
+.DFSNDmainTitle img{
+	margin-top: 1rem;
+	
+}
+.DFSNDmainTitleP{
+	line-height: 3rem;
+	width: 94%;
+	border-bottom:1px solid #eee ;
+	font-size: 1rem;
+	color: #000000;
+	margin-left: 2%;
+}
+.DFSNDmainAdress,.DFSNDmainPhone{
+	margin-left: 4%;
+	line-height: 3rem;
+	width: 94%;
+	border-bottom:1px solid #eee ;
+	font-size: 0.8rem;
+	color: #000000;
+	background: url(../img/NSlocation.png) no-repeat left center;
+	text-indent: 1.2rem;
+}
+.DFSNDmainPhone{
+	background: url(../img/DFNDphone.png) no-repeat left center;
+	border: none;
+}
+.DFSNDmainActive{
+	margin-left: 4%;
+	line-height: 3rem;
+	width: 94%;
+	border-bottom:1px solid #eee ;
+	font-size: 0.8rem;
+	color: #000000;
+	background: url(../img/GRAYright.png) no-repeat right 1rem center;
+	background-size: 3%;
+}
+.DFSNDtime{
+	margin-left: 4%;
+	line-height: 3rem;
+	width: 94%;
+	border-bottom:1px solid #eee ;
+	font-size: 0.8rem;
+	color: #000000;
+	overflow: hidden;
+}
+.DFSNDtimeBor{
+	border: none;
+}
+.DFSNDmainContent{
+	overflow: hidden;
+    background: #fff;
+    margin-top: 1rem;
+    padding: 0.6rem 6%;
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+}
+/*服务网点详情 end*/
+/*我的积分 star*/
+.DFMImain{
+	overflow: hidden;
+    border-bottom: 1rem solid #F6F6F6;
+    border-top: 1rem solid #F6F6F6;
+    padding: 0.2rem;
+}
+.DFIcarNum{
+	line-height: 3rem;
+    width: 96%;
+    font-size: 1rem;
+    color: #000000;
+    margin-left: 2%;
+}
+.DFInameContent{
+	margin-left: 4%;
+	line-height: 3rem;
+	overflow: hidden;
+	border-bottom: 1px solid #eee;
+    width: 94%;
+}
+.DFSNDtimeName{
+	font-weight: bolder;
+	color: #333;
+	font-size: 0.8rem;
+}
+.DFSNDtimeML{
+	margin-left: 10%;
+}
+@media only screen and (max-width: 320px) {
+	.DFSNDtimeML{
+		margin-left: 2%;
+	}
+}
+.DFIintegralContent .DFMItotalIcon{
+	width: 0.7rem;
+	display: block;
+	margin-right: 0.4rem;
+}
+.DFIintegralContent{
+	color: #666;
+	font-size: 0.9rem;
+	border: none;
+}
+.DFIintegralContent .DFMIuserIcon{
+	width: 1rem;
+	margin-left: 16%;
+	margin-right: 0.4rem;
+}
+.yellowColor,.greenColor{
+	color: #fe9500;
+	font-weight: bolder;
+	font-size: 1rem;
+}
+.greenColor{
+	color: #3bcc27;
+}
+#DFMIlist{
+	background: #fff;
+	padding: 0 2% 0;
+}
+.DFMIlistP{
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+	line-height: 3rem;
+	width: 94%;
+	margin-left: 4%;
+	/*width: 94.2%;
+    margin-left: 2.4%;*/
+}
+.DFMIlistColor{
+	color:#fe9500;
+	font-weight: bolder;
+}
+.DFMInoInformation{
+	line-height: 4rem;
+	font-size: 1rem;
+	text-align: center;
+}
+.DFRRmengbanContent{
+	border-radius: 8px;
+}
+.DFRRmengbanTellTitle,.DFRRmengbanTellTitleConfirm{
+	color: #333;
+}
+/*我的积分 end*/
+/*营业网点活动 star*/
+.DFNSlistLeft{
+	position: relative;
+}
+.DFSTriangle{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 40px solid #ff0000;
+    border-right: 40px solid transparent;
+}
+.DFSNicoSpan{
+	width: 50px;
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    color: #fff;
+    left: -4px;
+    transform: rotate(-38deg);
+    -ms-transform: rotate(-38deg);
+    -moz-transform: rotate(-38deg);
+    -webkit-transform: rotate(-38deg);
+    -o-transform: rotate(-38deg);
+    font-size: 0.8rem;
+}
+/*营业网点 end*/
+/*配件验证 star*/
+.DFAVcolor{
+	color: #858585;
+}
+/*配件验证 end*/
+/*我的车辆 star*/
+.DFCMmyCarAdd{
+	font-size: 1rem;
+	color: #333;
+}
+.DFCMtitle{
+	overflow: hidden;
+    background: #fff;
+    margin-top: 1rem;
+    padding: 0.2rem;
+}
+.DFCMtitleTop,.DFCMtitleNum{
+	color: #333;
+	padding: 0 2% 0;
+	font-size: 1rem;
+	line-height: 2.6rem;
+}
+.DFCMtitleBottom{
+	padding: 0 2% 0;
+	line-height: 1.8rem;
+}
+.DFCMtitleTop span:nth-child(2){
+	margin-left: 1rem;
+}
+.DFCMtitleNum{
+	color: #666;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+.DFCMtitleNum span{
+	color: #f00;
+	float: left;
+    margin-top: 2px;
+}
+.DFCMoption{
+	color: #8f8f94;
+	font-size: 0.8rem;
+}
+.DFCMcompany{
+	color: #8f8f94;
+	font-size: 0.9rem;
+}
+.DFCMcompanyName{
+	font-size: 0.8rem;
+}
+.DFCMcompanyFs{
+	display: inline-block;
+	width: 36%;
+}
+.borBjNo{
+	border: none;
+	background: none;
+}
+.DFCMinsuranceDate{
+	display: inline-block;
+	width: 60%;
+	font-size: 0.8rem;
+}
+.DFMNsubmit {
+    width: 80%;
+    margin: 2rem auto!important;
+    color: #fff!important;
+    text-align: center;
+    line-height: 2rem;
+    height: 2rem;
+    display: block;
+    border: none!important;
+    background: #fe0000!important;
+}
+.DFCMbtn{
+	text-align: center;
+}
+/*我的车辆 end*/

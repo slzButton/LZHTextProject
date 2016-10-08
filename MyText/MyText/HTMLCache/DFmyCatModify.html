@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>	
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/mui.picker.min.js">
+		</script>
+		<script type="text/javascript" src="js/DFmyCatModify.js">	
+		</script>
+		<style type="text/css">
+			.mui-fullscreen{
+				top:5.8rem;
+			}
+		</style>
+	</head>
+	<body>
+		<!--DFSNDheaer star-->
+		<header id="DFIDTheader">
+			<a href="javascript:void(0)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">我的车辆</a>
+			<a href="javascript:void(0)" class="fr DFCMmyCarAdd">新增</a>
+		</header>
+		<!--DFSNDheaer end-->
+		<!--DFCMtitle star-->
+		<section class="DFCMtitle">
+			<p class="DFCMtitleTop">
+				<span>品牌：东风风光</span>
+				<span>型号：风光580</span>
+			</p>
+			<div class="DFCMtitleBottom">
+				<p>配置：2016款 1.5T手动豪华版</p>
+				<p>车架号：LLLLLLLLLLLLXXLLL</p>
+				<p>发动机号：1111sss999999sss</p>
+			</div>
+		</section>
+		<section class="DFCMtitle">
+			<p class="DFCMtitleNum"><span>*</span>车牌号码：京01010</p>
+		</section>
+		
+		<!--DFCMtitle star-->
+		
+		<!--active star-->
+		<section class="DFSNDmain">
+			<div class="DFSNDmainTitle borBjNo">
+				<img src="img/NStitle.png" class="fl"/>	
+				<p class="fl DFSNDmainTitleP">保险信息<span class="DFCMoption">（选填）</span></p>
+			</div>
+			<div class="DFSNDmainTitle">
+				<a href="###" class="fl DFSNDmainActive DFCMcompany">
+					<span class="DFCMcompanyFs">保险公司</span>
+					<span class="DFCMcompanyName">平安保险</span>
+				</a>			
+			</div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDmainActive borBjNo DFCMcompany">
+					<span class="DFCMcompanyFs">保险剩下日期</span>
+					<span id="DFCMinsuranceDate" class="DFCMinsuranceDate" data-options='{"type":"date","beginYear":2010,"endYear":2020}'>2016-08-07</span>
+				</p>			
+			</div>
+		</section>
+		<div class="DFCMbtn">	
+			<input type="button" name="" class="DFMNsubmit" value="解绑此车辆" id="DFVIbtn">
+		</div>
+		<!--active end-->
+		<div class="DFRRmengban hid">
+			<div class="DFRRmengbanContent">
+				<p class="DFRRmengbanTellTitle">提示信息</p>
+				<p class="DFRRmengbanTellTitleConfirm">是否要解除此台车辆的绑定</p>
+				<p class="DFRRmengbanBtn">
+					<span class="DFRRmengbanBtnCancel">取消</span>
+					<span><a href="###">确定</a></span>
+				</p>
+			</div>		
+		</div>
+		
+	</body>
+</html>

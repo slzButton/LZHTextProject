@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFcommon.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.picker.min.js"></script>
+		<script type="text/javascript" src="js/DFVehicleInformation.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			::-webkit-input-placeholder { /* WebKit browsers */ 
+			color: #666!important; 
+			font-size: 0.8rem;
+			} 
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+			color: #666!important;  
+			font-size: 0.8rem;
+			} 
+			::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+			color: #666!important; 
+			font-size: 0.8rem;
+			} 
+			:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+			color: #666!important; 
+			font-size: 0.8rem;
+			} 
+		</style>
+		<script>
+		    var zcmobile = GetPageParams("zcmobile");
+			var zccode = GetPageParams("zccode");
+			var zcpassword = GetPageParams("zcpassword");
+			var type = GetPageParams("type");
+			var modelId = GetPageParams("modelId");
+			function initPage(){   
+			    if(zcmobile!=""&&zcmobile!=null){
+				    initdata();
+			        var url = window.location.href;
+					url = url.replace("DFVehicleInformation.html", "DFregister.html");
+					CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+				}else{
+				    var url = window.location.href;
+					url = url.replace("DFVehicleInformation.html", "DFUserCenter.html");
+					CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+					//修改车辆信息时，这里初始页面需要的值;			
+					if(type!=""&&type!=null){
+						var params = "{\"apiCode\":\"APP00032\",\"apiData\":{\"header\":{\"code\":\"APP00032\"},\"body\":{\"username\":\""+sessionStorage.loginname+"\",\"companyCode\":\""+companyCode+"\"}}}";
+						CallToMobil(params);
+					}else{
+						initdata();
+					}
+				}
+				
+			}
+			function clickModelId(){
+					var DFcarType = $('#clxh').text();
+					var DFVILicensePlateNumber = $('#DFVILicensePlateNumber').val();
+					var DFVIFrameNumber = $('#DFVIFrameNumber').val();
+					var DFVIengine = $('#DFVIengine').val();
+					var bxgsdm = $('#DFInsuranceCompany').val();
+					var DFInsuranceCompany = $('#bxgs').text();
+					var DFMIbtnDate = $("#DFMIbtnDate").html();
+					var url = 'DFOffModel.html?DFcarType=' + DFcarType+'&DFVILicensePlateNumber='+DFVILicensePlateNumber+'&DFVIFrameNumber='+DFVIFrameNumber+'&DFVIengine='+DFVIengine+'&DFInsuranceCompany='+DFInsuranceCompany+'&bxgsdm='+bxgsdm+'&DFMIbtnDate='+DFMIbtnDate+'&zcmobile='+zcmobile+'&zccode='+zccode+'&zcpassword='+zcpassword;
+				    window.location.href = url;
+				
+			}
+			function clickInsurance(){
+					var carModelname = $('#clxh').text();
+					var DFcarType =  $('#DFcarType').val();
+					var DFVILicensePlateNumber = $('#DFVILicensePlateNumber').val();
+					var DFVIFrameNumber = $('#DFVIFrameNumber').val();
+					var DFVIengine = $('#DFVIengine').val();
+					var bxgsdm = $('#DFInsuranceCompany').val();
+					var DFInsuranceCompany = $('#bxgs').text();
+					var DFMIbtnDate = $("#DFMIbtnDate").html();
+					var url = 'DFInsuranceCompany.html?DFcarType=' + DFcarType+'&carModelname='+carModelname+'&DFVILicensePlateNumber='+DFVILicensePlateNumber+'&DFVIFrameNumber='+DFVIFrameNumber+'&DFVIengine='+DFVIengine+'&DFInsuranceCompany='+DFInsuranceCompany+'&bxgsdm='+bxgsdm+'&DFMIbtnDate='+DFMIbtnDate+'&zcmobile='+zcmobile+'&zccode='+zccode+'&zcpassword='+zcpassword;
+					window.location.href = url;
+				
+			}
+			function clickback(){
+			    if(zcmobile!=""&&zcmobile!=null){
+				  window.location.href = "DFregister.html";
+				}else{
+				  window.location.href = "DFUserCenter.html";
+				}
+			}
+			function initdata(){
+			    var DFcarType = GetPageParams("DFcarType");
+				var carModelname = GetPageParams("carModelname");
+				var DFVILicensePlateNumber = GetPageParams("DFVILicensePlateNumber");
+				var DFVIFrameNumber = GetPageParams("DFVIFrameNumber");
+				var DFVIengine = GetPageParams("DFVIengine");
+				var bxgsdm = GetPageParams("bxgsdm");
+				var DFInsuranceCompany = GetPageParams("DFInsuranceCompany");
+				var DFMIbtnDate = GetPageParams("DFMIbtnDate");				
+				if(DFcarType&&DFcarType!=null){				 
+				  $('#DFcarType').val(DFcarType);
+				}
+				if(carModelname&&carModelname!=null){
+				   $('#clxh').text(carModelname);
+				}
+				if(DFVILicensePlateNumber&&DFVILicensePlateNumber!=null){
+				  $('#DFVILicensePlateNumber').val(DFVILicensePlateNumber);
+				}
+				if(DFVIFrameNumber&&DFVIFrameNumber!=null){
+				  $('#DFVIFrameNumber').val(DFVIFrameNumber);
+				}
+				if(DFVIengine&&DFVIengine!=null){
+				  $('#DFVIengine').val(DFVIengine);
+				}
+				if(bxgsdm&&bxgsdm!=null){
+				  $('#DFInsuranceCompany').val(bxgsdm);
+				}
+				if(DFInsuranceCompany&&DFInsuranceCompany!=null){
+					if(DFInsuranceCompany.length>9){
+						$('#bxgs').text(DFInsuranceCompany.substring(0,9));    
+					}else{
+						$('#bxgs').text(DFInsuranceCompany);
+					} 		
+				}
+				if(DFMIbtnDate&&DFMIbtnDate!=null){
+				  $('#DFMIbtnDate').text(DFMIbtnDate);
+				}
+				}
+		</script>
+	</head>
+	<body onload="initPage();">
+		<!--heaer star-->
+		<header id="DFMNheader">
+			<a href="javascript:void(0)" class="fl DFIDTheaderImg" onclick="clickback()"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">车辆信息</a>
+		</header>
+		<!--heaer end-->
+		<!--DFVIcontent star-->
+		<form>
+			<section class="DFVIcontent">
+				<p class="DFVIcontentTitle">车辆信息</p>
+				<!-- 基本数据初始 -->
+				<input type="hidden" name="" id="username" value="" placeholder="保险公司"/>
+				
+				<div class="DFVIVehicleModel">
+					<input type="hidden" name="" id="DFcarType" value="" placeholder="保险公司"/>
+					<a href="javascript:void()" onclick="clickModelId()" class="DFVIlink">
+						<span class="DFVIxcolor"></span>
+						<span class="DFVIcontentLeft">车辆型号</span>
+						<span class="DFVIcontentRight" id="clxh">请选择车辆型号</span>
+					</a>
+				</div>
+				<div class="DFVIVehicleModel dfvibgNo">
+					<label class="DFVIxcolor"></label>
+					<span class="DFVIcontentLeft">车辆号码</span>
+					<input type="text" name="" id="DFVILicensePlateNumber" value="" placeholder="请输入车牌号" class="DFVItextWidth"/>
+				</div>
+				<div class="DFVIVehicleModel dfvibgNo">
+					<label class="DFVIxcolor"></label>
+					<span class="DFVIcontentLeft">车架号</span>
+					<input type="text" name="" id="DFVIFrameNumber" value="" placeholder="请输入车架号" class="DFVItextWidth" maxlength="17"/>
+					<span class="DFVIhelp">?</span>
+				</div>
+				<div class="DFVIVehicleModel dfvibgNo">
+					<label class="DFVIxcolor"></label>
+					<span class="DFVIcontentLeft">发动机号</span>
+					<input type="text" name="" id="DFVIengine" value="" placeholder="请输入发动机号" class="DFVItextWidth" maxlength="8"/>
+					<span class="DFVIhelp">?</span>
+				</div>
+			</section>
+			<!--DFVIcontent end-->
+			<!--DFVIcontentOptional star-->
+			<section class="DFVIcontent DFVIcontentOptional">
+				<p class="DFVIcontentTitle">保险信息<span>（选填）</span></p>
+				<div class="DFVIVehicleModel">
+					<input type="hidden" name="" id="DFInsuranceCompany" value="" placeholder="保险公司"/>
+					<a href="javascript:void()" onclick="clickInsurance()" class="DFVIlink">
+						<span class="DFVIxcolor dfvibgNo"></span>
+						<span class="DFVIcontentLeft">保险公司</span>
+						<span class="DFVIcontentRight" id="bxgs">请选择保险公司</span>
+					</a>
+				</div>
+				<div class="DFVIVehicleModel">
+					<a href="###" class="DFVIlink">
+						<span class="DFVIxcolor dfvibgNo"></span>
+						<span class="DFVIcontentLeft">保险生效日期</span>
+						<span class="DFVIcontentRight DFVIdate" id='DFMIbtnDate' class="DFMIPleaseName btnDate mui-btn mui-btn-block"  data-options='{"type":"date","beginYear":1970,"endYear":2099}'>请选择保险日期</span>
+					</a>
+				</div>
+			</section>
+			<input type="button" name="" class="DFMNsubmit" value="保存" id="DFVIbtn">
+		</form>
+		<!--DFVIcontentOptional end-->
+		<!--示例蒙版 star-->
+		<div class="DFVImengban hid">
+			<img src="img/DFVIexample.png" class="DFVImengbanImg"/>
+		</div>
+		<!--示例蒙版 end-->
+		<div class="DFVIprompt hid">	
+		</div>
+	</body>
+</html>

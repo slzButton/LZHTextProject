@@ -1,0 +1,19 @@
+$(function(){
+	$('.DFIDTshare').click(function(e){
+		e.stopPropagation();
+		$('.DFIDTshareContent').show();
+		$('body').css('overflow','hidden');
+	});
+	$('.DFIDTcancel').click(function(e){
+		e.stopPropagation();
+		$('.DFIDTshareContent').hide();
+	});
+	$('.DFIDTshareContent').not($('.DFIDTshareIconDL')).click(function(e){
+		e.stopPropagation();
+		$('.DFIDTshareContent').hide();
+	});
+	mui.previewImage();
+	$('.DFIDTheaderImg').click(function(){
+		window.history.back();
+	})
+})

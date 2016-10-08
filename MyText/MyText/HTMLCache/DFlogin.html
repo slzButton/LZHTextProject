@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFcommon.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/DFlogin.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			::-webkit-input-placeholder { /* WebKit browsers */ 
+			color: #b3b3b3; 
+			font-size: 1rem;
+			} 
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+			color: #b3b3b3; 
+			font-size: 1rem;
+			} 
+			::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+			color: #b3b3b3; 
+			font-size: 1rem;
+			} 
+			:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+			color: #b3b3b3; 
+			font-size: 1rem;
+			} 
+			.hid{
+			display:none; 
+			}
+			#loginReturn{
+			    padding: 0.6rem;
+				background: #fff;
+				text-align: center;
+				font-size: 1.1rem;
+				overflow: hidden;
+			}
+		</style>
+		<script>
+		function initPage(){
+			var url = window.location.href;
+			url = url.replace("DFlogin.html", "DFhomePage.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+			$('#username').val("");
+			$('#password').val("");
+		}
+		</script>
+	</head>
+	<body onload="initPage()">
+		<div id="loginReturn"">
+			<a href="DFhomePage.html" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"></a>	
+		</div>
+		<!--heaer star-->
+		<header id="DFLloginHeader">
+			<img src="img/DFlogin.png" class="DFLheader"/>
+		</header>
+		<!--heaer end-->
+		<!--DFloginContent star-->
+		<form>
+			<section class="DFloginContent">
+				<div class="DFLaccount">
+					<label for="">账号 :</label>
+					<input type="text" name="" id="username" value="" placeholder="请输入用户名或手机号"/>
+				</div>
+				<div class="DFLaccount">
+					<label for="">密码 :</label>
+					<input type="password" name="" id="password" value="" placeholder="请输入密码"/>
+				</div>
+				<input type="button" name="" class="DFLbtn" id="submitLoginBtn" value="登录" />
+				<div class="DFLForgetPassword">
+					<span class="fl"><a href="javascript:window.location.href='DFPasswordResetNUM.html';">忘记密码</a></span>
+					<span class="fr"><a href="javascript:window.location.href='DFregister.html?type=1';">注册</a></span>
+				</div>
+			</section>
+		</form>
+		<!--DFloginContent end-->
+		<div class="DFLprompt hid">
+			登录中...
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css">
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>		
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			body{
+			width:95%;
+				overflow-x: hidden;
+				overflow-y:auto;
+				text-align:center;
+			}
+			#DFHPheader{
+			    position: relative;
+				overflow: hidden
+			}
+			iframe{
+			width:105%;
+			margin:0 auto;
+			padding:0 0px 0 0;
+			}
+		</style>
+		<script>
+		$(function(){
+			var iframe = '<iframe src="http://h5.edaijia.cn/app/index.html" id="mainweb" name="mainweb" width="100%" height="100%" frameborder="0"></iframe>';	
+			$('body').append(iframe);
+			
+			$('#iframeheader').click(function(){
+				window.history.go(-1);
+			})
+		})
+			
+		</script>
+	</head>
+	<body>
+		<header id="DFHPheader">		
+			<a href="javascript:void(0)" class="fl DFIDTheaderImg ALLposition" id="iframeheader"><img src="img/headerLeft.png"></a>	
+			<a href="###" class="DFHPhdphone DFHPlogo CLlogo flMt">e代驾</a>
+		</header>
+		
+	</body>
+</html>

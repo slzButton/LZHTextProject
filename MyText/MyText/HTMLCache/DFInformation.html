@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		
+		function initcategory() {
+		    var url = window.location.href;
+			url = url.replace("DFInformation.html", "DFhomePage.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+			//加载资讯分类列表 
+			var params = "{\"apiCode\":\"APP00025\",\"apiData\":{\"header\":{\"code\":\"APP00025\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\"}}}";
+			CallToMobil(params);
+			
+		}
+		
+		function initPage(cid, page) {
+			if(cid=="0"){
+			   cid="";
+			}
+			var params = "{\"apiCode\":\"APP00026\",\"apiData\":{\"header\":{\"code\":\"APP00026\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\",\"categoryId\": \"" + cid + "\",\"page\":\"" + page + "\",\"pageSize\":\"5\"}}}";
+			CallToMobil(params);
+			
+		}
+		
+		
+		function initClick() {
+			$.each(document.querySelectorAll('.mui-control-item'), function() {
+				this.addEventListener('tap',function(){
+					var hr = $(this).attr("href");
+					var hr2 = hr.substring(1, hr.length);
+					//var channelId = hr2.substring(hr2.length-1, hr2.length);
+					var channelId = hr2.substring(10, hr2.length);
+					$("#channelId").val(channelId);
+					var channelIds = $("#channelIds").val();
+					var channel = channelIds.split(",");
+					for(var i=0; i < channel.length; i++) {
+						var obj = channel[i];
+						$("#page" + obj).val(2);
+						$("#content" + obj).html("");
+						$("#itemmobile" + obj).hide();
+					}
+					$(hr).show();
+					initPage(channelId, 1);
+					mui("#"+hr2).pullRefresh().endPulldownToRefresh();
+				});
+			});
+			
+		}
+		function getAndroidData(apiCode, content, status) {
+			var objjson = JSON.parse(content);
+			var obj = objjson.body;
+			if(apiCode == "APP00025") {
+				var categoryDiv = document.body.querySelector('#categoryDiv');
+				var channelIds = "0";
+				if(obj && obj.resultData &&　obj.resultData.length > 0) {
+					var addHtml = "";
+					var contentHtml = "";
+					addHtml += "<a class=\"mui-control-item mui-active\" href=\"#itemmobile0\">";
+					addHtml += "全部<input id=\"page0\" type=\"hidden\" value=\"2\"/>";
+					addHtml +="</a>"
+					contentHtml += "  <div id=\"itemmobile0\" class=\"mui-slider-item mui-control-content mui-active\">        ";
+					contentHtml += "  	<div id=\"scroll1\" class=\"mui-scroll-wrapper\">                                      ";
+					contentHtml += "  		<div class=\"mui-scroll\">                                                         ";
+					contentHtml += "  			<ul class=\"mui-table-view\" id=\"content0\">                                  ";
+					contentHtml += "  			</ul>                                                                          ";
+					contentHtml += "  		</div>                                                                             ";
+					contentHtml += "  	</div>                                                                                 ";
+					contentHtml += "  </div>                                                                                   ";
+					for(var i=0;i<obj.resultData.length;i++) {
+						addHtml += "<a class=\"mui-control-item\" href=\"#itemmobile{id1}\">";
+						addHtml += "{name}<input id=\"page{id2}\" type=\"hidden\" value=\"2\"/>";
+						addHtml +="</a>"
+						addHtml = addHtml.replace('{id1}', obj.resultData[i].id);
+						addHtml = addHtml.replace('{id2}', obj.resultData[i].id);
+						addHtml = addHtml.replace('{name}', obj.resultData[i].name);
+						contentHtml += "  <div id=\"itemmobile{id3}\" class=\"mui-slider-item mui-control-content\">               ";
+						contentHtml += "  	<div class=\"mui-scroll-wrapper\">                                                     ";
+						contentHtml += "  		<div class=\"mui-scroll\">                                                         ";
+						contentHtml += "  			<ul class=\"mui-table-view\" id=\"content{id4}\">                               ";
+						contentHtml += "  			</ul>                                                                           ";
+						contentHtml += "  		</div>                                                                              ";
+						contentHtml += "  	</div>                                                                                  ";
+						contentHtml += "  </div>                                                                                    ";
+						contentHtml = contentHtml.replace('{id3}', obj.resultData[i].id);
+						contentHtml = contentHtml.replace('{id4}', obj.resultData[i].id);
+						
+						channelIds = channelIds + "," +  obj.resultData[i].id;
+					}
+					$("#channelIds").val(channelIds);
+					$("#categoryDiv").html(addHtml);
+					$("#showContentDiv").html(contentHtml);
+					initClick();
+					muiRefresh();
+					initPage(0, 1);
+				}
+			}
+			if(apiCode == "APP00026") {
+				if(obj && obj.resultData ) {
+					var channelId = $("#channelId").val();
+					var DFSNlist = document.body.querySelector('#content0');
+					if(channelId == "0") {
+						DFSNlist = document.body.querySelector('#content0');
+					}
+					if(channelId != "0") {
+						DFSNlist = document.body.querySelector('#content'+channelId);
+					}
+					var row = obj.resultData.rows;
+					for(var i=0;i<row.length;i++) {
+						var addHtml = "";
+						addHtml +=  "  	<div class=\"ListClick\" cid=\"{linkUrl}\">   <div class=\"fl DFIleftImg\">                                  ";
+						addHtml +=  "  		<img src=\"{logoUrl}\"/>                                   ";
+						addHtml +=  "  	</div>                                                         ";
+						addHtml +=  "  	<div class=\"DFIRightList DFIRightListTitle\" cid=\"{linkUrl}\">                                  ";
+						addHtml +=  "  		<p>{title}</p>";
+						addHtml +=  "  		<div class=\"DFImt\">                                      ";
+						addHtml +=  "  			<span class=\"DFIcarListIcon\">{categoryName}</span>          ";
+						addHtml +=  "  			<span class=\"fr DFIcolor DFIchangeColorDate\">{createtime}</span>        ";
+						addHtml +=  "  		</div>                                                     ";
+						addHtml +=  "  	</div> </div>                                                        ";
+						if(row[i].logoUrl!=null&&row[i].logoUrl!=""){
+						  addHtml = addHtml.replace('{logoUrl}', row[i].logoUrl);
+						}else{
+						  addHtml = addHtml.replace('{logoUrl}', "img/Ifcar.png");
+						}
+						addHtml = addHtml.replace('{linkUrl}', row[i].detailUrl);
+						if(row[i].title.length>20){
+						    addHtml = addHtml.replace('{title}', row[i].title.substring(0,20)+'...');
+						}else{
+							addHtml = addHtml.replace('{title}', row[i].title);
+						} 							
+						addHtml = addHtml.replace('{categoryName}', row[i].categoryName);
+						var createtime  = row[i].createtime;
+						createtime = createtime.substring(0, 10);
+						addHtml = addHtml.replace('{createtime}', createtime);
+						var li = document.createElement('li');
+						li.innerHTML = addHtml;
+						li.id = row[i].id;
+						li.className = "mui-table-view-cell";
+	    				DFSNlist.appendChild(li);
+					}
+					eachClickLink();
+				}
+				else {
+					//alert("查询出错，请稍后再试...");
+				}
+			}
+		}  
+		
+		function eachClickLink(){
+			$.each(document.querySelectorAll('.ListClick'), function() {
+				this.addEventListener('tap',function(){
+				    var url = window.location.href;
+					url = url.replace("DFInformation.html", "DFInformation.html");
+					CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+					var cid = $(this).attr("cid");
+					cid = cid.replace(/=/g,"!");
+					window.location.href = 'ifream.html?link='+ cid+'&title=资讯详情';
+				});
+			});
+		}
+		</script>
+		<script type="text/javascript" src="js/DFInformation.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+	
+	</head>
+	<body>
+		<!--heaer star-->
+		<header id="DFIheader">
+			信息资讯
+		</header>
+		<!--heaer end-->
+		<!--DFinformationContent star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<input id="channelId" type="hidden" value="0"/>
+				<input id="channelIds" type="hidden" value="0"/>
+					<div class="mui-scroll" id="categoryDiv">
+					<!-- 分类显示 -->
+					</div>
+				</div>
+				<div class="mui-slider-group" id="showContentDiv">
+				</div>
+			</div>
+		</div>
+		<!--DFinformationcontent end-->
+		<!--footer star-->
+		<footer id="DFIfooter">
+			<div class="fl HPfooterwidth">
+				<div class="EFHPFIcon" id="homeJump">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_06.png"/>
+						<p class="">首页</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth">
+				<div class="EFHPFIcon" id="messageJump">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_07.png"/>
+						<p class="DFHPFcolor">信息资讯</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="DFHPmyCay">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/myCar_01.png"/>
+						<p class="">我的爱车</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth">
+				<div class="EFHPFIcon" id="serviceJump">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_03.png"/>
+						<p>服务网点</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="userCenterJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_04.png"/>
+						<p>用户中心</p>
+					</a>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->	
+	</body>
+</html>

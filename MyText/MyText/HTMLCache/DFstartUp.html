@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFcommon.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/DFstartUp.js"></script> 
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script> 
+			function initPage() {
+				// app b
+				//window.splash_injs.runOnAndroidJavaScript("{\"apiCode\":\"44\",\"apiData\":{\"username\":\"zlm123\",\"companyCode\":\"DFXK\"}}");
+				// app e
+				// web b
+				$.ajax({
+					url : "../../../newenergyAccessoriesController/dfxkhtmlH5.do?code=44",
+					type : "POST",
+					
+					dataType : "json",
+					success : function(result) {
+						getFromAndroid("44", result.msg, "");
+					}
+				});
+				//web end
+			}
+			
+			function getFromAndroid(apiCode, content, status) {
+				var objjson = JSON.parse(content);
+				var obj = objjson.content.body;
+				var adPic = "";
+				if(obj && obj.resultData &&　obj.resultData.length > 0) {
+					for(var i=0;i<obj.resultData.length;i++) {
+						adPic += '<img src=\"{pictureUrl}\"/>';
+						adPic = adPic.replace('{pictureUrl}', obj.resultData[i].pictureUrl);
+					}
+				}
+				else {
+					adPic += '<img src=\"img/starUpImg.png\"/>';
+				}
+				$("#adPicDiv").html(adPic);
+			}  
+		</script>
+	</head>
+	<body onload="initPage()">
+		<div class="DFSUheader" id="adPicDiv">
+		</div>
+		<div class="DFstarUPfooter">
+			<img src="img/StarUpLogo.png"/>
+		</div>
+		<div class="DFSUCountdown">
+			跳过<span class="DFSUCountdownTime"></span>
+		</div>
+	</body>
+</html>

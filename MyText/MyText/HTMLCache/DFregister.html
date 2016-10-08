@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFcommon.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/DFregister.js">
+		</script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		function clickback(){
+			    var type = GetPageParams("type");
+	            if(type!=""&&type!=null){
+				  window.location.href = "DFlogin.html";
+				}else{
+				  window.location.href = "DFUserCenter.html";
+				}
+			}
+		//andr 返回数据 apicode api码, content 返回内容 status 返回状态
+		function getAndroidData(apiCode, content, status) {
+			var objjson = JSON.parse(content);
+			var obj = objjson.body;
+			if(apiCode == "APP00046") {
+				if(obj.isSuccessful){
+						if(obj && obj.resultData) {
+							var returnStatus = obj.resultData;
+							if(returnStatus == "1") {
+								$('.DFMNprompt').show();
+								$('.DFMNprompt').text('验证码已发送,请注意查收');
+								//$('#codeResult').val(obj.resultData.number);
+							} else if(returnStatus == "2"){
+								$('.DFMNprompt').show();
+								$('.DFMNprompt').text('该手机号未注册');
+							} else if(returnStatus == "3"){
+								$('.DFMNprompt').show();
+								$('.DFMNprompt').text('用户名和手机号不匹配');
+							} else if(returnStatus == "4"){
+								$('.DFMNprompt').show();
+								$('.DFMNprompt').text('手机号已注册');
+							} else if(returnStatus == "5"){
+								$('.DFMNprompt').show();
+								$('.DFMNprompt').text('手机号未绑定');
+							} else {
+								$('.DFMNprompt').show();
+								$('.DFMNprompt').text('短信发送失败，请稍后再试');
+							}
+						}else {
+							$('.DFMNprompt').show();
+							$('.DFMNprompt').text('短信发送失败，请稍后再试');
+						}
+					}else{
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text(obj.errorMsg);
+					}
+				//if(obj && obj.resultData && obj.resultData.length > 0) {
+				//	var returnStatus = obj.resultData[0].result;
+				//	if(returnStatus == "1") {
+				//		$("#codeResult").val(obj.resultData[0].number);
+				//	} else {
+				//		$('#DFgetCode').val('短信发送失败，请稍后再试');
+				//	}
+				//}
+				//else {
+				//	$('#DFgetCode').val('短信发送失败，请稍后再试');
+				//}
+			}
+			if(apiCode == "APP00039") {
+				if(obj && obj.resultData && obj.resultData.length > 0) {
+					var resultData = obj.resultData[0].result;
+					if(resultData == "1") {//注册成功，跳转页面
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('注册成功');
+						window.location.href = 'DFUserCenter.html';
+					} else if(resultData == "2") {
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('注册失败，用户名已存在');
+					} else if(resultData == "3") {
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('注册失败，该手机号已注册');
+					} else if(resultData == "4") {
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('注册失败，验证码错误');
+					} else  if(resultData == "5") {
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('注册失败，该手机号未验证');
+					} else  if(resultData == "6") {
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('车牌号已存在');
+					} else  if(resultData == "7") {
+						$('.DFMNprompt').show();
+						$('.DFMNprompt').text('车架号已存在');
+					}
+				}
+			}
+			if(apiCode == "APP00013") {
+				if(obj.resultData){
+					$('#codeResult').val("0");
+					//var DFMNmobileVal = $('#DFMNmobile').val();
+					//var DFyanzhengcode = $('#DFyanzhengcode').val();
+					//var DFPRIpassword = $('#DFPRIpassword').val();
+					//var url = 'DFVehicleInformation.html?zcmobile=' + DFMNmobileVal+'&zccode='+DFyanzhengcode+'&zcpassword='+DFPRIpassword;
+					//url = encodeURI(url);
+					//window.location.href = url;
+				}else{
+				   $('#codeResult').val("1");
+				}
+			}
+		}  
+		</script>
+	</head>
+	<body>
+		<!--heaer star-->
+		<header id="DFMNheader">
+			<a href="javascript:void(0)" class="fl DFIDTheaderImg" onclick="clickback()"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">注册账户</a>
+		</header>
+		<!--heaer end-->
+		<!--DFMNcontent star-->
+		<form>
+			<section class="DFMNcontent">
+				<div class="DFMNcontentNum">
+					<label for="" class="DFPRILabel">手机号:</label>
+					<input type="text" name="" id="DFMNmobile" class="DFRtext" value="" placeholder="请输入手机号" maxlength="11"/>
+					<input type="button" name="" id="DFgetCode" value="获取验证码" class="DFMNcontentGetCod"/>
+					<input type="hidden" name="" id="codeResult" class="DFRtext" value="" placeholder="" maxlength="11"/>
+				</div>
+				<div class="DFMNcontentNum">
+					<label for="" class="DFPRILabel">验证码:</label>
+					<input type="text" name="" id="DFyanzhengcode" class="DFPRItext" value="" placeholder="请输入验证码" maxlength="6"/>
+				</div>
+				<div class="DFMNcontentNum">
+					<label for="" class="DFPRILabel">密码:</label>
+					<input type="password" name="" id="DFPRIpassword" class="DFPRItext" value="" placeholder="请输入字母、数字6至18位"  maxlength="18"/>
+				</div>
+				<div class="DFMNcontentNum">
+					<label for="" class="DFPRILabel">确认密码:</label>
+					<input type="password" name="" id="DFPRIpassConfirm" class="DFPRItext" value="" placeholder="请再次输入密码" maxlength="18"/>
+				</div>
+				<input type="button" name="" class="DFMNsubmit" value="注册" id="DFMNsubmit" />
+			</section>	
+		</form>
+		<div class="DFMNprompt hid">
+		</div>
+		<!--DFMNcontent end-->	
+	</body>
+</html>

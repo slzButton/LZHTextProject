@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta HTTP-EQUIV="pragma" content="no-cache">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/mui.picker.min.js">
+		</script>
+		<script type="text/javascript" src="js/area.js"></script>
+		<script type="text/javascript" src="js/DFmodifyInformation.js">
+		</script>
+		<script type="text/javascript" src="js/common.js">
+		</script>	
+		<script type="text/javascript">
+		$(document).ready(function(){		
+			var url = window.location.href;
+			url = url.replace("DFmodifyInformation.html", "DFUserCenter.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+		   // loadServerSession();
+		  getData();
+		 $("#save").click(function() {
+		    saveData();
+		 } );
+		 $("#photo").click(function() {
+		    CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":0,\"hwContent\":\"选择相册\",\"uploadCode\":\"APP00042\"}}");
+		 } );
+		});
+		function clickcity(){
+				var username = $("#username").val();	
+				var usersex = $("#usersex").find("option:selected").text();
+				var userphone = $("#userphone").text();
+				var DFMIbtnDate = $("#DFMIbtnDate").text();
+				var usercity = $("#usercity").text();
+				var url = 'DFProvincesAndCities.html?username=' + username+'&usersex='+usersex+'&userphone='+userphone+'&DFMIbtnDate='+DFMIbtnDate+'&usercity='+usercity;
+				url = encodeURI(url);
+	        	window.location.href = url;
+			}
+		function clickPhone(){
+				var username = $("#username").val();	
+				var usersex = $("#usersex").find("option:selected").text();
+				var userphone = $("#userphone").text();
+				var DFMIbtnDate = $("#DFMIbtnDate").text();
+				var usercity = $("#usercity").text();
+				var citycode = $("#citycode").val();
+				var url = 'DFPasswordResetNUM.html?type=3&username=' + username+'&usersex='+usersex+'&userphone='+userphone+'&DFMIbtnDate='+DFMIbtnDate+'&usercity='+usercity+'&citycode='+citycode;
+				url = encodeURI(url);
+				//alert(url);
+	        	window.location.href = url;
+			}
+		</script>
+	
+	</head>
+	<body>
+		<!--heaer star-->
+		<header id="DFIDTheader">
+			<a href="DFUserCenter.html" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">修改信息</a>
+			<a id="save" href="javascript:void(0)" class="fr DFIDTshare">保存</a>
+		</header>
+		<!--heaer end-->
+		<!--DFMIportrait star-->
+		<section id="photo" class="DFMIportrait" style="padding-left:17px" >
+			<span class="fl DFMIportraitSpan">头像</span>
+			<img  id="userhead" src="img/portraitImg.png" class="DFMIportraitImg fr"/>
+			<!--<input type="file" name="" id="DFMIportraitfile" value="" accept="image/*;capture=camera" multiple="multiple"/>-->
+		</section>
+		<!--DFMIportrait end-->
+		<!--DFMIcontent star-->
+		<section class="DFMIcontent">
+			<div style="padding-left:10px">
+				<span class="DFMIcontentNameSpan">姓名：</span>
+				<input id="username" type="text" name="" class="DFMIPleaseName" value="" placeholder="请输入姓名"/>
+			</div>
+			<div class="DFMIcontentName" style="padding-left:10px">
+				<span class="DFMIcontentNameSpan">性别：</span>
+				<select id="usersex" name="" class="DFMIPleaseName">
+					<option value="请选择性别">请选择性别</option>
+					<option value="男">男</option>
+					<option value="女">女</option>
+				</select>
+			</div>
+			<div class="DFMIcontentName" onclick="clickPhone()" style="padding-left:10px">
+				<a href="javascript:void(0)" class="DFMIlink">
+					<span class="DFMIcontentNameSpan">手机号：</span>
+					<p id="userphone" class="DFMIPleaseName"></p>
+					<!--<input type="button" name="" class="DFMIPleaseName" value="13209992010"/>-->
+				</a>
+			</div>
+			<div class="DFMIcontentName" style="padding-left:10px">
+				<span class="DFMIcontentNameSpan">出生日期：</span>
+				<p id='DFMIbtnDate' class="DFMIPleaseName btnDate mui-btn mui-btn-block"  data-options='{"type":"date","beginYear":1970,"endYear":2099}'>请选择出生日期</p>
+				<!--<input type="button" name="" class="DFMIPleaseName btnDate mui-btn mui-btn-block" value="请选择出生日期" id='DFMIbtnDate' data-options='{"type":"date","beginYear":2010,"endYear":2016}'/>-->
+			</div>
+			<div class="DFMIcontentName" onclick="clickcity()" style="padding-left:10px">
+				<a href="javascript:void(0)" class="DFMIlink">
+					<span class="DFMIcontentNameSpan">所在城市：</span>
+					<p id="usercity" class="DFMIPleaseName">请选择所在地区</p>
+					<input id="citycode" type="hidden" value=""/>
+				</a>
+			</div>
+		</section>
+		
+		
+		<!--DFMIcontent end-->
+		<div class="DFVIprompt hid">	
+		</div>
+		<input id="loginname" type="hidden" value=""/>	
+	</body>
+</html>

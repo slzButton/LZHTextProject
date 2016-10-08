@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js">
+		</script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js">
+		</script>
+		<script type="text/javascript" src="js/iscroll.js">
+		</script>
+		<script type="text/javascript" src="js/DFmyIntergra.js">
+		</script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		function initdata() {
+			var url = window.location.href;
+			url = url.replace("DFmyIntergra.html", "DFUserCenter.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");  
+			var params = "{\"apiCode\":\"APP00057\",\"apiData\":{\"header\":{\"code\":\"APP00057\"},\"body\":{\"username\":\""+sessionStorage.loginname+"\",\"companyCode\":\""+companyCode+"\"}}}";
+			CallToMobil(params);
+			initPage();
+         }	
+		 function initPage() {			
+				var page = $("#page").val();
+				if(page==""){
+				  page=1;
+				}
+				var params = "{\"apiCode\":\"APP00058\",\"apiData\":{\"header\":{\"code\":\"APP00058\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\",\"page\":\"" + page + "\"}}}";
+				CallToMobil(params);
+				$("#page").val(page*1+1);
+			}
+         function getAndroidData(apiCode, content, status) {
+				var objjson = JSON.parse(content);
+				var obj = objjson.body;
+					if(apiCode == "APP00057") {
+						var Intedata = obj.resultData;	
+						$('.DFIcarNum').text("会员卡号："+Intedata.cardNo);	
+						$('#name').text(Intedata.memberName);	
+						$('#tel').text(Intedata.memberTel);
+						$('#zjf').text(Intedata.totalPoint);
+						$('#kyjf').text(Intedata.usefulPoint);								
+				   }
+				   if(apiCode == "APP00058") {
+						var row = obj.resultData.rows;
+						if(obj && row &&　row.length > 0) {
+							var DFMIlist = document.body.querySelector('#DFMIlist');
+							if(row.length>0){
+								for(var i=0;i<row.length;i++) {
+									var li = document.createElement('li');
+									li.innerHTML = '<p class="DFMIlistP"><span class="fl">'+row[i].date+'</span><span class="fr DFMIlistColor">+'+row[i].score+'</span></p>'//下拉刷新，新纪录插到最前面；
+									DFMIlist.appendChild(li);
+								}							
+							}
+							
+						}else{
+						    var page = $("#page").val();
+							if(page==2){
+							   $('.DFMInoInformation').show();
+						       $('#slider').hide(); 
+							}
+						  
+						}
+				   }
+			} 		 
+		</script>	
+		<style type="text/css">
+			.mui-fullscreen{
+				top:17.5rem;
+				bottom: 0;
+			}
+			body,html{
+				background: #fff;
+			}
+			#DFIDTheader{
+				margin-bottom:0;
+			}
+			.mui-pull-bottom-wrapper,.mui-content{
+				background: #fff;
+			}
+			
+		</style>
+	</head>
+	<body onload="initdata()">
+	    <input id="page" type="hidden" value=""/>
+		<!--DFSNDheaer star-->
+		<header id="DFIDTheader">
+			<a href="javascript:history.go(-1)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">我的积分</a>
+		</header>
+		<!--DFSNDheaer end-->
+		<!--DFMImain star-->
+		<section class="DFMImain">
+			<div class="DFSNDmainTitle">
+				<img src="img/NStitle.png" class="fl">	
+				<p class="fl DFIcarNum">会员卡号：     </p>
+				<div class="DFInameContent">
+					<p class="fl">
+						<span>会员姓名：</span>
+						<span class="DFSNDtimeName" id = "name">  &nbsp;&nbsp;&nbsp;&nbsp;     </span>						
+					</p>
+					<p class="fl DFSNDtimeML">
+						<span>会员电话：</span>
+						<span class="DFSNDtimeName" id = "tel"></span>
+					</p>	
+				</div>
+				<div class="DFInameContent DFIintegralContent">
+					<img src="img/DFMIicon.png" class="DFMItotalIcon fl"/>
+					<span class="fl">总积分：</span>
+					<span class="yellowColor fl" id = "zjf"> &nbsp;&nbsp;&nbsp     </span>
+					<img src="img/DFMIicon_01.png" class="DFMIuserIcon fl"/>
+					<span class="fl">可用积分：</span>
+					<span class="greenColor fl" id = "kyjf">      </span>
+				</div>
+			</div>			
+		</section>
+		<!--DFMImain end-->
+		<!--DFMIIntegralDetail star-->
+		<div class="DFSNDmainTitle">
+			<img src="img/NStitle.png" class="fl">	
+			<p class="fl DFSNDmainTitleP">积分明细</p>
+		</div>
+		<div class="mui-content">
+			<p class="DFMInoInformation hid">暂无信息</p>
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="DFMIlist">
+									<!--<li>
+										<p class="DFMIlistP">
+											<span class="fl">2016-11-11 09:00:00</span>
+											<span class="fr DFMIlistColor">+50</span>
+										</p>
+									</li>-->
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!--DFMIIntegralDetail end-->
+		
+	</body>
+</html>

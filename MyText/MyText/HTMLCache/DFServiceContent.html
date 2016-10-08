@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<!--<link rel="stylesheet" type="text/css" href="css/mui.css"/>-->
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			.mui-fullscreen{
+				top:5.8rem;
+			}
+		</style>
+		<script>
+		function initPage() {
+				var url = window.location.href;
+				url = url.replace("DFServiceContent.html", "DFServiceNetwork.html");
+				CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+				var cactivitytitle = GetPageParams("cactivitytitle");
+				var cactivityStartDate = GetPageParams("cactivityStartDate");
+				var cactivityEndDate = GetPageParams("cactivityEndDate");
+				var cactivityRemark = GetPageParams("cactivityRemark");
+				$('#title').text(cactivitytitle);	
+				$('#startdate').text("活动开始时间："+cactivityStartDate);	
+				$('#enddate').text("活动结束时间："+cactivityEndDate);	
+				$('#remark').text(cactivityRemark);	
+			}
+		</script>	
+	</head>
+	<body onload="initPage()">
+		<!--DFSNDheaer star-->
+		<header id="DFIDTheader">
+			<a href="javascript:history.go(-1)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">服务网点服务内容</a>
+		</header>
+		<!--DFSNDheaer end-->
+		<!--DFSNDsection star-->
+		<section class="DFSNDmain">
+			<div class="DFSNDmainTitle">
+				<img src="img/NStitle.png" class="fl"/>	
+				<p class="fl DFSNDmainTitleP" id = "title">促销送保养活动</p>
+			</div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDtime" id = "startdate">活动开始时间：2014-11-20 00:00:00</p>			
+			</div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDtime DFSNDtimeBor" id = "enddate">活动结束时间：2014-11-20 00:00:00</p>			
+			</div>
+		</section>
+		
+		<!--DFSNDsection end-->
+		<!--DFSNDmainContent star-->
+		<section class="DFSNDmainContent" id = "remark">
+		</section>
+		<!--DFSNDmainContent end-->
+		
+		
+		
+	</body>
+</html>

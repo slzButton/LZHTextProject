@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="js/DFconfigure.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			.mui-fullscreen{
+				bottom: 0;
+			}
+		</style>
+
+		<script>
+		function initPage(){		
+		    var url = window.location.href;
+			url = url.replace("DFconfigure.html", "DFOffModel.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");
+			var modelId = GetPageParams("modelId");
+			var params = "{\"apiCode\":\"APP00045\",\"apiData\":{\"header\":{\"code\":\"APP00045\"},\"body\":{\"companyCode\":\""+companyCode+"\",\"carTypeId\":\"" + modelId + "\"}}}";
+            CallToMobil(params);			
+		}
+		
+		
+		function getAndroidData(apiCode, content, status) {
+			var objjson = JSON.parse(content);
+			var obj = objjson.body;
+			if(apiCode == "APP00045") {
+					if(obj && obj.resultData &&　obj.resultData.length > 0) {
+						var DFSNlist = document.body.querySelector('#DFCFList');
+						for(var i=0;i<obj.resultData.length;i++) {
+							var carModel=obj.resultData[i].carModels;
+							var styleAge=obj.resultData[i].styleAge;
+							var titleHtml = "";								
+								titleHtml += " 	<div class=\"DFOMcontent\">   ";
+								titleHtml += " 		<p class=\"DFOMcontentTitle\" >&nbsp;&nbsp;&nbsp;{bname}</p>";
+								titleHtml += " 	</div>                                                            ";																		
+								titleHtml = titleHtml.replace('{bname}', styleAge);
+							var titleli = document.createElement('li');
+								titleli.innerHTML = titleHtml;									
+								DFSNlist.appendChild(titleli);
+								if(carModel &&carModel.length > 0){
+										   for(var j=0;j<carModel.length;j++){
+												var addHtml = "";
+													addHtml += " 	<div class=\"DFOMcontent\" onclick=\"onclickConfig({modelId})\">   ";
+													addHtml += " 		<p class=\"DFOMcontentList\" cid=\"{configId}\">&nbsp;&nbsp;&nbsp;{name}</p>";
+													addHtml += " 	</div>                                                            ";
+													addHtml = addHtml.replace('{configId}', carModel[j].carModelType);
+													addHtml = addHtml.replace('{name}', carModel[j].name);
+													var li = document.createElement('li');
+													li.innerHTML = addHtml;
+													DFSNlist.appendChild(li);
+												}
+											}
+						}
+						eachAddClick();
+					}	
+			}
+		} 
+		
+		function eachAddClick() {
+				$.each(document.querySelectorAll('.DFOMcontentList'), function() {
+				this.addEventListener('tap',function(){
+					var cid = $(this).attr("cid");
+					var carModelname =$(this).text();
+					var modelId = GetPageParams("modelId");
+					var DFcarType = GetPageParams("DFcarType");
+					var DFVILicensePlateNumber = GetPageParams("DFVILicensePlateNumber");
+					var DFVIFrameNumber = GetPageParams("DFVIFrameNumber");
+					var DFVIengine = GetPageParams("DFVIengine");
+					var bxgsdm = GetPageParams("bxgsdm");
+					var DFInsuranceCompany = GetPageParams("DFInsuranceCompany");
+					var DFMIbtnDate = GetPageParams("DFMIbtnDate");		
+                    var zcmobile =	GetPageParams("zcmobile");	
+					var zccode =	GetPageParams("zccode");
+					var zcpassword =	GetPageParams("zcpassword");						
+                    var url = 'DFVehicleInformation.html?DFcarType=' + cid+'&modelId='+modelId+'&carModelname='+carModelname+'&DFVILicensePlateNumber='+DFVILicensePlateNumber+'&DFVIFrameNumber='+DFVIFrameNumber+'&DFVIengine='+DFVIengine+'&DFInsuranceCompany='+DFInsuranceCompany+'&bxgsdm='+bxgsdm+'&DFMIbtnDate='+DFMIbtnDate+'&zcmobile='+zcmobile+'&zccode='+zccode+'&zcpassword='+zcpassword;
+				  window.location.href = url;
+				});
+			});
+		}
+		
+		</script>
+	</head>
+	<body onload="initPage()">
+		<!--heaer star-->
+		<header id="DFCFheader">
+			<a href="javascript:history.go(-1)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">车辆配置</a>
+		</header>
+		<!--heaer end-->
+		<!--DFCFcontent star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="DFCFList">
+									<!-- <li>
+										<div class="DFOMcontent">
+											<p class="DFOMcontentTitle">{name}</p>
+										</div>
+									</li>
+									 -->
+									
+								</ul>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>	
+		<!--DFCFcontent end-->
+
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>		
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/DFcentralLocking.js">
+		</script>
+		<style type="text/css">
+			body, html{
+				overflow: hidden;
+			}
+		</style>
+		<script>
+		var $DFgetCodeInterval;
+		function initPage() {
+		        var url = window.location.href;
+				url = url.replace("DFcentralLocking.html", "DFmyCar.html");
+				CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+		        $DFgetCodeInterval = setInterval(ifclear, 300000);
+				CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"findcar"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"},{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"findcartime"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"}]}");    
+		}
+		function ifclear(){
+				CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"findcar"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"},{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"findcartime"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"}]}");    
+		}
+		function clickfindcar(){		               		
+           if(sessionStorage.xcpassword =="true")	{
+				var params = "{\"apiCode\":\"APP00050\",\"apiData\":{\"header\":{\"code\":\"APP00050\"},\"body\":{\"vin\":\""+sessionStorage.vin+"\",\"did\":\""+sessionStorage.JpushId+"\"}}}";
+				//alert(params);
+				CallToMobil(params);
+			}else{
+			  	$("#writemm").show();
+			}	
+		}
+		function getAndroidData(apiCode, content, status) {		
+			if(apiCode == "APP00050") {
+						var objjson = JSON.parse(content);
+						 var obj = objjson.body;
+						if( obj.resultData) {
+							CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"指令已发送，请耐心等待\"}}"); 
+                            $DFgetCodeInterval = setInterval(ifclear, 300000);							
+							$('#findcar').addClass('UnCLbtn'); 
+							document.getElementById("findcar").disabled = true;
+							CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"findcar"+ "\",\"spvalue\":\"" + obj.resultData.taskid + "\",\"spclass\":\"\"},{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"findcartime"+ "\",\"spvalue\":\"" + new Date().getTime() + "\",\"spclass\":\"\"}]}");    					
+						}				
+				}
+			 if(apiCode=="APP00006"){
+					 var sessionArray = JSON.parse(content);	
+						 if(sessionArray[0].sptype=='3'){	
+							if(sessionArray[0].content!='null'&&sessionArray[0].content!=''){
+							     $('#findcar').addClass('UnCLbtn'); 
+								 document.getElementById("findcar").disabled = true;											
+							}else{							
+								 $('#findcar').removeClass('UnCLbtn');
+								 document.getElementById("findcar").disabled = false;							
+							}
+							if(sessionArray[1].content!='null'&&sessionArray[1].content!=''){
+							   if(new Date().getTime()-sessionArray[1].content>300000 ){
+							   		CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"findcar"+ "\",\"spvalue\":\"\",\"spclass\":\"\"},{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"findcartime"+ "\",\"spvalue\":\"\",\"spclass\":\"\"}]}");    					
+							        clearInterval($DFgetCodeInterval);
+									window.location.reload();
+							  }
+							}else{
+							        clearInterval($DFgetCodeInterval);
+							}
+						 }
+					} 
+		} 
+		function loadWritemm(){
+		    sessionStorage.xcpassword = false;
+		}
+		$('.DFRRmengbanBtnCancel').click(function(e){
+				e.stopPropagation();
+				$("#writemm").hide();
+			})
+		function testmm(){
+			var passwordmm = $('#mm').val();
+			if(sessionStorage.password==passwordmm){
+				 CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"密码正确\"}}"); 
+				 sessionStorage.xcpassword = true;
+				 $('#mm').val('');
+				 $("#writemm").hide();
+			}else{
+				 CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"密码错误请重新输入\"}}"); 
+			}		
+		}	
+		</script>
+	</head>
+	<body onload="initPage()">
+		<!--heaer star-->
+		<header id="DFHPheader" style="position:relative;overflow:hidden;">
+			<a href="DFmyCar.html" class="fl DFIDTheaderImg ALLposition"><img src="img/headerLeft.png"/></a>
+			<a href="###" class="DFHPhdphone DFHPlogo CLlogo flMt">寻车</a>
+		</header>
+		<!--heaer end-->
+		<!--main star-->
+		<section id="CLmain">
+			<button class="CLbtn" onclick="clickfindcar()" id="findcar" >寻车</button>
+		</section>
+		<!--main end-->
+		<!--mengban star-->
+		<div class="DFRRmengban hid" id="writemm" >
+			<div class="DFRRmengbanContent">
+				<!--<p class="DFRRmengbanTellTitle">提示信息</p>-->
+				<p class="DFRRmengbanTellTitleConfirm">请输入登录密码：<input id="mm" type="password" style="border:1px solid #ccc;width: 80%;height: 1.8rem;margin: 1rem 0;" value=""/>	</p>
+				<p class="DFRRmengbanBtn">
+					<span class="DFRRmengbanBtnCancel">取消</span>
+					<span id="checkmm" onclick="testmm()">确定</span>
+				</p>
+			</div>		
+		</div>		
+		<!--mengban end-->
+	</body>
+</html>

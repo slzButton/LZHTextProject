@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/area.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js"></script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js"></script>
+		<script type="text/javascript" src="js/iscroll.js"></script>
+		<script type="text/javascript" src="js/DFServiceNetwork.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=QqzTcUESgHaXpn189pALQa71&services=&t=20130716024057"></script>
+		<script> 
+		
+		    function initloction(){
+			   var url = window.location.href;
+			   url = url.replace("DFServiceNetwork.html", "DFhomePage.html");
+			   CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    	
+			   CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":4,\"hwContent\":\"\"}}");    
+			   var myCity = new BMap.LocalCity();
+				function myFun(result){//获取当前城市名 
+				    var cityName = result.name;
+					$("#fujin").text(cityName);
+					$("#city").val(cityName);
+					initPage('',cityName);
+				}
+				var province = myCity.get(myFun);
+				
+			}
+			
+			function initPage(province, city) {			
+				var page = $("#page").val();
+				if(page==""){
+				  page=1;
+				}
+				var citycode = getAreaCode(city);
+				var params = "{\"apiCode\":\"APP00033\",\"apiData\":{\"header\":{\"code\":\"APP00033\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\",\"areaCode\": \""+citycode+"\",\"page\":\"" + page + "\",\"searchType\":\"FACILITATOR\",\"pageSize\":\"5\",\"searchKey\":\"\"}}}";
+				//alert(params);
+				CallToMobil(params);
+				$("#page").val(page*1+1);
+			}
+						
+			function getAndroidData(apiCode, content, status) {
+				var objjson = JSON.parse(content);
+				var obj = objjson.body;
+					if(apiCode == "APP00033") {
+						var row = obj.resultData.rows;
+						if(obj && row &&　row.length > 0) {
+							var DFSNlist = document.body.querySelector('.show4sDiv');
+							var hid4sDiv = document.body.querySelector('.hid4sDiv');
+							for(var i=0;i<row.length;i++) {
+								var addHtml = "";
+								var hidHtml = "";
+								addHtml += "  	<section class=\"DFNSlist\" cname=\"{cname4s}\" caddress=\"{caddress4s}\" chotline=\"{hotLine}\" ccode=\"{code4s}\">                                                          ";
+								addHtml += "  		<div class=\"fl DFNSlistLeft\">                                                     ";
+								addHtml += "  			<p class=\"DFNSListname\">{name4s}</p>                                            ";
+								addHtml += "  			<p class=\"DFNSListLocation\">{address4s}</p>                                     ";
+								addHtml += "  		</div>                                                                            ";
+								addHtml += "  		<div class=\"fr DFNSlistRight\" cid=\"{shop4sId}\"><img src=\"img/NSphone.png\" class=\"DFSNphoneImg\"></div>      ";
+								addHtml += "  	</section>                                                                          ";
+								addHtml = addHtml.replace('{shop4sId}', row[i].id);
+								addHtml = addHtml.replace('{name4s}', row[i].name);
+								addHtml = addHtml.replace('{cname4s}', row[i].name);
+								addHtml = addHtml.replace('{address4s}', row[i].address);
+								addHtml = addHtml.replace('{caddress4s}', row[i].address);
+								addHtml = addHtml.replace('{hotLine}', row[i].hotLine);
+								addHtml = addHtml.replace('{code4s}', row[i].code);
+								var li = document.createElement('li');
+								li.innerHTML = addHtml;
+								
+								DFSNlist.appendChild(li);
+								// hide phone div
+								hidHtml +=  "<div class=\"DFSNmarkPhone hid\" id=\"shop4s_{shop4sId}\">                ";
+								hidHtml +=  " 	<div class=\"DFSNmarkPhoneBigContent\">       ";
+								hidHtml +=  " 		<div class=\"DFSNmarkPhoneContent\">        ";
+								hidHtml +=  " 			<p>                                       ";
+								hidHtml +=  " 				<span>服务电话：</span>                 ";
+								hidHtml +=  " 				<a href=\"###\" class=\"callPhone\" >{phone}</a>        ";
+								hidHtml +=  " 			</p>                                      ";
+								hidHtml +=  " 			<p>                                       ";
+								hidHtml +=  " 				<span>售中电话：</span>                 ";
+								hidHtml +=  " 				<a href=\"###\" class=\"callPhone\">400-887-5551</a>        ";
+								hidHtml +=  " 			</p>                                      ";
+								hidHtml +=  " 			<p>                                       ";
+								hidHtml +=  " 				<span>售后电话：</span>                 ";
+								hidHtml +=  " 				<a href=\"###\" class=\"callPhone\">{hotLine}</a>        ";
+								hidHtml +=  " 			</p>                                      ";
+								hidHtml +=  " 		</div>                                      ";
+								hidHtml +=  " 		<p class=\"DFSNcancelPhone\" cid=\"{shop4sId2}\">取消</p>       ";
+								hidHtml +=  " 	</div>	                                      ";
+								hidHtml +=  " </div>                                          ";
+								hidHtml = hidHtml.replace('{shop4sId}', row[i].id);
+								if(row[i].phone&&row[i].phone!=""){
+								  hidHtml = hidHtml.replace('{phone}', row[i].phone);
+								}else{
+								  hidHtml = hidHtml.replace('{phone}', "无");
+								}	
+                                if(row[i].hotLine&&row[i].hotLine!=""){
+								  hidHtml = hidHtml.replace('{hotLine}', row[i].hotLine);
+								}else{
+								  hidHtml = hidHtml.replace('{hotLine}', "无");
+								}															
+								hidHtml = hidHtml.replace('{shop4sId2}', row[i].id);
+								var divv = document.createElement('div');
+								divv.innerHTML = hidHtml;
+								hid4sDiv.appendChild(divv);
+							}
+							eachAddClick();
+						}
+				   }
+			}  
+			
+			function eachAddClick() {
+			   $.each(document.querySelectorAll('.DFNSlist'), function() {
+					this.addEventListener('tap',function(e){
+						e.stopPropagation();
+						var cname = $(this).attr("cname");
+						var caddress = $(this).attr("caddress");
+						var chotline = $(this).attr("chotline");
+						var ccode = $(this).attr("ccode");
+                        //alert(cname+"|"+caddress+"|"+chotline+"|"+ccode);
+						var url = 'DFServiceNetWorkDetails.html?cname=' + cname+'&caddress='+caddress+'&chotline='+chotline+'&ccode='+ccode;
+						url = encodeURI(url);
+						window.location.href = url;
+						});
+				});
+				$.each(document.querySelectorAll('.DFNSlistRight'), function() {
+					this.addEventListener('tap',function(e){
+						e.stopPropagation();
+						var cid = $(this).attr("cid");
+						$("#shop4s_"+cid).show();
+					});
+				});
+				$.each(document.querySelectorAll('.DFSNcancelPhone'), function() {
+					this.addEventListener('tap',function(){
+						var cid = $(this).attr("cid");
+						$("#shop4s_"+cid).hide();
+					});
+				});
+				$.each(document.querySelectorAll('.callPhone'), function() {
+					this.addEventListener('tap',function(){
+						var tel = $(this).text();
+			            CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":1,\"hwContent\":\""+tel+"\"}}");    			
+					});
+				});
+			}
+			
+			//这里根据所选地区重新加载服务网点
+			function reloadShop4s(cityName){
+				var province = ""; 
+				var city = "";
+				if(cityName != "") {
+					province = cityName.split("_")[0];
+					city = cityName.split("_")[1];
+					$("#city").val(city);
+					$("#province").val(province);
+				}
+				$("#DFSNlist").html("");//把原来的服务网点清掉方便加载新数据 
+				initPage(province, city);
+			}
+		</script> 
+		
+		<style type="text/css">
+			.mui-fullscreen{top:5.8rem;}
+		</style>
+		
+	</head>
+	<body onload="loaded();initloction()">
+		<input id="page" type="hidden" value=""/>
+		<input id="province" type="hidden" value=""/>
+		<input id="city" type="hidden" value=""/>
+		<!--SNheaer star-->
+		<header id="DFSNheader">		
+			服务网点
+			
+		</header>
+		<!--SNheaer end-->
+		<!--menu star-->
+		<section class="DFSNmenu">
+			<span class="DFNSmenuTitle" id="fujin">附近</span>
+			<img src="img/SNdown.png" class="DFSNdownIcon"/>
+			<input type="hidden" id="selectedCity" value=""/>
+		</section>
+		<!--menu end-->
+		<!--SNmain star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view show4sDiv" id="DFSNlist">
+									<!-- 显示4s店 -->
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!--SNmain end-->
+		<!--SNfooter star-->
+		<footer id="SNHPfooter">
+			<div class="fl HPfooterwidth">
+				<div class="EFHPFIcon" id="homeJump">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_06.png"/>
+						<p>首页</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="messageJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_02.png"/>
+						<p>信息资讯</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="DFHPmyCay">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/myCar_01.png"/>
+						<p class="">我的爱车</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="serviceJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_05.png"/>
+						<p class="DFHPFcolor">服务网点</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="userCenterJump">
+				<div class="EFHPFIcon">
+					<a href="###">
+						<img src="img/HPicon_04.png"/>
+						<p>用户中心</p>
+					</a>
+				</div>
+			</div>
+		</footer>
+		<!--SNfooter end-->	
+		<!--蒙版菜单 star-->
+		<div class="DFSNMaskMeu hid">
+			<div id="wrapper">
+				<div id="scroller">
+					<ul id="pro_div">
+						<li class="listBtn scrollerbj">附近</li>
+						<!-- 动态加载一级城市 -->
+					</ul>
+				</div>
+			</div>
+			<div>
+				<div class="rightBigContent">
+					<div class="rightSmallContent">
+						<ul class="DFSNcontnet" id="city_name">
+							<!-- 动态加载城市 -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--蒙版菜单 end-->
+		<!--phone mark star-->
+		<div class="hid4sDiv">
+			<!-- 显示热线电话的地方 -->
+		</div>
+		<!--phone mark end-->
+	</body>
+</html>

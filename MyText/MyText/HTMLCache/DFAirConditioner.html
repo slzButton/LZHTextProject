@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<style type="text/css">
+			body,html{
+				background: #fff;
+			}
+			.mui-switch.mui-active {
+			    border-color: #3db4ff;
+			    background-color: #3db4ff;
+			}
+			.mui-switch{
+				width: 3.6rem;
+				height: 1.6rem;
+				margin-top: 0.3rem;
+			}
+			.mui-switch .mui-switch-handle{
+				width: 1.2rem;
+				height: 1.4rem;
+			}
+			.mui-switch:before{
+				top: 0;
+				font-size: 0.7rem;
+				right: 0.5rem;
+			}
+			.mui-switch.mui-active:before{
+				left: 0.5rem;
+			}
+			.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+				font-size: 20px;
+			}
+			.mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{
+				width: 20px;
+				height: 18px;
+				margin-top: 0.3rem
+			}
+			.mui-radio.mui-left label, .mui-checkbox.mui-left label{
+				padding-left: 3rem;
+			}
+			input[type=password]{
+				line-height: 1.8rem;
+				-webkit-user-select: text;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: inherit;
+				border:1px solid #ccc;
+				width: 80%;
+				height: 1.8rem;
+				margin:1rem 0;
+			}
+			
+		</style>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/DFAirConditioner.js">
+		</script>
+		<script>
+		var $DFgetCodeInterval;
+		function initPage() {
+				var url = window.location.href;
+				url = url.replace("DFAirConditioner.html", "DFmyCar.html");
+				CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+		       $DFgetCodeInterval = setInterval(ifclear, 300000);
+		       if(sessionStorage.isAirOn=="true"||!sessionStorage.isAirOn){
+			      $('#mySwitch').addClass('mui-active');
+			   }else{
+			      $('#mySwitch').removeClass('mui-active');		     
+			   }
+			   if(sessionStorage.mode1=="true"){
+			      document.getElementById("DFACradio1").checked = true;
+			   }
+			   if(sessionStorage.mode2=="true"){
+			      document.getElementById("DFACradio2").checked = true;
+			   }
+               if(sessionStorage.temp){
+			     $("#DFACrange").val(sessionStorage.temp);
+				 $("#DFACMtemperatureTopVal").text(sessionStorage.temp);
+			   }else{
+			     $("#DFACrange").val(21);
+			   }  
+				CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"aircond"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"},{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"aircondtime"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"}]}");    
+		}
+		function ifclear(){
+				CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"aircond"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"},{\"sptype\":3,\"spname\":\"" + sessionStorage.loginname +"aircondtime"+ "\",\"spvalue\":\"001\",\"spclass\":\"String\"}]}");    
+		}
+		function clickkt(){	  
+		     var isActive = document.getElementById("mySwitch").classList.contains("mui-active");
+			 var isonoff="false";
+			 if(isActive){
+				  isonoff="true";
+			 }
+		     var mode = "11";
+			 var checkbox1 = document.getElementById('DFACradio1');
+			 var checkbox2 = document.getElementById('DFACradio2');
+			 if(checkbox1.checked&&checkbox2.checked){
+			    mode="00";
+				sessionStorage.mode1 = true;
+				sessionStorage.mode2 = true;
+			 }else if(checkbox1.checked&&!checkbox2.checked){
+			    mode="01";
+				sessionStorage.mode1 = true;
+				sessionStorage.mode2 = false;
+			 }else if(!checkbox1.checked&&checkbox2.checked){
+			    mode="10";
+				sessionStorage.mode1 = false;
+				sessionStorage.mode2 = true;
+			 }else{
+			    mode="11";
+				sessionStorage.mode1 = false;
+				sessionStorage.mode2 = false;
+			 }
+			 sessionStorage.temp = $("#DFACrange").val();
+			if(sessionStorage.airpassword =="true")	{
+				var params = "{\"apiCode\":\"APP00051\",\"apiData\":{\"header\":{\"code\":\"APP00051\"},\"body\":{\"vin\":\""+sessionStorage.vin+"\",\"did\":\""+sessionStorage.JpushId+"\",\"temp\":\"" + $("#DFACrange").val() + "\",\"onoff\":\""+isonoff+"\",\"mode\":\""+mode+"\"}}}";
+				//alert(params);
+				CallToMobil(params);
+			}else{
+			  	$("#writemm").show();
+			}		
+		}
+		function getAndroidData(apiCode, content, status) {		
+			if(apiCode == "APP00051") {
+						var objjson = JSON.parse(content);
+						 var obj = objjson.body;
+						if( obj.resultData) {
+							CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"指令已发送，请耐心等待\"}}");   
+							$DFgetCodeInterval = setInterval(ifclear, 300000);
+							$('.DFACMtemperatureTopCenter').css('color','#333');
+							$('#DFACrange').attr('disabled','disabled');
+							$('#DFACradio1').attr('disabled','disabled');
+							$('#DFACradio2').attr('disabled','disabled');
+							$('#DFACrange').removeClass('change');
+							$('#mySwitch').addClass('mui-disabled');
+						    document.getElementById("airCond").disabled = true;
+							CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"aircond"+ "\",\"spvalue\":\"" + obj.resultData.taskid + "\",\"spclass\":\"\"},{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"aircondtime"+ "\",\"spvalue\":\"" + new Date().getTime() + "\",\"spclass\":\"\"}]}");    					
+						}				
+				}
+			 if(apiCode=="APP00006"){
+					 var sessionArray = JSON.parse(content);	
+						 if(sessionArray[0].sptype=='3'){	
+							if(sessionArray[0].content!='null'&&sessionArray[0].content!=''){
+							     $('.DFACMtemperatureTopCenter').css('color','#333');
+								 $('#DFACrange').attr('disabled','disabled');
+								 $('#DFACradio1').attr('disabled','disabled');
+								 $('#DFACradio2').attr('disabled','disabled');
+								 $('#DFACrange').removeClass('change');
+								 $('#mySwitch').addClass('mui-disabled');
+								 document.getElementById("airCond").disabled = true;
+										
+							}else{
+				                 $('.DFACMtemperatureTopCenter').css('color','#3db4ff');
+								 $('#DFACrange').removeAttr('disabled');
+								 $('#DFACradio1').removeAttr('disabled');
+								 $('#DFACradio2').removeAttr('disabled');
+								 $('#DFACrange').addClass('change');							
+								 document.getElementById("airCond").disabled = false;
+								 $('#mySwitch').removeClass('mui-disabled');
+							}
+							if(sessionArray[1].content!='null'&&sessionArray[1].content!=''){
+							   if(new Date().getTime()-sessionArray[1].content>300000 ){							       
+							   		CallToMobil("{\"apiCode\":\"APP00006\",\"apiData\":[{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"aircond"+ "\",\"spvalue\":\"\",\"spclass\":\"\"},{\"sptype\":0,\"spname\":\"" + sessionStorage.loginname +"aircondtime"+ "\",\"spvalue\":\"\",\"spclass\":\"\"}]}");    					
+							        clearInterval($DFgetCodeInterval);
+									window.location.reload();
+							  }
+							}else{
+							        clearInterval($DFgetCodeInterval);
+							}
+						 }
+					} 
+		} 
+		function loadWritemm(){
+		    sessionStorage.airpassword = false;
+		}
+		$('.DFRRmengbanBtnCancel').click(function(e){
+				e.stopPropagation();
+				$("#writemm").hide();
+			})
+		function qxtestmm(){
+		     $("#writemm").hide();
+		}
+		function testmm(){
+			var passwordmm = $('#mm').val();
+			if(sessionStorage.password==passwordmm){
+				 CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"密码正确\"}}"); 
+				 sessionStorage.airpassword = true;
+				 $('#mm').val('');
+				 $("#writemm").hide();
+			}else{
+				 CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"密码错误请重新输入\"}}"); 
+			}		
+		}	
+		</script>
+	</head>
+	
+	<body onload="initPage()">
+		<!--heaer star-->
+		<header id="DFHPheader" style="position:relative;overflow:hidden;">
+			<a href="DFmyCar.html" class="fl DFIDTheaderImg ALLposition"><img src="img/headerLeft.png"/></a>
+			<a class="flMt">空调</a>
+		</header>
+		<!--heaer end-->
+		<!--DFACMasterSwitch star-->
+		<section class="DFACMasterSwitch">
+			<span class="fl DFACMasterSwitchTitle">空调</span>
+			<div class="mui-switch fr" id="mySwitch">
+			  <div class="mui-switch-handle"></div>
+			</div>
+			
+		</section>
+		<!--DFACMasterSwitch end-->
+		<!--DFACMtemperature star-->
+		<section class="DFACMtemperature">
+			<div class="DFACMtemperatureTop">
+				<span class="fl">温度</span>
+				<span class="DFACMtemperatureTopCenter fl"><span id="DFACMtemperatureTopVal">21</span><span>℃</span></span>
+			</div>
+			<div class="DFACMtemperatureRange">
+				<span class="fl">17</span>
+				<input type="range" name="" id="DFACrange" value="0" min="17" max="32" />
+				<span class="fl">32</span>
+			</div>
+		</section>
+		<!--DFACMtemperature end-->
+		<!--DFACPattern star-->
+		<footer class="DFACPattern">
+			<p class="DFACPatternTitle">模式<span>(非必须选项)</span></p>
+			<div class="DFACPatternRaido">
+				<!--<div class="mui-radio mui-left fl DFACradioWidth">			
+					<input type="radio" disabled="disabled" id="DFACradio1">
+					<label class="DFAClinehieght">前除霜模式</label>
+				</div>-->
+				<div class="mui-checkbox mui-left fl DFACradioWidth">
+					<input name="checkbox1" value="" type="checkbox" id="DFACradio1">
+					<label class="DFAClinehieght">前除霜模式</label>
+				</div>
+				<div class="mui-checkbox mui-left fl ">
+					<input name="checkbox1" value="" type="checkbox" id="DFACradio2">
+					<label class="DFAClinehieght">后除霜及后视镜加热模式</label>
+				</div>
+				
+				<!--<div class="mui-radio mui-left fl DFACradioWidth">			
+					<input type="radio" disabled="disabled" id="DFACradio2">
+					<label>后除霜及后视镜加热模式</label>
+				</div>-->			
+			</div>
+			<button class="DFACPatternbtn" onclick="clickkt()" id="airCond">确定</button>		
+		</footer>
+		<!--DFACPattern end-->
+		<!--mengban star-->
+		<div class="DFRRmengban hid" id="writemm" >
+			<div class="DFRRmengbanContent">
+				<!--<p class="DFRRmengbanTellTitle">提示信息</p>-->
+				<p class="DFRRmengbanTellTitleConfirm" style="color:#000">请输入登录密码：<input id="mm" type="password" class="mui-input-password" value=""/></p>
+				<p class="DFRRmengbanBtn">
+					<span class="DFRRmengbanBtnCancel" onclick="qxtestmm()">取消</span>
+					<span id="checkmm" onclick="testmm()">确定</span>
+				</p>
+			</div>		
+		</div>		
+		<!--mengban end-->
+	</body>
+</html>

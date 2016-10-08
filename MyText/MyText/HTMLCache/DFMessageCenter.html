@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.js">
+		</script>
+		<script type="text/javascript" src="js/mui.pullToRefresh.material.js">
+		</script>
+		<script type="text/javascript" src="js/DFMessageCenter.js">
+		</script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<style type="text/css">
+			.mui-fullscreen{
+				bottom: 0;
+			}
+		</style>
+     <script>
+		
+		   function initPage() {
+				var url = window.location.href;
+				url = url.replace("DFMessageCenter.html", "DFhomePage.html");
+				CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");	
+				if(sessionStorage.isLogined=="true"){			
+			         CallToMobil("{\"apiCode\":\"APP00007\",\"apiData\":[{\"mesType\":0,\"mesItem\":\"\"}]}");
+				  }else{
+					 loadServerSession();      		
+				  }
+				     
+			}
+			function sessionForui()
+			{    
+				if(sessionStorage.isLogined=="true"){			
+			         CallToMobil("{\"apiCode\":\"APP00007\",\"apiData\":[{\"mesType\":0,\"mesItem\":\"\"}]}");
+				  }else{
+					 CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"" + "用户未登录请先登录" + "\"}}");    			
+				  }
+			}
+			function getAndroidData(apiCode, content, status) {
+				var obj = JSON.parse(content);
+				var dfmclist = "";
+				if(obj &&　obj.length > 0) {
+					for(var i=0;i<obj.length;i++) {
+						dfmclist += ' <li><a href="{imgLink}"><div class="DFMCcontent"><p>{title}</p>';
+						if(obj[i].picUrl){
+						  dfmclist +='<p><img src="'+obj[i].picUrl+'"/></p>';
+						}
+						dfmclist +='<p class="DFMCcontentP">{content} </p><p class="DFMCcontentTime"><span></span>   <span>{time}</span></p></div></a></li>';
+						dfmclist = dfmclist.replace('{title}', obj[i].title);
+						dfmclist = dfmclist.replace('{content}', obj[i].contents);
+						dfmclist = dfmclist.replace('{imgLink}', obj[i].url);
+						dfmclist = dfmclist.replace('{time}', obj[i].stime);
+					}
+				}else{
+				 		CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":5,\"hwContent\":\"" + "暂无消息" + "\"}}");    			
+				}
+				
+				$("#DFMCList").html(dfmclist);
+			}  
+			function clickhome(){
+			   window.location.href = "DFhomePage.html";
+			}
+		</script>
+	</head>
+	<body  onload="initPage()">
+		<!--heaer star-->
+		<header id="DFMCheader">
+			<a href="javascript:void(0)" class="fl DFIDTheaderImg" onclick="clickhome()"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">消息中心</a>
+		</header>
+		<!--heaer end-->
+		<!--DFMCcontent star-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view" id="DFMCList">
+									<!--<li>
+										<div class="DFMCcontent">
+											<p>清明出行</p>
+											<p><img src="img/messageImg.png"/></p>
+											<p class="DFMCcontentP">清明节又叫踏青节，在仲春与暮春之交，也就是冬至后的第108天。是中国传统节日，也是最重要的祭祀节日之一，是祭祖和扫墓的日子。中国汉族传统的清明节大约始于周代，距今已......... </p>
+											<p class="DFMCcontentTime"><span>2016-6-12</span>   <span>15:08:09</span></p>
+											<p class="DFMCcontentDetial"><a href="###">查看详情</a></p>
+										</div>
+									</li>
+									<li>
+										<div class="DFMCcontent">
+											<p>今日(周二)限行 4和9</p>
+											<p class="DFMCcontentP">早7点至晚8点，限行机动车（含临时号牌）禁止在五环路以内道路行驶。</p>
+											<p class="DFMCcontentTime"><span>2016-6-12</span>   <span>15:08:09</span></p>
+										</div>
+									</li>	
+									<li>
+										<div class="DFMCcontent">
+											<p>今日(周二)限行 4和9</p>
+											<p class="DFMCcontentP">早7点至晚8点，限行机动车（含临时号牌）禁止在五环路以内道路行驶。</p>
+											<p class="DFMCcontentTime"><span>2016-6-12</span>   <span>15:08:09</span></p>
+										</div>
+									</li>	-->
+								</ul>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>	
+		<!--DFMCcontent end-->
+
+	</body>
+</html>

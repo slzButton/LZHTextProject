@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<style type="text/css">
+			.changeImgSize img{
+			    width: 3rem!important;
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+				padding:26px 10px;
+			}
+			body{
+				overflow: hidden;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>		
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script> 
+			function initPage() {
+			   // var type = GetPageParams("type");
+				//if(type!=""&&type!=null){
+				  //  window.location.href = 'DFMessageCenter.html';
+				//}else{
+				    loadServerSession();
+					//var url = window.location.href;
+					//CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+					//CallToMobil("{\"apiCode\":\"APP00023\",\"apiData\":{\"header\":{\"code\":\"APP00023\"},\"body\":{\"companyCode\":\""+companyCode+"\"}}}");
+					//CallToMobil("{\"apiCode\":\"APP00034\",\"apiData\":{\"header\":{\"code\":\"APP00034\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"time\": \"123456\",\"companyCode\":\""+companyCode+"\",\"type\":\"1\"}}}");
+					//initClick();
+				//}
+			}
+			function sessionForui()
+			{    
+				CallToMobil("{\"apiCode\":\"APP00023\",\"apiData\":{\"header\":{\"code\":\"APP00023\"},\"body\":{\"companyCode\":\""+companyCode+"\"}}}");
+				CallToMobil("{\"apiCode\":\"APP00034\",\"apiData\":{\"header\":{\"code\":\"APP00034\"},\"body\":{\"time\": \"123456\",\"companyCode\":\""+companyCode+"\",\"type\":\"1\"}}}");
+		        //alert("{\"apiCode\":\"APP00034\",\"apiData\":{\"header\":{\"code\":\"APP00034\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"time\": \"123456\",\"companyCode\":\""+companyCode+"\",\"type\":\"1\"}}}");
+				initClick();
+				isLogin = sessionStorage.isLogined;
+			}
+			function initmui(){
+				mui.init({
+							swipeBack:true //启用右滑关闭功能
+						});
+				//获得slider插件对象
+				var DFHPimgBanner = mui('#DFHPimgBanner');
+				DFHPimgBanner.slider({
+				  interval:1000//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+			}
+			//function clickPhpne(){
+			//  $("#loginTipDiv").show();
+			//}
+			function getAndroidData(apiCode, content, status) {
+				
+					if(apiCode == "APP00034") {
+					        var objjson = JSON.parse(content);
+				            var obj = objjson.body;
+							var loopPic = '<div class="mui-slider-group mui-slider-loop" id="loopPic">';
+							var loopCir = '<div class="mui-slider-indicator">';
+							//loopPic += '<div class="mui-slider-item mui-slider-item-duplicate"><img src="img/banner-3.png" /></a></div>';
+							if(obj && obj.resultData &&　obj.resultData.length > 0) {
+								for(var i=0;i<obj.resultData.length;i++) {
+									 if(obj.resultData.length>1){
+										 if(i==0){
+											  loopPic += '<div class="mui-slider-item mui-slider-item-duplicate"><img src="{imgUrl}" class="imgHeight"></div>';
+											  loopPic = loopPic.replace('{imgUrl}', obj.resultData[obj.resultData.length-1].pciture);
+											  loopPic += '<div class="mui-slider-item imgStop"  tp="{imgLink}"><img src="{imgUrl}" class="imgHeight"></div>';
+											  loopPic = loopPic.replace('{imgLink}', obj.resultData[i].url);
+											  loopPic = loopPic.replace('{imgUrl}', obj.resultData[i].pciture);
+										 }else if(i==obj.resultData.length-1){
+											  loopPic += '<div class="mui-slider-item imgStop"  tp="{imgLink}"><img src="{imgUrl}" class="imgHeight"></div>';
+											  loopPic = loopPic.replace('{imgLink}', obj.resultData[i].url);
+											  loopPic = loopPic.replace('{imgUrl}', obj.resultData[i].pciture);
+											  loopPic += '<div class="mui-slider-item mui-slider-item-duplicate imgStop"  tp="{imgLink}"><img src="{imgUrl}" class="imgHeight"></div>';
+											  loopPic = loopPic.replace('{imgLink}', obj.resultData[0].url);
+											  loopPic = loopPic.replace('{imgUrl}', obj.resultData[0].pciture);
+										 }else{
+											loopPic += '<div class="mui-slider-item imgStop"  tp="{imgLink}"><img src="{imgUrl}" class="imgHeight"></div>';
+											loopPic = loopPic.replace('{imgLink}', obj.resultData[i].url);
+											loopPic = loopPic.replace('{imgUrl}', obj.resultData[i].pciture);
+										 }
+										 if(i==0){
+											   loopCir +='<div class="mui-indicator mui-active"></div>';
+											}else{
+											   loopCir +='<div class="mui-indicator"></div>';
+											}
+									 }else{
+										loopPic += '<div class="mui-slider-item imgStop"  tp="{imgLink}"><img src="{imgUrl}" class="imgHeight"></div>';
+										loopPic = loopPic.replace('{imgLink}', obj.resultData[i].url);
+										loopPic = loopPic.replace('{imgUrl}', obj.resultData[i].pciture);
+									}						
+								}
+							}
+							else {
+								loopPic += '<div class="mui-slider-item"><a href="img/banner-3.png"><img src="img/banner-3.png"></a></div>';
+							}
+							//loopPic +='<div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/banner-1.png"></a></div>';
+							loopPic +='</div>';
+							//loopCir +='<div class="mui-indicator mui-active"></div><div class="mui-indicator"></div><div class="mui-indicator"></div>';
+							loopCir +='</div>';
+							$("#DFHPimgBanner").append(loopPic);
+							$("#DFHPimgBanner").append(loopCir);
+							$.each(document.querySelectorAll('.imgStop'), function() {//初始打电话 
+								this.addEventListener('tap',function(e){
+									e.stopPropagation();
+									var piclink = $(this).attr("tp");
+									window.location.href = piclink;
+								});
+							});
+							//$('#imgStop').click(function(e){
+							//	e.stopPropagation();
+							//})
+					}
+					if(apiCode == "APP00023") {
+					    var objjson = JSON.parse(content);
+				        var obj = objjson.body;
+						if(obj && obj.resultData ) {
+								$("#serverTime").val(obj.resultData.serverTime);
+								$("#illegalUrl").val(obj.resultData.illegalUrl);
+								sessionStorage.illegalUrl=obj.resultData.illegalUrl;
+								$("#eDaijiaUrl").val(obj.resultData.eDaijiaUrl);
+								sessionStorage.eDaijiaUrl=obj.resultData.eDaijiaUrl;
+								$("#rescueHotLine").val(obj.resultData.rescueHotLine);
+								$("#dfsc").val(obj.resultData.storeUrl);
+						}
+						else {
+							console.log("没有读取到数据");
+						}
+					}
+					if(apiCode == "APP00008") {
+					//alert(content);
+					    var objjson = JSON.parse(content);
+						if(objjson.hwType=="8"){
+						   var scanresult = objjson.scanresult;
+						   //alert(scanresult);
+						   CallToMobil("{\"apiCode\":\"APP00056\",\"apiData\":{\"header\":{\"code\":\"APP00056\"},\"body\":{\"username\":\"" + sessionStorage.loginname + "\",\"companyCode\":\""+companyCode+"\",\"pid\":\"" + scanresult + "\"}}}");
+
+						}
+				    }
+				   	if(apiCode == "APP00056") {
+					    //alert(content);
+					    var objjson = JSON.parse(content);
+				        var obj = objjson.body;
+					    var Scandata = obj.resultData;	
+						var partCode = Scandata.partCode;
+						var partName = Scandata.partName;
+						var partresult = Scandata.result;
+						if(Scandata&&partresult==="true"){
+						   	window.location.href = 'DFAccessoriesVerification.html?type=1&partCode='+ partCode+'&partName='+ partName;
+						}else{
+						   	window.location.href = 'DFAccessoriesVerification.html?type=2'; 
+						}
+					}
+
+			    initmui();
+			}  
+			//function sessionForui(session)
+			//{    	               		
+			//	if(session.size()>0){ 			
+			//		isLogin=true;	
+			//	}
+			//}
+			function initClick() {	    
+				$.each(document.querySelectorAll('.DFHPphon'), function() {//初始打电话 
+					this.addEventListener('tap',function(){
+					
+						$("#initPhone").html($("#rescueHotLine").val());
+						$("#callPhone").show();
+					});
+				});
+				$.each(document.querySelectorAll('.DFHPmessageIcon'), function() {//初始点击消息事件
+					this.addEventListener('tap',function(){
+						window.location.href = 'DFMessageCenter.html';
+					});
+				});
+				
+				$.each(document.querySelectorAll('.DFRRmengbanBtnCancel'), function() {//初始点击消息事件
+					this.addEventListener('tap',function(e){
+						e.stopPropagation();
+						var tp = $(this).attr("tp");
+						$("#"+tp).hide();
+					});
+				});
+				
+				$.each(document.querySelectorAll('.clickSure'), function() {//初始点击消息事件
+					this.addEventListener('tap',function(e){
+						e.stopPropagation();
+						var tp = $(this).attr("tp");
+						if(tp == "callPhone") {
+						    $("#callPhone").hide();
+							CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":1,\"hwContent\":\""+$("#rescueHotLine").val()+"\"}}");    			
+						}
+						if(tp == "loginTipDiv") {
+							window.location.href='DFlogin.html';
+						}
+						
+					});
+				});
+				
+				$.each(document.querySelectorAll('.clickTipLogin'), function() {//初始点击消息事件
+					this.addEventListener('tap',function(){
+						var tp = $(this).attr("tp");
+						//<a href="javascript:">
+						if(tp == "dljy") {
+						    if(isLogin=="true") {
+							    window.location.href='DFRoadRescue.html';
+							} else {
+								$("#loginTipDiv").show();
+							}
+						}
+						if(tp == "dfsc") {
+								//连接东风商城
+								var link = $("#dfsc").val();
+								window.location.href = 'ifream.html?link='+ link+'&title=东风商城';
+						}
+						if(tp == "wzcx") {
+							if(isLogin=="true") {
+							    //连接违章查询
+								var link = $("#illegalUrl").val();
+								//link = link.replace(/=/g,"!");
+								//link = link.replace(/&/g,"|");
+								//alert(link);
+								window.location.href = 'wzcxifream.html';
+								//window.location.href = link;
+							} else {
+								$("#loginTipDiv").show();
+							}
+						}
+						if(tp == "dj") {
+							if(isLogin=="true") {
+								//连接e代驾 
+								var link = $("#eDaijiaUrl").val();
+								//alert(link);
+								if(browser.versions.android){
+								   window.location.href = link;
+								}else{
+									window.location.href = 'ifream.html?link='+ link+'&title=e代驾';
+								   //window.location.href = 'edjifream.html';
+								}
+							} else { 
+								$("#loginTipDiv").show();
+							}
+						}
+						if(tp == "pjyz") {
+							if(isLogin=="true") {
+								//扫一扫 
+                          //window.dfxk_injs.runOnAndroidJavaScript("dfsys");
+						  CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":8,\"hwContent\":\"\"}}");    			
+							} else { 
+								$("#loginTipDiv").show();
+							}
+						}
+					});
+				});
+			}
+			var isLogin;
+			
+		</script>
+	
+	</head>
+	
+	<body onload="initPage()">
+	<input id="serverTime" type="hidden" value=""/>
+		<input id="illegalUrl" type="hidden" value=""/>
+		<input id="eDaijiaUrl" type="hidden" value=""/>
+		<input id="rescueHotLine" type="hidden" value=""/>
+		<input id="dfsc" type="hidden" value=""/>
+		<!--heaer star-->
+		<header id="DFHPheader">
+			<a href="###" class="DFHPhdphone fl HPMtphone" ><img src="img/HPphone.png" class="DFHPphon"/></a>
+			<a href="###" class="DFHPhdphone DFHPlogo"><img src="img/PHlogo.png"/></a>
+			<a href="DFMessageCenter.html" class="DFHPhdphone fr HPMtmessage DFHPmessageIcon"><img src="img/HPmessage.png"/></a>
+		</header>
+		<div style="height:3.2rem;"></div>
+		<!--heaer end-->
+		<!--banner star-->
+		<div class="mui-slider" id="DFHPimgBanner">
+		   
+		  	
+		</div>
+		<!--banner end-->
+		<!--HPmain star-->
+		<div id="DFHPGallery" class="mui-slider">
+			<div class="mui-slider-group">
+				<div class="mui-slider-item">
+					<ul class="mui-table-view mui-grid-view mui-grid-9">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 clickTipLogin" tp="dljy">
+							<p class="changeImgSize">
+								<img src="img/HProadRescue.png"/>
+								<div class="mui-media-body">道路救援</div>
+							</p>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 clickTipLogin" tp="dfsc">
+							<p class="changeImgSize">
+								<img src="img/HPshopping.png"/>
+								<div class="mui-media-body">东风商城</div>
+							</p>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 clickTipLogin" tp="wzcx">
+							<p class="changeImgSize">
+								<img src="img/HPIllegal.png"/>
+								<div class="mui-media-body">违章查询</div>
+							</p>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 clickTipLogin" tp="dj">
+							<p class="changeImgSize">
+								<img src="img/HPdrive.png"/>
+								<div class="mui-media-body">代驾</div>
+							</p>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 clickTipLogin" tp="pjyz">
+							<p class="changeImgSize">
+								<img src="img/parts.png"/>
+								<div class="mui-media-body">配件验证</div>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>		
+		</div>
+		<!--HPmain end-->
+		
+		<!--footer star-->
+		<div style="height:4.2rem"></div>
+		<footer id="DFHPfooter">
+			<div class="fl HPfooterwidth">
+				<div class="EFHPFIcon" id="homeJump">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_01.png"/>
+						<p class="DFHPFcolor">首页</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="messageJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_02.png"/>
+						<p>信息资讯</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="DFHPmyCay">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/myCar_01.png"/>
+						<p class="">我的爱车</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="serviceJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_03.png"/>
+						<p>服务网点</p>
+					</a>
+				</div>
+			</div>
+			<div class="fl HPfooterwidth" id="userCenterJump">
+				<div class="EFHPFIcon">
+					<a href="javascript:void(0)">
+						<img src="img/HPicon_04.png"/>
+						<p>用户中心</p>
+					</a>
+				</div>
+			</div>
+		</footer>
+		<!--footer end-->	
+		
+		<!--mengban star-->
+		<div class="DFRRmengban hid" style="z-index:9999" id="callPhone">
+			<div class="DFRRmengbanContent">
+				<p class="DFRRmengbanTellTitle">拨打电话</p>
+				<p class="DFRRmengbanTellTitleConfirm">您确定拨打：<span id="initPhone">010-87654321</span></p>
+				<p class="DFRRmengbanBtn">
+					<span class="DFRRmengbanBtnCancel" tp="callPhone">取消</span>
+					<span class="clickSure" tp="callPhone">确定</span>
+				</p>
+			</div>		
+		</div>		
+		<!--mengban end-->	
+		
+		<!--mengban star-->
+		<div class="DFRRmengban hid" id="loginTipDiv">
+			<div class="DFRRmengbanContent">
+				<p class="DFRRmengbanTellTitleConfirm">您还未登录，请进行登录</p>
+				<p class="DFRRmengbanBtn">
+					<span class="DFRRmengbanBtnCancel" tp="loginTipDiv">取消</span>
+					<span class="clickSure" tp="loginTipDiv">确定</span>
+				</p>
+			</div>		
+		</div>		
+		<!--mengban end-->
+	</body>
+	
+</html>

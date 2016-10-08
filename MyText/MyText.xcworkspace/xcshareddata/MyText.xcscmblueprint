@@ -5,13 +5,13 @@
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "EF956BF5BCA65CAFE82A6AADD3BFCD4B34E5945C" : 0,
+    "39D84F3C009F78F2BAE883ED6D29803EA86F4BDA" : 9223372036854775807,
     "a47f61f9-b530-d24f-b4d0-a91e8054cce8++8933" : 0,
     "BD5CB66AED4A6B1296F2EFC88C75D584C4B21C59" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B89A1FDA-B82A-4C4E-AB3B-604DECED71BD",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "EF956BF5BCA65CAFE82A6AADD3BFCD4B34E5945C" : "",
+    "39D84F3C009F78F2BAE883ED6D29803EA86F4BDA" : "",
     "a47f61f9-b530-d24f-b4d0-a91e8054cce8++8933" : "MyText\/MyText\/LZH\/LZHFrameWork\/ThreeParty\/VOSegmentedControl\/",
     "BD5CB66AED4A6B1296F2EFC88C75D584C4B21C59" : ".."
   },
@@ -20,14 +20,14 @@
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MyText.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/slzButton\/MyTextDemo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "39D84F3C009F78F2BAE883ED6D29803EA86F4BDA"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/slzButton\/LZHTextProject.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BD5CB66AED4A6B1296F2EFC88C75D584C4B21C59"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/slzButton\/MyTextDemo.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EF956BF5BCA65CAFE82A6AADD3BFCD4B34E5945C"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.222",

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=QqzTcUESgHaXpn189pALQa71&services=&t=20130716024057"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/DFcarPosition.js">
+		</script>
+		<style type="text/css">
+			body,html{
+				overflow: hidden;
+			}
+			#DFcontainer {width: 100%;height: 100%;overflow: hidden;margin:0;}
+			#DFHPheader{border-bottom: 1px solid #101012;}
+		</style>
+		<script>
+		var $DFgetCodeInterval;
+		function initPage(){
+            var url = window.location.href;
+			url = url.replace("DFcarPosition.html", "DFmyCar.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    		
+		    var params = "{\"apiCode\":\"APP00053\",\"apiData\":{\"header\":{\"code\":\"APP00053\"},\"body\":{\"vin\":\""+sessionStorage.vin+"\",\"did\":\""+sessionStorage.JpushId+"\"}}}";
+			CallToMobil(params);
+			$DFgetCodeInterval = setInterval(clickkt, 6000);
+		}
+		function clickkt(){
+		    var params = "{\"apiCode\":\"APP00053\",\"apiData\":{\"header\":{\"code\":\"APP00053\"},\"body\":{\"vin\":\""+sessionStorage.vin+"\",\"did\":\""+sessionStorage.JpushId+"\"}}}";
+			CallToMobil(params);
+		}
+		function getAndroidData(apiCode, content, status) {		
+			var objjson = JSON.parse(content);
+			var obj = objjson.body;
+			if(apiCode == "APP00053" && obj) {
+				//登陆返回数据
+						if( obj.resultData) {
+							theLocation(obj.resultData.gps.lon,obj.resultData.gps.lat);
+						}
+								
+			}
+		} 
+		</script>
+	</head>
+	<body onload="initPage()">
+		<!--heaer star-->
+		<header id="DFHPheader">
+			<a href="DFmyCar.html" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			汽车实时位置
+		</header>
+		<!--heaer end-->
+		<!--sectionMap star-->
+		<section id="DFsectionMap">
+			<div id="DFcontainer">
+				
+			</div>
+		</section>
+		<div style="">
+		<input id="sbh" type="text" style="border:1px solid #ccc;width:50%;" hidden="true" value=""/>	<input type="button" style="width:20%;" hidden="true"  onclick="clickkt()" value="查询" />
+		<label id="dizhi"  />	
+		</div>
+		<!--sectionMap end-->
+	</body>
+</html>

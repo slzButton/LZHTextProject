@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/DFhomePage.css"/>
+		<script type="text/javascript" src="js/jquery-1.10.2.js">
+		</script>
+		<script type="text/javascript" src="js/mui.min.js">
+		</script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		function initPage() {
+			var url = window.location.href;
+			url = url.replace("DFServiceNetWorkDetails.html", "DFServiceNetwork.html");
+			CallToMobil("{\"apiCode\":\"APP00009\",\"apiData\":\""+ url +"\"}");    
+			var cname = GetPageParams("cname");
+			var caddress = GetPageParams("caddress");
+			var chotline = GetPageParams("chotline");
+			var ccode = GetPageParams("ccode");
+			//alert(cname+"|"+caddress+"|"+chotline+"|"+ccode);
+			var headHtml = "";
+			headHtml += "<div class=\"DFSNDmainTitle\">";
+			headHtml += "<img src=\"img/NStitle.png\" class=\"fl\"/>	";
+			headHtml += "<p class=\"fl DFSNDmainTitleP\">"+cname+"</p>";
+			headHtml += "</div><div class=\"DFSNDmainTitle\">";
+			headHtml += "<p class=\"fl DFSNDmainAdress\">"+caddress+"</p>	</div>";
+			headHtml += "<div class=\"DFSNDmainTitle\"><p class=\"fl DFSNDmainPhone\" id=\"DFSNWDphone\">"+chotline+"</p></div>";
+			$(".activehead").append(headHtml);
+			$('#DFSNWDphone').click(function(){
+					$('.DFRRmengban').show();
+				});
+			$('#tel').text(chotline);	
+            var params = "{\"apiCode\":\"APP00059\",\"apiData\":{\"header\":{\"code\":\"APP00059\"},\"body\":{\"username\":\""+sessionStorage.loginname+"\",\"companyCode\":\""+companyCode+"\",\"codes\":\""+ccode+"\"}}}";
+			CallToMobil(params);
+		}
+		function getAndroidData(apiCode, content, status) {
+		        //alert(content);
+				var objjson = JSON.parse(content);
+				var obj = objjson.body;
+					if(apiCode == "APP00059") {
+						var row = obj.resultData;
+						if(obj && row &&　row.length > 0) {
+							var activelist = document.body.querySelector('.activeList');
+							if(row.length>0){
+								$(".activeList").append("<div class=\"DFSNDmainTitle\"><img src=\"img/NStitle.png\" class=\"fl\"/>	<p class=\"fl DFSNDmainTitleP\">活动</p></div>");
+							}
+							for(var i=0;i<row.length;i++) {
+								var addHtml = "";
+								addHtml += "  	<div class=\"DFSNDmainTitle\"> <p class=\"fl DFSNDmainActive\" cactivitytitle=\"{cactivitytitle}\" cactivityStartDate=\"{cactivityStartDate}\" cactivityEndDate=\"{cactivityEndDate}\" cactivityRemark=\"{cactivityRemark}\">   {activitytitle}</p>	</div>";							
+								addHtml = addHtml.replace('{activitytitle}', row[i].activityTitle);	
+	                            addHtml = addHtml.replace('{cactivitytitle}', row[i].activityTitle);		
+                                addHtml = addHtml.replace('{cactivityStartDate}', row[i].activityStartDate);	
+								addHtml = addHtml.replace('{cactivityEndDate}', row[i].activityEndDate);	
+								addHtml = addHtml.replace('{cactivityRemark}', row[i].activityRemark);	 
+								$(".activeList").append(addHtml);
+							}
+							eachAddClick();
+						}
+				   }
+			} 
+			function eachAddClick() {
+			   $.each(document.querySelectorAll('.DFSNDmainActive'), function() {
+					this.addEventListener('tap',function(e){
+						e.stopPropagation();
+						var cactivitytitle = $(this).attr("cactivitytitle");
+						var cactivityStartDate = $(this).attr("cactivityStartDate");
+						var cactivityEndDate = $(this).attr("cactivityEndDate");
+						var cactivityRemark = $(this).attr("cactivityRemark");
+						var url = 'DFServiceContent.html?cactivitytitle=' + cactivitytitle+'&cactivityStartDate='+cactivityStartDate+'&cactivityEndDate='+cactivityEndDate+'&cactivityRemark='+cactivityRemark;
+						url = encodeURI(url);
+						window.location.href = url;
+						});
+				});
+				
+			}
+		</script>
+		<style type="text/css">
+			.mui-fullscreen{
+				top:5.8rem;
+			}
+		</style>
+	</head>
+	<body onload="initPage()">
+		<!--DFSNDheaer star-->
+		<header id="DFIDTheader">
+			<a href="javascript:history.go(-1)" class="fl DFIDTheaderImg"><img src="img/headerLeft.png"/></a>
+			<a href="javascript:void(0)" class="DFIDTdetailTitle">服务网点详情</a>
+		</header>
+		<!--DFSNDheaer end-->
+		<!--DFSNDsection star-->
+		<section class="DFSNDmain activehead">
+			<!--<div class="DFSNDmainTitle">
+				<img src="img/NStitle.png" class="fl"/>	
+				<p class="fl DFSNDmainTitleP">宝鸡华鹏汽车销售服务有限公司（服务）</p>
+			</div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDmainAdress">宝鸡华鹏汽车销售服务有限公司（服务）</p>	</div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDmainPhone" id="DFSNWDphone">0318-2234345</p>			
+			</div>-->
+		</section>
+		
+		<!--DFSNDsection end-->
+		<!--active star-->
+		<section class="DFSNDmain activeList">
+			<!--<div class="DFSNDmainTitle"><img src="img/NStitle.png" class="fl"/>	<p class="fl DFSNDmainTitleP">活动</p></div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDmainActive">C系列车辆促销送保养活动</p>			
+			</div>
+			<div class="DFSNDmainTitle">
+				<p class="fl DFSNDmainActive">C系列车辆促销送保养活动</p>			
+			</div>-->
+		</section>
+		<!--active end-->
+		<div class="DFRRmengban hid">
+			<div class="DFRRmengbanContent">
+				<p class="DFRRmengbanTellTitle">提示信息</p>
+				<p class="DFRRmengbanTellTitleConfirm">服务电话：<span id = "tel">010-87654321</span></p>
+				<p class="DFRRmengbanBtn">
+					<span class="DFRRmengbanBtnCancel">取消</span>
+					<span class="DFRRmengbanBtnSure">拨打</span>
+				</p>
+			</div>		
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$('#DFSNWDphone').click(function(){
+					$('.DFRRmengban').show();
+				});
+				$('.DFRRmengbanBtnCancel').click(function(){
+					$('.DFRRmengban').hide();
+				});
+				$('.DFRRmengbanBtnSure').click(function(){
+					 CallToMobil("{\"apiCode\":\"APP00008\",\"apiData\":{\"hwType\":1,\"hwContent\":\""+$('#tel').text()+"\"}}");    	
+				});
+				$('.DFRRmengban').click(function(){
+					$('.DFRRmengban').hide();
+				});
+				$('.DFRRmengbanContent').click(function(e){
+					e.stopPropagation();
+				})
+			})
+		</script>
+	</body>
+</html>
