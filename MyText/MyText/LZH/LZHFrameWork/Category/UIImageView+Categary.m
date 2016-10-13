@@ -9,8 +9,8 @@
 #import "UIImageView+Categary.h"
 
 @implementation UIImageView (Categary)
-- (instancetype)initWithImageNamed:(NSString*)imageName
++ (instancetype)imageViewWithImageNamed:(NSString *)imageName
 {
-    return [self initWithImage:[UIImage imageNamed:imageName]];
+    return [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
 }
 @end

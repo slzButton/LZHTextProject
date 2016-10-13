@@ -93,6 +93,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - UMeng (2.2.1)
 
 DEPENDENCIES:
   - AFDownloadRequestOperation (~> 2.0.1)
@@ -105,6 +106,7 @@ DEPENDENCIES:
   - ReactiveCocoa
   - SDAutoLayout (~> 1.31)
   - SDCycleScrollView (~> 1.61)
+  - UMeng (~> 2.2.1)
 
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
@@ -119,5 +121,8 @@ SPEC CHECKSUMS:
   SDAutoLayout: 79b8977f863ba4722bb8f8f6f92981d0b8ae932a
   SDCycleScrollView: a002d85b30cfa9d0ac74069cd3973ca19ff4f22f
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  UMeng: a4fe3231efeb223015d9649e92538dd16a92685f
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7d9a5e5aab89fd237e330bb9c23f1661fffda346
+
+COCOAPODS: 1.1.0.beta.1

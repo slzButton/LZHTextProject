@@ -77,5 +77,21 @@
  *  @return 同上
  */
 - (UIImage*)imageWaterMarkWithString:(NSString*)str rect:(CGRect)strRect attribute:(NSDictionary *)attri image:(UIImage *)image imageRect:(CGRect)imgRect alpha:(CGFloat)alpha;
+/**
+ *  改变图像的尺寸，方便上传服务器
+ *
+ *  @param UIImage size
+ *
+ *  @return UIImage
+ */
+-(UIImage *)imageScaleFromImageToSize:(CGSize)size;
 
+/**
+ *  改变图像的尺寸，方便上传服务器
+ *
+ *  @param UIImage asize
+ *
+ *  @return UIImage
+ */
+-(UIImage *)imageThumbnailWithImageWithoutScaleSize:(CGSize)asize;
 @end

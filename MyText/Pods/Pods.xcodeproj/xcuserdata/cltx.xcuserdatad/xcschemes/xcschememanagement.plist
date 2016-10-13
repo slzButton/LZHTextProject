@@ -6,73 +6,83 @@
 	<dict>
 		<key>AFDownloadRequestOperation.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>AliyunOSSiOS.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>CocoaSecurity.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>GPUImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>NSLogger.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Nimbus-WebController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Nimbus.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-MyText.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MyTextTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-MyTextUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>ReactiveCocoa.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDAutoLayout.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>12</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDCycleScrollView.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>13</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>14</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -82,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>489B36DD677CD38F56B8B5DC92DD97EC</key>
+		<key>37C039AB03142D08866AF33910CA6754</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>59BAA3410C696AE63FCB055B3B5C1567</key>
+		<key>3AE2E08368A4E0DFF0023F6C523925A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4142BC622795857A125F050010EBCCA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6610362E50A6DE8BACCA1F2885CD9157</key>
+		<key>63D58A82184BBA72A489B697923E0A87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6F78B9990F99F6B66BC89AE6D80B834C</key>
+		<key>6610362E50A6DE8BACCA1F2885CD9157</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE2D1ADE295AE80442EF8279D2AA69FF</key>
+		<key>A285A9BD1175C2ADB4D69497A8AFCF05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,7 +142,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBE925685BB17ED7FD352D25AF1BF17B</key>
+		<key>B75C5D31EE966B2EEDBC9199C9F83A56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,6 +158,11 @@
 			<true/>
 		</dict>
 		<key>FE2F1D7B9D9FCEA148517E4657B243F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE892C1CE08507AFBDB324F22407293A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

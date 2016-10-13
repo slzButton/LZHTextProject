@@ -30,16 +30,8 @@
 @property (readonly) NSInteger weekday;
 @property (readonly) NSInteger nthWeekday; // e.g. 2nd Tuesday of the month == 2
 @property (readonly) NSInteger year;
-/**距离当前的时间间隔描述*/
-- (NSString *)timeIntervalDescription;
-
-/**精确到分钟的日期描述*/
-- (NSString *)minuteDescription;
 
 - (NSString *)formattedTime;
-
-/**格式化日期描述*/
-- (NSString *)formattedDateDescription;
 
 - (double)timeIntervalSince1970InMilliSecond;
 + (NSDate *)dateWithTimeIntervalInMilliSecondSince1970:(double)timeIntervalInMilliSecond;
