@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import "XIBViewController.h"
 #import "StackViewTextViewController.h"
+#import <NimbusInterapp.h>
 @interface AppDelegate ()
 
 @end

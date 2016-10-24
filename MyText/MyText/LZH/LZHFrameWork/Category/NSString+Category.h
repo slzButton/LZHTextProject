@@ -630,5 +630,22 @@
 -(BOOL)isIntValue;
 -(BOOL)isFloatValue;
 -(BOOL)isDoubleValue;
-
+/**
+ *  @brief  根据文件url 返回对应的MIMEType
+ *
+ *  @return MIMEType
+ */
+- (NSString *)mimeType;
+/**
+ *  @brief  根据文件url后缀 返回对应的MIMEType
+ *
+ *  @return MIMEType
+ */
++ (NSString *)mimeTypeForExtension:(NSString *)extension;
+/**
+ *  @brief  常见MIME集合
+ *
+ *  @return 常见MIME集合
+ */
++ (NSDictionary *)mimeTypeDict;
 @end

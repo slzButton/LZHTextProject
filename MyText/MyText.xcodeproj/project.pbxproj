@@ -48,6 +48,7 @@
 		65A425521C5F32CF00968FFA /* MyTextUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A425511C5F32CF00968FFA /* MyTextUITests.m */; };
 		65F5522A1CA1082700B472F8 /* NSDictionary+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F552291CA1082700B472F8 /* NSDictionary+Category.m */; };
 		695C6B55B50D4208A0086532 /* libPods-MyTextTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFA7A5409DE33563B569221 /* libPods-MyTextTests.a */; };
+		A4201A1D1DBE0C4D00342330 /* NSNull+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = A4201A1C1DBE0C4D00342330 /* NSNull+Category.m */; };
 		A42738C21DA89E2A00D5593D /* DFcommon.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738211DA89E2900D5593D /* DFcommon.css */; };
 		A42738C31DA89E2A00D5593D /* DFhomePage.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738221DA89E2900D5593D /* DFhomePage.css */; };
 		A42738C41DA89E2A00D5593D /* mui.css in Resources */ = {isa = PBXBuildFile; fileRef = A42738231DA89E2900D5593D /* mui.css */; };
@@ -313,6 +314,8 @@
 		65F552281CA1082700B472F8 /* NSDictionary+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Category.h"; sourceTree = "<group>"; };
 		65F552291CA1082700B472F8 /* NSDictionary+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Category.m"; sourceTree = "<group>"; };
 		8640E8885BA57D6E80594B0F /* Pods-MyTextTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTextTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyTextTests/Pods-MyTextTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A4201A1B1DBE0C4D00342330 /* NSNull+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNull+Category.h"; sourceTree = "<group>"; };
+		A4201A1C1DBE0C4D00342330 /* NSNull+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNull+Category.m"; sourceTree = "<group>"; };
 		A42738211DA89E2900D5593D /* DFcommon.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = DFcommon.css; sourceTree = "<group>"; };
 		A42738221DA89E2900D5593D /* DFhomePage.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = DFhomePage.css; sourceTree = "<group>"; };
 		A42738231DA89E2900D5593D /* mui.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = mui.css; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 			children = (
 				6528E66A1C7196F600B4B1E0 /* NSDate+Category.h */,
 				6528E66B1C7196F600B4B1E0 /* NSDate+Category.m */,
+				A4201A1B1DBE0C4D00342330 /* NSNull+Category.h */,
+				A4201A1C1DBE0C4D00342330 /* NSNull+Category.m */,
 				6528E66C1C7196F600B4B1E0 /* NSDateFormatter+Category.h */,
 				6528E66D1C7196F600B4B1E0 /* NSDateFormatter+Category.m */,
 				6528E66E1C7196F600B4B1E0 /* NSObject+LZHCategory.h */,
@@ -1391,6 +1396,7 @@
 				654FD2F61C7E96ED006055A6 /* ALActionBlockWrapper.m in Sources */,
 				655570131C74465B005274EC /* UITextView+Category.m in Sources */,
 				6555700D1C743F2C005274EC /* UITableView+Catrgory.m in Sources */,
+				A4201A1D1DBE0C4D00342330 /* NSNull+Category.m in Sources */,
 				6528E78C1C71996E00B4B1E0 /* NSString+Category.m in Sources */,
 				655570101C7443C9005274EC /* UIResponder+Catrgory.m in Sources */,
 				6528E7861C71991300B4B1E0 /* UIViewController+Category.m in Sources */,
@@ -1545,6 +1551,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyText/EM/3rdparty/Parse",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/MyText/UMSocial/UMSocialSDK",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/MyText/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1570,6 +1581,24 @@
 					"$(PROJECT_DIR)/MyText/EM/3rdparty/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/MyText/EM/EaseMobSDK/lib",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/AlipayShare",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Douban",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Email",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Flickr",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Instagram",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/LaiWang",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Line",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Renren",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/SMS",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/TencentWeibo",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/WhatsApp",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/YiXin",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = slzbutton.MyText;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1584,6 +1613,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MyText/EM/3rdparty/Parse",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/MyText/UMSocial/UMSocialSDK",
 				);
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/MyText/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1609,6 +1643,24 @@
 					"$(PROJECT_DIR)/MyText/EM/3rdparty/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/MyText/EM/EaseMobSDK/lib",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/AlipayShare",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Douban",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Email",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Facebook",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Flickr",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Instagram",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/LaiWang",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Line",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Linkedin",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Renren",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/SMS",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/TencentWeibo",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/Twitter",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/WhatsApp",
+					"$(PROJECT_DIR)/MyText/UMSocial/SocialLibraries/YiXin",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = slzbutton.MyText;
 				PRODUCT_NAME = "$(TARGET_NAME)";
