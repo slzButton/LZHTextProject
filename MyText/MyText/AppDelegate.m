@@ -10,7 +10,7 @@
 #import "ViewController.h"
 #import "XIBViewController.h"
 #import "StackViewTextViewController.h"
-#import <NimbusInterapp.h>
+
 @interface AppDelegate ()
 
 @end
@@ -22,6 +22,9 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    BOOL text = NO;
+    NSLog(@"%@",text?@"yes":@"no");
     
     ViewController *vc = [[ViewController alloc]init];
     
