@@ -18,6 +18,7 @@ PODS:
   - CocoaSecurity (1.2.4)
   - GPUImage (0.1.7)
   - MBProgressHUD (0.9.2)
+  - MJExtension (3.0.13)
   - NSLogger (1.5.1):
     - NSLogger/Standard (= 1.5.1)
   - NSLogger/Standard (1.5.1)
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - CocoaSecurity (~> 1.2.4)
   - GPUImage (~> 0.1.7)
   - MBProgressHUD (~> 0.9.2)
+  - MJExtension (~> 3.0.13)
   - NSLogger
   - ReactiveCocoa
   - SDAutoLayout (~> 1.31)
@@ -54,6 +56,7 @@ SPEC CHECKSUMS:
   CocoaSecurity: d288a6f87e0f363823d2cb83e753814a6944f71a
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   NSLogger: 5ed223a2436df96244e033be750656dacdeec034
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDAutoLayout: ea6e2ae9fbb438aa2feb0c4363dba9297e98638a
@@ -61,6 +64,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UMeng: a4fe3231efeb223015d9649e92538dd16a92685f
 
-PODFILE CHECKSUM: 45acf74a0201cde3514f4109999ec27b7a2ad862
+PODFILE CHECKSUM: d6f83edd37d817ced8fb88f545239801640a4c95
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.1.1

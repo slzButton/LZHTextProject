@@ -18,7 +18,7 @@ target 'MyText' do
     pod 'CocoaSecurity', '~> 1.2.4'
     pod 'NSLogger'
     pod 'UMeng', '~> 2.2.1'
-
+    pod 'MJExtension', '~> 3.0.13'
 
 
   target 'MyTextTests' do

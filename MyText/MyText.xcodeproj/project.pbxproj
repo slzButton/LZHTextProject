@@ -208,6 +208,11 @@
 		A427395E1DA89E2A00D5593D /* mui.zoom.js in Resources */ = {isa = PBXBuildFile; fileRef = A42738C01DA89E2A00D5593D /* mui.zoom.js */; };
 		A427395F1DA89E2A00D5593D /* wzcxifream.html in Resources */ = {isa = PBXBuildFile; fileRef = A42738C11DA89E2A00D5593D /* wzcxifream.html */; };
 		A42739611DA8A13C00D5593D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A42739601DA8A13C00D5593D /* WebKit.framework */; };
+		A42DAF291E23B66000CEFBC8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A42DAF281E23B66000CEFBC8 /* icon.png */; };
+		A463AE4F1E13A3E800AA7164 /* TYDownLoadDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A463AE471E13A3E800AA7164 /* TYDownLoadDataManager.m */; };
+		A463AE501E13A3E800AA7164 /* TYDownLoadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A463AE4A1E13A3E800AA7164 /* TYDownLoadModel.m */; };
+		A463AE511E13A3E800AA7164 /* TYDownloadSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A463AE4C1E13A3E800AA7164 /* TYDownloadSessionManager.m */; };
+		A463AE521E13A3E800AA7164 /* TYDownloadUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A463AE4E1E13A3E800AA7164 /* TYDownloadUtility.m */; };
 		AFA439F68113E17A8AA63814 /* libPods-MyText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E35CCF0D7B6F6F614E86273A /* libPods-MyText.a */; };
 		B3E3366D727B19FDF2CF6889 /* libPods-MyTextUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4C1855DFFCBD2CE4EEED25 /* libPods-MyTextUITests.a */; };
 /* End PBXBuildFile section */
@@ -475,6 +480,16 @@
 		A42738C01DA89E2A00D5593D /* mui.zoom.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = mui.zoom.js; sourceTree = "<group>"; };
 		A42738C11DA89E2A00D5593D /* wzcxifream.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wzcxifream.html; sourceTree = "<group>"; };
 		A42739601DA8A13C00D5593D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		A42DAF281E23B66000CEFBC8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A463AE461E13A3E800AA7164 /* TYDownLoadDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDownLoadDataManager.h; sourceTree = "<group>"; };
+		A463AE471E13A3E800AA7164 /* TYDownLoadDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDownLoadDataManager.m; sourceTree = "<group>"; };
+		A463AE481E13A3E800AA7164 /* TYDownloadDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDownloadDelegate.h; sourceTree = "<group>"; };
+		A463AE491E13A3E800AA7164 /* TYDownLoadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDownLoadModel.h; sourceTree = "<group>"; };
+		A463AE4A1E13A3E800AA7164 /* TYDownLoadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDownLoadModel.m; sourceTree = "<group>"; };
+		A463AE4B1E13A3E800AA7164 /* TYDownloadSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDownloadSessionManager.h; sourceTree = "<group>"; };
+		A463AE4C1E13A3E800AA7164 /* TYDownloadSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDownloadSessionManager.m; sourceTree = "<group>"; };
+		A463AE4D1E13A3E800AA7164 /* TYDownloadUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDownloadUtility.h; sourceTree = "<group>"; };
+		A463AE4E1E13A3E800AA7164 /* TYDownloadUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDownloadUtility.m; sourceTree = "<group>"; };
 		AC4C1855DFFCBD2CE4EEED25 /* libPods-MyTextUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyTextUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5D0263B4E5E0F62591D227F /* Pods-MyTextTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTextTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyTextTests/Pods-MyTextTests.release.xcconfig"; sourceTree = "<group>"; };
 		DFFA7A5409DE33563B569221 /* libPods-MyTextTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyTextTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -675,6 +690,7 @@
 		65A4252B1C5F32CE00968FFA /* MyText */ = {
 			isa = PBXGroup;
 			children = (
+				A463AE451E13A3E800AA7164 /* TYDownloadManager */,
 				A427381F1DA89E2900D5593D /* HTMLCache */,
 				6528E6621C7196F600B4B1E0 /* LZH */,
 				65A4252F1C5F32CE00968FFA /* AppDelegate.h */,
@@ -687,6 +703,7 @@
 				6528E7A31C71BA4A00B4B1E0 /* PrefixHeader.pch */,
 				6528E7A01C71B96000B4B1E0 /* StackViewTextViewController.h */,
 				6528E7A11C71B96000B4B1E0 /* StackViewTextViewController.m */,
+				A42DAF281E23B66000CEFBC8 /* icon.png */,
 				65729BE21CF307F200E4BC34 /* huodongcuxiao.png */,
 				65A425381C5F32CF00968FFA /* Assets.xcassets */,
 				65A4253A1C5F32CF00968FFA /* LaunchScreen.storyboard */,
@@ -919,6 +936,22 @@
 			path = js;
 			sourceTree = "<group>";
 		};
+		A463AE451E13A3E800AA7164 /* TYDownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				A463AE461E13A3E800AA7164 /* TYDownLoadDataManager.h */,
+				A463AE471E13A3E800AA7164 /* TYDownLoadDataManager.m */,
+				A463AE481E13A3E800AA7164 /* TYDownloadDelegate.h */,
+				A463AE491E13A3E800AA7164 /* TYDownLoadModel.h */,
+				A463AE4A1E13A3E800AA7164 /* TYDownLoadModel.m */,
+				A463AE4B1E13A3E800AA7164 /* TYDownloadSessionManager.h */,
+				A463AE4C1E13A3E800AA7164 /* TYDownloadSessionManager.m */,
+				A463AE4D1E13A3E800AA7164 /* TYDownloadUtility.h */,
+				A463AE4E1E13A3E800AA7164 /* TYDownloadUtility.m */,
+			);
+			path = TYDownloadManager;
+			sourceTree = "<group>";
+		};
 		B14F9556F3F49E9F4A0E5825 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1141,6 +1174,7 @@
 				A42738DA1DA89E2A00D5593D /* DFmyIntegral.html in Resources */,
 				A427394A1DA89E2A00D5593D /* DFOffModel.js in Resources */,
 				A42738E71DA89E2A00D5593D /* DFTravelMileage2.html in Resources */,
+				A42DAF291E23B66000CEFBC8 /* icon.png in Resources */,
 				A427394B1DA89E2A00D5593D /* DFPasswordResetIndex.js in Resources */,
 				A42739071DA89E2A00D5593D /* friends.png in Resources */,
 				A42739011DA89E2A00D5593D /* DFUCpassWord.png in Resources */,
@@ -1394,7 +1428,9 @@
 				6528E7791C7196F700B4B1E0 /* LZHCacheManager.m in Sources */,
 				6528E7981C719CCD00B4B1E0 /* UIScrollView+Category.m in Sources */,
 				654FD2F61C7E96ED006055A6 /* ALActionBlockWrapper.m in Sources */,
+				A463AE511E13A3E800AA7164 /* TYDownloadSessionManager.m in Sources */,
 				655570131C74465B005274EC /* UITextView+Category.m in Sources */,
+				A463AE501E13A3E800AA7164 /* TYDownLoadModel.m in Sources */,
 				6555700D1C743F2C005274EC /* UITableView+Catrgory.m in Sources */,
 				A4201A1D1DBE0C4D00342330 /* NSNull+Category.m in Sources */,
 				6528E78C1C71996E00B4B1E0 /* NSString+Category.m in Sources */,
@@ -1410,7 +1446,9 @@
 				654FD2EE1C7E9519006055A6 /* UIControl+Category.m in Sources */,
 				654FD2FC1C7E97A6006055A6 /* UIBarButtonItem+Category.m in Sources */,
 				6572EAE51C7B09D400D27CD9 /* ViewController.m in Sources */,
+				A463AE4F1E13A3E800AA7164 /* TYDownLoadDataManager.m in Sources */,
 				6528E7A21C71B96000B4B1E0 /* StackViewTextViewController.m in Sources */,
+				A463AE521E13A3E800AA7164 /* TYDownloadUtility.m in Sources */,
 				65A4252E1C5F32CE00968FFA /* main.m in Sources */,
 				6528E7741C7196F700B4B1E0 /* VOContentLayer.m in Sources */,
 				6528E7891C71994300B4B1E0 /* UIView+Category.m in Sources */,

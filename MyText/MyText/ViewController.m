@@ -14,6 +14,20 @@
 #import <objc/message.h>
 #import <objc/runtime.h>
 #import <AFNetworking.h>
+#import "TYDownLoadModel.h"
+#import "TYDownLoadDataManager.h"
+#import "TYDownloadSessionManager.h"
+#import <MJExtension.h>
+
+#define GWS_DCHECK(__CONDITION__) \
+do { \
+if (!(__CONDITION__)) { \
+abort(); \
+} \
+} while (0)
+
+
+
 @interface ViewController ()<WKUIDelegate,WKScriptMessageHandler,UIWebViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray *textArray;
@@ -85,55 +99,113 @@ static NSString *const UITableViewCellId = @"UITableViewCell";
 //    }];
     
     
-//    /**
-//     typedef NS_ENUM(NSUInteger, AFSSLPinningMode) {
-//     AFSSLPinningModeNone, // 这个模式表示不做SSL pinning，只跟浏览器一样在系统的信任机构列表里验证服务端返回的证书。若证书是信任机构签发的就会通过，若是自己服务器生成的证书，这里是不会通过的
-//     AFSSLPinningModePublicKey, // 这个模式同样是用证书绑定方式验证，客户端要有服务端的证书拷贝，只是验证时只验证证书里的公钥，不验证证书的有效期等信息
-//     AFSSLPinningModeCertificate, // 这个模式表示用证书绑定方式验证证书，需要客户端保存有服务端的证书拷贝，这里验证分两步，第一步验证证书的域名/有效期等信息，第二步是对比服务端返回的证书跟客户端返回的是否一致
-//     };
-//     */
-//    // AFNetwork中的AFSecurityPolicy模块主要是用来验证HTTPS请求时证书是否正确
-//    // 验证证书的模式
-//    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-//    
-//    /**
-//     Whether or not to trust servers with an invalid or expired SSL certificates. Defaults to `NO`.
-//     */
-//    // 设置允许不受信任的证书
-//    securityPolicy.allowInvalidCertificates = YES;
-//    
-//    /**
-//     Whether or not to validate the domain name in the certificate's CN field. Defaults to `YES` for `AFSSLPinningModePublicKey` or `AFSSLPinningModeCertificate`, otherwise `NO`.
-//     */
-//    // 设置不验证域名
-//    securityPolicy.validatesDomainName = NO;
-//    
-//    
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    manager.requestSerializer.timeoutInterval = 10.0;
-//    //HTTPS SSL的验证，在此处调用上面的代码，给这个证书验证；
-//    manager.securityPolicy = securityPolicy;
-//    [manager GET:@"https://192.168.16.230:8443/operate-system-web/app_register_cust.html" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    /**
+     typedef NS_ENUM(NSUInteger, AFSSLPinningMode) {
+     AFSSLPinningModeNone, // 这个模式表示不做SSL pinning，只跟浏览器一样在系统的信任机构列表里验证服务端返回的证书。若证书是信任机构签发的就会通过，若是自己服务器生成的证书，这里是不会通过的
+     AFSSLPinningModePublicKey, // 这个模式同样是用证书绑定方式验证，客户端要有服务端的证书拷贝，只是验证时只验证证书里的公钥，不验证证书的有效期等信息
+     AFSSLPinningModeCertificate, // 这个模式表示用证书绑定方式验证证书，需要客户端保存有服务端的证书拷贝，这里验证分两步，第一步验证证书的域名/有效期等信息，第二步是对比服务端返回的证书跟客户端返回的是否一致
+     };
+     */
+    // AFNetwork中的AFSecurityPolicy模块主要是用来验证HTTPS请求时证书是否正确
+    // 验证证书的模式
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    
+    /**
+     Whether or not to trust servers with an invalid or expired SSL certificates. Defaults to `NO`.
+     */
+    // 设置允许不受信任的证书
+    securityPolicy.allowInvalidCertificates = YES;
+    
+    /**
+     Whether or not to validate the domain name in the certificate's CN field. Defaults to `YES` for `AFSSLPinningModePublicKey` or `AFSSLPinningModeCertificate`, otherwise `NO`.
+     */
+    // 设置不验证域名
+    securityPolicy.validatesDomainName = NO;
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 10.0;
+    //HTTPS SSL的验证，在此处调用上面的代码，给这个证书验证；
+    manager.securityPolicy = securityPolicy;
+//    [manager POST:@"https://192.168.16.230:8443/xk-app-gateway/app/configVersion" parameters:@{@"body":@{@"companyCode":@"dongfengxiaokang"},@"header":@{@"code":@"APP00048"}} progress:^(NSProgress * _Nonnull uploadProgress) {
 //        
 //    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"success");
-//        UIWebView *webView = [[UIWebView alloc]init];
-//        webView.delegate = self;
-//        [webView loadData:responseObject MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:nil];
-//        [self.view addSubview:webView];
-//        webView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+//        NSLog(@"success === %@",[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil]);
 //    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 //        NSLog(@"failure");
 //    }];
     
     
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager POST:@"https://192.168.16.230:8443/xk-app-gateway/app/upload" parameters:@{} constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSData *fileData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icon" ofType:@"png"]];
+        [formData appendPartWithFileData:fileData name:@"file" fileName:@"header.png" mimeType:@"image/jpg"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        NSLog(@"uploadProgress");
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"text === %@",[responseObject mj_JSONString]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"failure");
+        NSLog(@"%@",error);
+    }];
     
-    UIWebView *webView = [[UIWebView alloc]init];
-    webView.delegate = self;
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.co.jp/search?q=iOS+webviewhttps&rlz=1C5CHFA_enUS708US708&oq=iOS+webviewhttps&aqs=chrome..69i57.310j0j8&sourceid=chrome&ie=UTF-8"]]];
-    [self.view addSubview:webView];
-    webView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+    
+    
+//    UIWebView *webView = [[UIWebView alloc]init];
+//    webView.delegate = self;
+//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.google.co.jp/search?q=iOS+webviewhttps&rlz=1C5CHFA_enUS708US708&oq=iOS+webviewhttps&aqs=chrome..69i57.310j0j8&sourceid=chrome&ie=UTF-8"]]];
+//    [self.view addSubview:webView];
+//    webView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+//    
+//    NSLog(@"%@",NSHomeDirectory());
+//    
+//    
+//    NSString *downloadURL = @"http://192.168.5.249:8080/1.mp4";
+//    
+//    TYDownloadModel *model = [[TYDownLoadDataManager manager] downLoadingModelForURLString:downloadURL];
+//    if (!model) {
+//        model = [[TYDownloadModel alloc]initWithURLString:downloadURL];
+//    }
+//    
+//    [[TYDownLoadDataManager manager] startWithDownloadModel:model progress:^(TYDownloadProgress *progress) {
+//        NSLog(@"%f",progress.progress);
+//        //                [data appendData:progress.didReceiveData];
+//    } state:^(TYDownloadState state, NSString *const filePath, NSError *error) {
+//        if (state == TYDownloadStateCompleted) {
+//            [[NSFileManager defaultManager]removeItemAtPath:filePath error:nil];
+//        }
+//        if (state == TYDownloadStateFailed) {
+//            
+//        }
+//    }];
+//    
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    NSURLSessionDataTask *task = [manager dataTaskWithRequest:[manager.requestSerializer requestWithMethod:@"GET" URLString:@"http://baobab.wdjcdn.com/1456231710844S(24).mp4" parameters:nil error:nil] uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+//        
+//    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+//        
+//        
+//        
+//        NSLog(@"进度===%@",downloadProgress.userInfo);
+//    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//        NSLog(@"%@",responseObject);
+//    }];
+//    [manager setDataTaskDidReceiveDataBlock:^(NSURLSession * _Nonnull session, NSURLSessionDataTask * _Nonnull dataTask, NSData * _Nonnull data) {
+//        NSLog(@"%@",dataTask.response);
+//        
+//    }];
+//    [task resume];
+//    
+//    GWS_DCHECK([@"" isEqualToString:@""]);
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSLog(@"text");
+//    });
+    
+    
     
     
 //    NSURL *baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]pathForResource:@"DFhomePage" ofType:@"html"]];
