@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (Category)
+@property(nonatomic,strong)id obj;
 //类名
 - (NSString *)className;
 + (NSString *)className;

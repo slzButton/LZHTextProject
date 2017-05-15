@@ -13,13 +13,11 @@
 - (NSString *)md2String {
     unsigned char result[CC_MD2_DIGEST_LENGTH];
     CC_MD2(self.bytes, (CC_LONG)self.length, result);
-    return [NSString stringWithFormat:
-            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-            result[0], result[1], result[2], result[3],
-            result[4], result[5], result[6], result[7],
-            result[8], result[9], result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];
+    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD2_DIGEST_LENGTH * 2];
+    for(NSInteger count = 0; count < CC_MD2_DIGEST_LENGTH; count++){
+        [outputString appendFormat:@"%02x",result[count]];
+    }
+    return outputString;
 }
 
 - (NSData *)md2Data {
@@ -31,13 +29,11 @@
 - (NSString *)md4String {
     unsigned char result[CC_MD4_DIGEST_LENGTH];
     CC_MD4(self.bytes, (CC_LONG)self.length, result);
-    return [NSString stringWithFormat:
-            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-            result[0], result[1], result[2], result[3],
-            result[4], result[5], result[6], result[7],
-            result[8], result[9], result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];
+    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD4_DIGEST_LENGTH * 2];
+    for(NSInteger count = 0; count < CC_MD4_DIGEST_LENGTH; count++){
+        [outputString appendFormat:@"%02x",result[count]];
+    }
+    return outputString;
 }
 
 - (NSData *)md4Data {
@@ -49,13 +45,11 @@
 - (NSString *)md5String {
     unsigned char result[CC_MD5_DIGEST_LENGTH];
     CC_MD5(self.bytes, (CC_LONG)self.length, result);
-    return [NSString stringWithFormat:
-            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-            result[0], result[1], result[2], result[3],
-            result[4], result[5], result[6], result[7],
-            result[8], result[9], result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];
+    NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++){
+        [outputString appendFormat:@"%02x",result[count]];
+    }
+    return outputString;
 }
 
 - (NSData *)md5Data {

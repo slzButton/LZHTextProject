@@ -18,7 +18,9 @@
 
 @implementation NSDate (Category)
 
-
++(NSString *)defaultTimeString{
+    return [[NSDateFormatter dateFormatterWithFormat:@"yyyyMMddHHmmss"] stringFromDate:[self new]];
+}
 /*标准时间日期描述*/
 -(NSString *)formattedTime{
     return [[NSDateFormatter defaultDateFormatter] stringFromDate:self];

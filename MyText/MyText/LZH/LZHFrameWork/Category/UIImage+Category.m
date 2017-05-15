@@ -7,7 +7,12 @@
 //
 
 #import "UIImage+Category.h"
-
+UIImage * imageWithImageName(NSString *imageName){
+    return [UIImage imageNamed:imageName];
+}
+UIImage * imageWithFileName(NSString *fileName){
+    return [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@",[[NSBundle mainBundle] bundlePath],fileName]];
+}
 @implementation UIImage (Category)
 
 - (UIImage*)imageWaterMarkWithImage:(UIImage *)image imageRect:(CGRect)imgRect alpha:(CGFloat)alpha

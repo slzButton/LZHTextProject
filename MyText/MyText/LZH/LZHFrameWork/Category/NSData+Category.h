@@ -192,7 +192,7 @@
  
  @return      An NSData encrypted, or nil if an error occurs.
  */
-- (nullable NSData *)aes256EncryptWithKey:(NSData *)key iv:(nullable NSData *)iv;
+- (NSData *)aes256EncryptWithKey:(NSData *)key iv:(NSData *)iv;
 
 /**
  Returns an decrypted NSData using AES.
@@ -204,7 +204,7 @@
  
  @return      An NSData decrypted, or nil if an error occurs.
  */
-- (nullable NSData *)aes256DecryptWithkey:(NSData *)key iv:(nullable NSData *)iv;
+- (NSData *)aes256DecryptWithkey:(NSData *)key iv:(NSData *)iv;
 
 
 #pragma mark - Encode and decode
@@ -215,12 +215,12 @@
 /**
  Returns string decoded in UTF8.
  */
-- (nullable NSString *)utf8String;
+- (NSString *)utf8String;
 
 /**
  Returns a uppercase NSString in HEX.
  */
-- (nullable NSString *)hexString;
+- (NSString *)hexString;
 
 /**
  Returns an NSData from hex string.
@@ -229,12 +229,12 @@
  
  @return a new NSData, or nil if an error occurs.
  */
-+ (nullable NSData *)dataWithHexString:(NSString *)hexString;
++ (NSData *)dataWithHexString:(NSString *)hexString;
 
 /**
  Returns an NSString for base64 encoded.
  */
-- (nullable NSString *)base64EncodedString;
+- (NSString *)base64EncodedString;
 
 /**
  Returns an NSData from base64 encoded string.
@@ -243,13 +243,13 @@
  
  @param base64EncodedString  The encoded string.
  */
-+ (nullable NSData *)dataWithBase64EncodedString:(NSString *)base64EncodedString;
++ (NSData *)dataWithBase64EncodedString:(NSString *)base64EncodedString;
 
 /**
  Returns an NSDictionary or NSArray for decoded self.
  Returns nil if an error occurs.
  */
-- (nullable id)jsonValueDecoded;
+- (id)jsonValueDecoded;
 
 
 #pragma mark - Others
@@ -264,5 +264,5 @@
  
  @return A new data create from the file.
  */
-+ (nullable NSData *)dataNamed:(NSString *)name;
++ (NSData *)dataNamed:(NSString *)name;
 @end

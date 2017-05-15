@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern UIImage * imageWithImageName(NSString *imageName);
+extern UIImage * imageWithFileName(NSString *fileName);
+
 @interface UIImage (Category)
 
 /**
